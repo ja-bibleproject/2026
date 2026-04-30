@@ -79,7 +79,7 @@ tt {
   left: 0;
   z-index: 90;
   width: 100%;
-  max-width: 850px;
+  max-width: 650px;
 }
 
 /* Lists */
@@ -143,17 +143,20 @@ ul > li:before {
 
 @media (max-width: 1500px) {   /* iPad and smaller laptops */
  html {
-  font-size:13pt;   /* Responsive base font */
+font-size: clamp(1rem, 1vw, 2rem);
 }
-p{color:green}
+
  #span_cuv {
     margin: 15px 20px 25px 15px;
     padding-left: 12px;
   }
   
-  #div_list {  font-size:13pt;
+  #div_list { font-size: clamp(1rem, 1vw, 2rem);
     padding: 15px 20px 30px 15px;
   }
+  
+  ol  li{margin-left: -30px;}
+  ul  li{margin-left: -30px;}
   
   li{
   line-height: 1.65;
@@ -164,7 +167,7 @@ p{color:green}
   html {
   font-size:15pt;   /* Responsive base font */
 }
-p{color:blue}
+
   #span_cuv {
     margin: 15px 15px 25px 12px;
     width: auto;
@@ -183,7 +186,7 @@ p{color:blue}
  html {font-weight:200;line-height:1.1;
   font-size:16px;   /* Responsive base font */
 }
-p{line-height:1; color:red}
+p{line-height:1;}
   #span_cuv {
     margin: 12px 12px 20px 10px;
     padding-left: 0px;
