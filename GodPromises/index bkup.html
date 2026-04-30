@@ -1,225 +1,152 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>PRECIOUS BIBLE PROMISES</title>
+
 <style>
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+body {
+
+  margin:0px;
+   background-image: url(bg.jpg);
+    background-position:right;
+    background-size: cover;
+    background-repeat:no-repeat;
+      background-attachment: fixed;
+      
+      font-family: 'Lato',sans-serif;
+      font-weight:200;
+}
+#containAll {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 0px;
+    margin: 0;
+    
+    padding: 0
+}
 </style>
 </head>
 <body>
     <div id='div1'></div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+    <style>
+   
+      tt {font-size:1.0em }
 
-   <style>
-@import ur[](https://fonts.googleapis.com/css?family=Lato:300);
+        #span_cuv {
+            display: block;
+            margin: 0px 50px 20px 20px;
+            width:800px;
+            padding: 0px 0px 0px 10px;
+            border-left: 1px solid #F0B9B9;
+            color: 666666;
+        }
 
-body {
-  margin: 0;
-  background-image: none;           /* hidden by default */
-     /* light fallback color for mobile */
-  font-family: 'Lato', sans-serif;
-  font-weight:200;
-  line-height: 1.6;
-  color: #333;
-}
+        .v_sup {
+            font-size: 0.7em;
+            vertical-align: super;
+            color: #999999;
+            margin-right: 5px;
+            text-shadow: none;
+        }
 
-/* Background image visible only on laptops & desktops */
-@media (min-width: 1200px) {
-  body {
-    background-image: url(bg.jpg);
-    background-position: right;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-}
+        .num {
+        }
 
-#containAll {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-}
+        .v_txt {
+            color: #000000;
+            text-shadow: none;
+        }
 
-/* Base font size that scales with viewport */
+        .sml {
+            font-size: 0.8em
+        }
 
+        #div_list {
+            padding: 0px 30px 30px 0px;
+             position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 90;
+        }
 
-/* Main content container */
-#span_cuv {
-  display: block;
-  margin: 20px 30px 30px 20px;
-  padding: 0 0 0 15px;
-  border-left: 1px solid #F0B9B9;
-  color: #666666;
-}
+     
 
-tt {
-}
+        ol,ul {
+            list-style-type: hypen;
+            margin: 3px 0px 3px 3px;
+			border-spacing: 0 7px;
+        }
 
-.v_sup {
-  vertical-align: super;
-  color: #999999;
-  margin-right: 6px;
-}
+        ol > tt {
+            font-size: 1.4em;
+            display: block;
+            padding: 30px;line-height:1.5em;
+        }
 
-.v_txt {
-  color: #000000;
-}
+        li {
+            display: table-row;
+            width: 100%;
+            line-height: 1.5em;
+            
+        }
 
-.sml {
+        ol > li:before , ul > li:before{
+            content: " — ";
+            display: table-cell;
+            padding-right: 5px;
+            font-family: arial;
+            font-size: 1.0em;
+            color: #F06000;
+            font-weight: normal
+        }
 
-}
+        .inc {
+            cursor: pointer;
+            margin-left: 6px;
+            font-size: 1.0em;
+            white-space: nowrap;
+        }
 
-/* List container */
-#div_list {
-  padding: 20px 25px 40px 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 90;
-  width: 100%;
-  max-width: 650px;
-}
+        .imp {
+            color: #FF6600;
+            cursor: pointer;
+            margin-left: 5px;
+            font-family: Arial;
+            font-size: 0.8em;
+        }
 
-/* Lists */
-ol, ul {
-  list-style-type: none;           /* Changed from "hypen" which was invalid */
-  margin: 10px 0 20px 0;
-  padding-left: 5px;  margin-left:-7px;
-}
+        #div_list .ref {
+            font-family: Candara;
+            font-size: 0.8em;
+            color: #999999;
+            margin-left: 6px;
+        }
 
-ol > tt {
-  display: block;
-  padding: 25px 0 15px 0;
-  line-height: 1.45;
-}
+        #div_list b {
+            font-weight: bold;
+        }
 
-li {
-  display: table-row;
-  width: 100%;
-}
+        .exp, .coll {
+            color: #FF9955;
+            font-family: Arial;
+            font-size: 1.4em;
+        }
 
-ol > li:before,
-ul > li:before {
-  content: " — ";
-  display: table-cell;
-  padding-right: clamp(0px,10px,10px);
-  font-family: Arial, sans-serif;
-  font-size: clamp(1.0em, 1.1em, 1.25em);
-  color: #F06000;
-}
+        .exp:after {
+            margin-left: 4px;
+            content: " v ";
+            cursor: pointer;
+        }
 
-/* Inline elements */
-.inc {
-  cursor: pointer;
-  margin-left: 8px;
+        .coll:after {
+            content: " <  ";cursor:pointer;}
 
-  white-space: nowrap;
-}
-
-
-.exp, .coll {
-  color: #FF9955;
-  font-family: Arial, sans-serif;
-  font-size: clamp(1.25em, 1.45em, 1.65em);
-  cursor: pointer;
-}
-
-.exp:after {
-  margin-left: 6px;
-  content: " v ";
-}
-
-.coll:after {
-  content: " < ";
-}
-
-#div_list .active {
-  color: #E05000;
-}
-
-/* ===================== RESPONSIVE ADJUSTMENTS ===================== */
-
-@media (max-width: 1500px) {   /* iPad and smaller laptops */
- html {
-font-size: clamp(1rem, 1vw, 2rem);
-}
-
- #span_cuv {
-    margin: 15px 20px 25px 15px;
-    padding-left: 12px;
-  }
-  
-  #div_list { font-size: clamp(1rem, 1vw, 2rem);
-    padding: 15px 20px 30px 15px;
-  }
-  
-  ol  li{margin-left: -30px;}
-  ul  li{margin-left: -30px;}
-  
-  li{
-  line-height: 1.65;
-  margin-bottom: 8px;}
-}
-
-@media (max-width: 768px) {   /* Tablets in portrait */
-  html {
-  font-size:15pt;   /* Responsive base font */
-}
-
-  #span_cuv {
-    margin: 15px 15px 25px 12px;
-    width: auto;
-    max-width: 100%;
-  }
-  
-  #div_list {  font-size: 15pt;
-    padding: 10px 15px 25px 10px;
-  }
-  li{
-  line-height: 1.5;
-  margin-bottom: 8px;}
-}
-
-@media (max-width: 400px) {   /* iPhones and small phones */
- html {font-weight:200;line-height:1.1;
-  font-size:16px;   /* Responsive base font */
-}
-p{line-height:1;}
-  #span_cuv {
-    margin: 12px 12px 20px 10px;
-    padding-left: 0px;
-  }
-  
-  #div_list { font-size:16pt;
-    padding: 8px 12px 20px 8px;
-  }
-  ol  li{margin-left: -30px;}
-  ul  li{margin-left: -30px;}
-  
-
-  li{
-  line-height: 1.1;
-  margin-bottom: 8px;}
-  
-  
-  ol > li:before,
-ul > li:before {
-  content: "—";
-  display: table-cell;
-  padding-left:-20px;
-  margin-left:-20px;
-  font-family: Arial, sans-serif;
-  font-size: 14pt;
-  color: #F06000;
-}
-
-  
-}
-
-
-
+        #div_list .active {color:#E05000; }
+        
     </style>
     <div id='containAll'>
      
@@ -229,14 +156,7 @@ ul > li:before {
 <span class='inc' onclick="showS([['Mat',20,20,28],['Mak',10,35,45]]);"></span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li -->
-        <p>PRECIOUS BIBLE PROMISES<br/><br/>
-       Also, known as The Scripture Promises, A Collection of the Promises
-of Scripture, Clarke's Scripture Promises, Clarke's Bible Promises,
-Book of Promises, to name but a few.
-<br/>
-<br/>
-Compiled by Samuel Clarke, D.D. (1684,1759). 
-        </p>
+        
 <ol >
 <tt>PART ONE - BLESSINGS PROMISED TO BELIEVERS </tt>
 <li>Chapter 1 - PROMISES OF TEMPORAL BLESSINGS    <span class='exp'></span>
@@ -1896,7 +1816,7 @@ Compiled by Samuel Clarke, D.D. (1684,1759).
 ['Isa',65,17],
 ['Mal',1,11],
 ['Zec',8,21,23],
-['Rev',11,15], ['Rev',7,9,10],['Rev',12,10]])">THE ENLARGEMENT OF THE CHURCH, <br/>AND SPREAD OF THE GOSPEL, <br/>AND KINGDOM OF CHRIST</span></li>
+['Rev',11,15], ['Rev',7,9,10],['Rev',12,10]])">THE ENLARGEMENT OF THE CHURCH, AND SPREAD OF THE GOSPEL, AND KINGDOM OF CHRIST</span></li>
 <li><span class='inc' onclick="showS([ ['Rev',21,10,11],['Rev',21,22,26],
 ['Psm',45,13],
 ['Isa',54,11,12],

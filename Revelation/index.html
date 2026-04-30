@@ -14,17 +14,23 @@
 @import ur[](https://fonts.googleapis.com/css?family=Lato:300);
 .divider {display:block;height:20px;width:100px;}
 body {
-  margin: 0;
+  margin: 30px;
   background-image: none;           /* hidden by default */
-  background-color: #f8f8f8;        /* light fallback color for mobile */
+ /* light fallback color for mobile */
   font-family: 'Lato', sans-serif;
   font-weight:200;
   color: #333;
-  line-height:1.3;
+  line-height:1.5;
 }
 
 
-.num{font-family: Georgia;}
+h1 {
+
+  font-weight: 200;
+  font-style: normal;
+}
+
+.num,.nm{font-family: Georgia;padding:3px;}
 .ref {
 font-size: 0.7rem;
 margin-left: 5px;
@@ -149,7 +155,7 @@ ul > li:before {
 
 @media (max-width: 1500px) {   /* iPad and smaller laptops */
  html {
-font-size: clamp(1rem, 1vw, 2rem);
+font-size: 14pt;
 }
 
  #span_cuv {
@@ -157,7 +163,7 @@ font-size: clamp(1rem, 1vw, 2rem);
     padding-left: 12px;
   }
   
-  #div_list { font-size: clamp(1rem, 1vw, 2rem);
+  #div_list { font-size:  14pt;
     padding: 15px 20px 30px 15px;
   }
   
@@ -165,7 +171,7 @@ font-size: clamp(1rem, 1vw, 2rem);
   ul  li{margin-left: -30px;}
   
   li{
-  margin-bottom: 8px;}
+  margin-bottom: 4px;}
 }
 
 @media (max-width: 768px) {   /* Tablets in portrait */
@@ -204,7 +210,7 @@ p{line-height:1;}
   
 
   li{
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 8px;}
   
   
@@ -223,15 +229,16 @@ ul > li:before {
 }
 
 
+h3{font-weight:200}
 
     </style>
     <div id='containAll'>
      
         <div id="div_list">
 
-       
+       <h1>啟示錄</h1>
 <ol id="life">
-<tt>啟示錄</tt>
+
 <p><br>
 大綱來自吳主光先生的《啟示錄研經亮光》－（<span class="nm">2012</span>年修訂版）,第<span class="nm">55-60</span>頁<br></p>
  
@@ -255,8 +262,8 @@ ul > li:before {
 <ol style="">
 <li> 一、敬拜坐寶座的全能者<span class="exp"></span> 
 <ol style="">
-<li><span class='inc' onclick="showS([['Rev',4,1,7]])"> <span class="nm">1.</span>寶座週圍的情景 </span></li>
-<li><span class="nm">2.</span>大敬拜開始 :  <ol>
+<li><span class='inc' onclick="showS([['Rev',4,1,7]])"><span class="nm">1.</span>寶座週圍的情景 </span></li>
+<li><span class="nm">2.</span>大敬拜開始 :<ol>
 <li><span class='inc' onclick="showS([['Rev',4,8,9]])">秩序<span class="nm">1:</span>四活物的頌讚 </span></li>
 <li><span class='inc' onclick="showS([['Rev',4,10,11]])">秩序<span class="nm">2:</span>二十四長老的頌讚 </span></li>
 </ol></li>
@@ -275,9 +282,10 @@ ul > li:before {
 <li><span class='inc' onclick="showS([['Rev',6,3,4]])">第二印「奪去太平的紅馬」</span></li>
 <li><span class='inc' onclick="showS([['Rev',6,5,6]])">第三印「代表饑荒的黑馬」</span></li>
 <li><span class='inc' onclick="showS([['Rev',6,7,8]])">第四印「代表死亡的灰馬」</span></li>
-<li>（以上四馬自成一組 : 大災難形成的背境）</span></li>
+<li>（以上四馬自成一組 : 大災難形成的背境）</li>
 <li><span class='inc' onclick="showS([['Rev',6,9,11]])">第五印「祭壇下冤魂求伸冤」</span></li>
-<li class="inc active" onclick="showS([['Rev',6,12,17]])">第六印「天地挪移，世人怕面對大審判」</span></li></ol></li></ol></li>
+<li><span class='inc' onclick="showS([['Rev',6,12,17]])">第六印「天地挪移，世人怕面對大審判」</span></li>
+</ol></li></ol></li>
 
 <li>四、「插曲」:交代教會的情況<span class="exp"></span><ol style="">
 <li><span class="nm">1.</span>以色列教會在地上<ol>
