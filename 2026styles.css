@@ -1,0 +1,116 @@
+@import ur[](https://fonts.googleapis.com/css?family=Lato:300);
+
+h1.klee {
+  font-family: "Klee One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  line-height: 1.6;
+  color: #333;
+  
+  /* Responsive base font size */
+  font-size: clamp(15px, 2.8vw, 18px);
+}
+
+@media (min-width: 1200px) {
+  body {
+    background-image: url(bg.jpg);
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+#div_container {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#div_list {
+  padding: 20px 25px 40px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  max-width: 750px;
+}
+
+#div_list .active {
+  color: #E05000;
+}
+
+tt {
+  font-size: clamp(15px, 3.2vw, 22px);
+}
+
+#span_cuv {
+  display: block;
+  margin: 10px 0px 20px 20px;
+  padding: 0 0 0 5px;
+  border-left: 1px solid #F0B9B9;
+  color: #000000;
+}
+
+.v_sup {
+  vertical-align: super;
+  color: #999999;
+  margin-right: 6px;
+}
+
+/* List styles */
+ol, ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 3px;
+  margin-left: -7px;
+}
+
+li {
+  display: table-row;
+  width: 100%;
+}
+
+ol > li:before, 
+ul > li:before {
+  content: " — ";
+  width: 35px;
+  display: table-cell;
+  font-family: Arial, sans-serif;
+  font-size: clamp(1.05em, 1.15em, 1.3em);
+  color: #F06000;
+}
+
+.exp, .coll, .inc {
+  cursor: pointer;
+}
+
+.coll:after,
+.exp:after {
+  font-size: clamp(15px, 3vw, 20px);
+  font-family: Arial;
+  margin-left: 6px;
+  color: #F06000;
+}
+.num {font-family:Georgia;font-weight:100}
+.exp:after {
+  content: " v ";
+}
+
+.coll:after {
+  content: " < ";
+}
