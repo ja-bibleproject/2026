@@ -47,7 +47,6 @@ body {
   left: 0;
   z-index: 90;
   width: 100%;
-  max-width: 750px;
 }
 
 #div_list .active {
@@ -59,6 +58,8 @@ tt {
 }
 
 #span_cuv {
+min-width:380px;
+max-width:750px;
   display: block;
   margin: 10px 0px 20px 20px;
   padding: 0 0 0 5px;

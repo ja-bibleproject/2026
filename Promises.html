@@ -1904,7 +1904,7 @@ for (j = ref[i][2]; j <= ref[i][3]; j++)
 {
     out += "<span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span>";
 }
-out = out+ " 〖 " +CUV[bk_nm]['bk_c'] +" <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</span> 〗</li>";
+out = out+ " 〖&nbsp;" +CUV[bk_nm]['bk_c'] +"&nbsp;<span class='num'>" + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</span>&nbsp;〗</li>";
    } // 4 param
    
    
@@ -1913,7 +1913,7 @@ out = out+ " 〖 " +CUV[bk_nm]['bk_c'] +" <span class='num'>" + ref[i][1] + ":" 
    if (ref[i].length == 3) // one verse
    {
 out += "<li><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span>";
-out = out+ " 〖 " +CUV[bk_nm]['bk_c'] +" <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "</span> 〗</li>";
+out = out+ " 〖&nbsp;" +CUV[bk_nm]['bk_c'] +"&nbsp;<span class='num'>" + ref[i][1] + ":" + ref[i][2] + "</span>&nbsp;〗</li>";
 
    } //3 param
    
