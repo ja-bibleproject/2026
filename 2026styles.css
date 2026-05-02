@@ -5,8 +5,18 @@ h1.klee {
   font-weight: 400;
   font-style: normal;
 }
+h1.cedar  {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+h1.lobster {
+  font-family: "Lobster", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
 
-h1 {
+h1 { font-family: "LXGW WenKai Mono TC", monospace;
   font-weight: 400;
   font-style: normal;
 }
@@ -47,6 +57,7 @@ body {
   left: 0;
   z-index: 90;
   width: 100%;
+  color:#000000;
 }
 
 #div_list .active {
@@ -63,14 +74,16 @@ max-width:750px;
   display: block;
   margin: 10px 0px 20px 20px;
   padding: 0 0 0 5px;
-  border-left: 1px solid #F0B9B9;
+  border-left: 1px solid #F0A990;
   color: #000000;
 }
 
 .v_sup {
+	font-size:0.6em;
+	font-family:Georgia;
   vertical-align: super;
-  color: #999999;
-  margin-right: 6px;
+  color: #666666;
+  margin-right: 3px;
 }
 
 /* List styles */
@@ -93,7 +106,7 @@ ul > li:before {
   display: table-cell;
   font-family: Arial, sans-serif;
   font-size: clamp(1.05em, 1.15em, 1.3em);
-  color: #F06000;
+  color: #F09060;
 }
 
 .exp, .coll, .inc {
@@ -105,9 +118,10 @@ ul > li:before {
   font-size: clamp(15px, 3vw, 20px);
   font-family: Arial;
   margin-left: 6px;
-  color: #F06000;
+  color: #F09060;
 }
 .num {font-family:Georgia;font-weight:100}
+small , .sml {font-size:0.8em}
 .exp:after {
   content: " v ";
 }
@@ -115,3 +129,5 @@ ul > li:before {
 .coll:after {
   content: " < ";
 }
+
+div.divider{width:50%;height:5px;}
