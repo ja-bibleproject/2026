@@ -5,892 +5,754 @@
 <title>四福音合參</title>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
-<style>
-@import ur[](https://fonts.googleapis.com/css?family=Lato:300);
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-body {
-  font-family: 'Lato', sans-serif;
-  font-weight:200;
-  line-height: 1.6;
-    background-color: #BBDDDD
-}
-h1
-{  font-family: "Klee One", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-div.divider{height:3px;margin:0;padding:0}
-#containAll {
-    position: relative;
-    top: 0px;
-    left: 20px;
-    height: 0px;
-    margin: 0;
-    padding: 0
-}
-</style>
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <div id='div1'></div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
     <style>
-   
-      tt {font-size:1.0em }
+   span.imp {color:#66BBBB;font-family:mono;cursor:pointer;}
+#div_list {
+    padding: 30px 30px 30px 50px;
+    background-color: #FFFFFF;
+    margin: 50px 0px 50px 0px;
+    width: 650px;
+    box-shadow: -5px -5px 35px -15px #000000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 90;
+}
+ol,ul{margin-left:-15px}
+#div_map {
+    z-index: 50;
+    position: absolute;
+    top: 200px;
+    padding: 0px;
+    height: 600px;
+    width: 400px;
+    background: url(map2025.png) top left;
+    border-radius: 10px;
+    border: 10px solid #FFFFFF;
+    box-shadow: 5px 10px 30px -10px #AAAAAA, 5px -10px 20px -5px #666666;
+    transition: all 1s ease 0s;
+}
+#mapLoc {
+    position: relative;
+    width: 420px;
+    font-family: Verdana;
+    font-size: 6em;
+    color: rgb(255, 255, 255, 0.6);
+    display: none;
+}
+#mapLoc:after {
+    font-size: 16pt;font-family:roboto;
+    line-height: 1.0em;font-weight:400;
+    color: #FFFFFF;padding:6px; 
+     text-shadow: 0px 0px 12px #666666;
+    content: attr(data-content);
+    vertical-align: middle;
+     }
 
-        #span_cuv {
-            display: block;
-            margin: 0px 50px 20px 20px;
-            padding: 0px 0px 0px 10px;
-            border-left: 1px solid #95B9B9;
-            color: #20A0A0;
-        }
-
-        .v_sup {
-            font-size: 0.7em;
-       font-family: 'Roboto';
-            vertical-align: super;
-            color: #999999;
-            margin-right: 5px;
-            text-shadow: none;
-        }
-
-        .num {
-        }
-
-        .v_txt {
-            color: #000000;
-            text-shadow: none;
-        }
-
-        .sml {
-            font-size: 0.8em
-        }
-
-        #div_list {
-            padding: 30px 30px 30px 15px;
-            background-color: #FFFFFF;
-            margin: 50px 0px 50px 0px;
-            width: 650px;
-            box-shadow: -5px -5px 35px -15px #000000;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 90;
-        }
-
-        #div_map {
-            z-index: 50;
-            position: absolute;
-            top: 200px;
-            padding: 0px;
-            height: 600px;
-            width: 400px;
-            background: url(map2025.png) top left;
-            border-radius: 10px;
-            border: 10px solid #FFFFFF;
-            box-shadow: 5px 10px 30px -10px #AAAAAA, 5px -10px 20px -5px #666666;
-            transition: all 1s ease 0s;
-        }
-        #mapLoc {
-            position: relative;
-            width: 220px;
-            font-family: Verdana;
-            font-size: 6em;
-            color: rgb(255, 255, 255, 0.6);
-            display: none;
-        }
-        #mapLoc:after {
-            font-size: 15pt;font-weight:bold;
-            line-height: 1.0em;
-            font-family: "Noto Sans CJK TC Light", "Hiragino Sans GB", SimSun, Tahoma;
-            color: #FFFFFF;padding:6px; border-radius: 10px;
-             text-shadow: 0px 0px 12px #000000;
-            content: attr(data-content);
-            vertical-align: middle;
-        }
-
-        ol {
-            list-style-type: hypen;
-            margin: 3px 0px 3px 10px;
-            padding: 0;
-        }
-
-        ol > tt {
-            font-size: 1.4em;
-            display: block;
-            padding: 30px;line-height:1.5em;
-        }
-
-        ol li {
-            display: table-row;
-            width: 100%;
-
-        }
-
-        ol > li:before {
-            content: " - ";
-            display: table-cell;
-            padding-right: 5px;
-            font-family: arial;
-            font-size: 1.0em;
-            color: #20A0A0;
-            font-weight: normal
-        }
-
-        .inc {
-            color: #20A0A0;
-            cursor: pointer;
-            margin-left: 6px;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        .imp {
-            color: #FF6600;
-            cursor: pointer;
-            margin-left: 5px;
-            font-family: Arial;
-            font-size: 0.8em;
-        }
-
-        #div_list .ref {
-            font-family: Candara;
-            font-size: 0.8em;
-            color: #999999;
-            margin-left: 6px;
-        }
-
-        #div_list b {
-            font-weight: bold;
-        }
-
-        .exp, .coll {
-            color: #FF9955;
-            font-family: Arial;
-            font-size: 1.4em;
-        }
-
-        .exp:after {
-            margin-left: 4px;
-            content: " v ";
-            cursor: pointer;
-        }
-
-        .coll:after {
-            content: " <  ";cursor:pointer;}
-
-        #div_list .active {color:#E05000; }
-        
     </style>
-    <div id='containAll'>
-        <div id="div_map">
-            <div id="mapLoc">&#215;</div>
-        </div>
-        <div id="div_list">
-        <h1>神的兒子在人間 - 四福音書合參</h1>
-            <ol id='life'>
-                <tt>
-                  合參大綱參考:
-                    <br/>
-                    
-                        <u>陳希曾</u>
-                         &#12298;道成肉身的日子&#12299; 活道出版社 
-                        1998  年出版
-                    <br/>  第 289-298 頁&#65292;基督生平大事一覽表
-                </tt>
-                <li>
-                    第一階段 : 
-                    隱藏三十年
-                    <span class='exp'></span>
-                    <ol>
-                        <li>
-                            引言 
-                            <span class='exp'></span>
-                            <ol>
-<li>
-道 成了肉身
-<span class='inc' onclick="showS([['Jhn',1,1,14]])"></span>
-</li>
-<li>
-耶穌的家譜
-<span class='inc' onclick="showS([['Mat',1,1,17],['Luk',3,23,38]])"></span>
-</li>
-                            </ol>
+    <div id='div_container'>
+<div id="div_map">
+    <div id="mapLoc">&#215;</div>
+</div>
+<div id="div_list">
+<h1>神的兒子在人間 - 四福音書合參</h1>  <p>
+  合參大綱參考:
+    <br/>
+    
+<u>陳希曾</u>
+ &#12298;道成肉身的日子&#12299; 活道出版社 
+1998  年出版
+    <br/>  第 289-298 頁&#65292;基督生平大事一覽表
+</p>
+    <ol id='life'>
+      
+<li><span class='exp'>
+    第一階段 : 
+    隱藏三十年
+    </span>
+    <ol>
+<li><span class='exp'>
+    引言 
+    </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Jhn',1,1,14]])">
 
-                        <li>
-                            天使加百列的報告 
-                            <span class='exp'></span>
-                            <ol>
+道 成了肉身</span>
+</li>
+<li><span class='inc' onclick="showS([['Mat',1,1,17],['Luk',3,23,38]])">
+
+耶穌的家譜</span>
+</li>
+    </ol>
+
 <li>
+    <span class='exp'>
+    天使加百列的報告 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Luk',1,5,25]]);">
 向撒迦利亞預言施洗約翰出生
-<span class='inc' onclick="showS([['Luk',1,5,25]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'聖殿')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',1,26,38]]);">
 向馬利亞預告耶穌出生
-<span class='inc' onclick="showS([['Luk',1,26,38]]);"></span>
+</span>
 <span class='imp' onclick="showM(152,236,'拿撒勒')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',1,39,56]]);">
 馬利亞訪問以利沙伯
-<span class='inc' onclick="showS([['Luk',1,39,56]]);"></span>
+</span>
 <span class='imp' onclick="showM(143,555,'猶大一城')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',1,57,80]]);">
 施洗約翰出生
-<span class='inc' onclick="showS([['Luk',1,57,80]]);"></span>
+</span>
 <span class='imp' onclick="showM(143,555,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',1,18,24]])">
 天使在夢中向約瑟顯現
-<span class='inc' onclick="showS([['Mat',1,18,24]])"></span>
+</span>
 </li>
-                            </ol>
+    </ol>
 
-                        <li>
-                            降生 
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    降生 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Mat',1,25],['Luk',2,1,7]]);">
 出生
-<span class='inc' onclick="showS([['Mat',1,25],['Luk',2,1,7]]);"></span>
+</span>
 <span class='imp' onclick="showM(129,560,'伯利恆')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',2,8,20]]);">
 天使及牧羊人
-<span class='inc' onclick="showS([['Luk',2,8,20]]);"></span>
+</span>
 <span class='imp' onclick="showM(129,560,'伯利恆')"></span>
 </li>
-                            </ol>
+    </ol>
 
-                        <li>
-                            嬰孩 
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    嬰孩 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Luk',2,21]]);">
 受割禮
-<span class='inc' onclick="showS([['Luk',2,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'聖殿')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',2,22,24]]);">
 稱聖歸主
-<span class='inc' onclick="showS([['Luk',2,22,24]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'聖殿')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',2,25,38]]);">
 西面和亞拿稱頌神
-<span class='inc' onclick="showS([['Luk',2,25,38]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'聖殿')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',2,1,12]]);">
 東方博士拜主
-<span class='inc' onclick="showS([['Mat',2,1,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(129,560,'耶路撒冷,伯利恆')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',2,13,15]]);">
 逃亡埃及
-<span class='inc' onclick="showS([['Mat',2,13,15]]);"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',2,16,18]]);">
 希律王屠殺男孩
-<span class='inc' onclick="showS([['Mat',2,16,18]]);"></span>
+</span>
 <span class='imp' onclick="showM(129,560,'伯利恆')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',2,19,23],['Luk',2,39,40]]);">
 從埃及返回拿撒勒
-<span class='inc' onclick="showS([['Mat',2,19,23],['Luk',2,39,40]]);"></span>
+</span>
 <span class='imp' onclick="showM(152,236,'拿撒勒')"></span>
 </li>
-                            </ol>
+    </ol>
 
-                        <li>
-                            童年 
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    童年 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Luk',2,41,51]]);">
 十二歲上耶路撒冷
-<span class='inc' onclick="showS([['Luk',2,41,51]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'耶路撒冷')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',2,51,52]]);">
 在拿撒勒居住
-<span class='inc' onclick="showS([['Luk',2,51,52]]);"></span>
+</span>
 <span class='imp' onclick="showM(152,236,'拿撒勒')"></span>
 </li>
-                            </ol>
+    </ol>
 
-                        <li>
-                            預備職事 
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    預備職事 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Mat',3,1,12],['Mak',1,1,8],['Luk',3,1,18]]);">
 約翰傳悔改的浸
-<span class='inc' onclick="showS([['Mat',3,1,12],['Mak',1,1,8],['Luk',3,1,18]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',3,13,15],['Mak',1,9],['Luk',3,21]]);">
 受約翰的洗
-<span class='inc' onclick="showS([['Mat',3,13,15],['Mak',1,9],['Luk',3,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',3,16,17],['Mak',1,10,11],['Luk',3,22]]);">
 聖靈降臨主身上
-<span class='inc' onclick="showS([['Mat',3,16,17],['Mak',1,10,11],['Luk',3,22]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',4,1,11],['Mak',1,12,13],['Luk',4,1,13]]);">
 受魔鬼試探
-<span class='inc' onclick="showS([['Mat',4,1,11],['Mak',1,12,13],['Luk',4,1,13]]);"></span>
+</span>
 <span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
 </li>
-                            </ol>
+    </ol>
 
-                    </ol>
+    </ol>
 
-                <li>
-                    第二階段 : 
-                    傳道工作
-                    <span class='exp'></span>
-                    <ol>
-                        <li>
-                            初期工作 (約
-                            <span class='num'>:1-5</span>
-                            ) 
-                            <span class='exp'></span>
-                            <ol>
+<li>
+    <span class='exp'>
+    第二階段 : 
+    傳道工作</span>
+    <ol>
+<li>
+    <span class='exp'>
+    初期工作 (約翰福音 1-5 章)</span>
+  
+    <ol>
 <li>
 施洗約翰
 <ol>
-    <li>
-        見證耶穌是神獨生子
-        <span class='inc' onclick="showS([['Jhn',1,6,8],['Jhn',1,15,18]]);"></span>
-        <span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',1,6,8],['Jhn',1,15,18]]);">
+
+見證耶穌是神獨生子</span>
+<span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
     </li>
-    <li>
-        是基督的開路先鋒
-        <span class='inc' onclick="showS([['Jhn',1,19,28]]);"></span>
-        <span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',1,19,28]]);">
+是基督的開路先鋒
+</span>
+<span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
     </li>
-    <li>
-        向人指出耶穌就是&#12300;神的羔羊&#12301;
-        <span class='inc' onclick="showS([['Jhn',1,29,34]]);"></span>
-        <span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',1,29,34]]);">
+向人指出耶穌就是&#12300;神的羔羊&#12301;
+</span>
+<span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
     </li>
 </ol>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Jhn',1,35,51]]);">
 最初的門徒:安得烈&#12289;彼得&#12289;腓力&#12289;拿但業
-<span class='inc' onclick="showS([['Jhn',1,35,51]]);"></span>
+</span>
 <span class='imp' onclick="showM(150,585,'猶太的曠野')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',2,1,11]]);">
 第一個神蹟:水變酒
-<span class='inc' onclick="showS([['Jhn',2,1,11]]);"></span>
+</span>
 <span class='imp' onclick="showM(176,216,'迦拿')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',2,12]]);">
 與家人到迦百農暫住
-<span class='inc' onclick="showS([['Jhn',2,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'迦百農')"></span>
 </li>
 <li>
 到耶路撒冷過逾越節
 <ol>
-    <li>
-        第一次潔淨聖殿
-        <span class='inc' onclick="showS([['Jhn',2,13,22]]);"></span>
-        <span class='imp' onclick="showM(147,514,'聖殿')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',2,13,22]]);">
+第一次潔淨聖殿
+</span>
+<span class='imp' onclick="showM(147,514,'聖殿')"></span>
     </li>
-    <li>
-        行好些神績
-        <span class='inc' onclick="showS([['Jhn',2,23,25]]);"></span>
-        <span class='imp' onclick="showM(147,514,'耶路撒冷')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',2,23,25]]);">
+行好些神績
+</span>
+<span class='imp' onclick="showM(147,514,'耶路撒冷')"></span>
     </li>
-    <li>
-        與尼哥底母論重生
-        <span class='inc' onclick="showS([['Jhn',3,1,21]]);"></span>
-        <span class='imp' onclick="showM(147,514,'耶路撒冷')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',3,1,21]]);">
+與尼哥底母論重生
+</span>
+<span class='imp' onclick="showM(147,514,'耶路撒冷')"></span>
     </li>
 </ol>
 
-<li>
+<li><span class='inc' onclick="showS([['Jhn',3,22,36]]);">
 與施洗約翰同期工作&#12300;祂必興旺,我必衰微&#12301;
-<span class='inc' onclick="showS([['Jhn',3,22,36]]);"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',4,1,26]]);">
 與撒瑪利亞婦人論活水
-<span class='inc' onclick="showS([['Jhn',4,1,26]]);"></span>
+</span>
 <span class='imp' onclick="showM(163,364,'撒瑪利亞')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',4,27,45]]);">
 &#12300;舉目向田觀看&#12289;莊稼已經熟了&#12301;
-<span class='inc' onclick="showS([['Jhn',4,27,45]]);"></span>
+</span>
 <span class='imp' onclick="showM(163,364,'撒瑪利亞')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',4,46,54]]);">
 醫治大臣的兒子
-<span class='inc' onclick="showS([['Jhn',4,46,54]]);"></span>
+</span>
 <span class='imp' onclick="showM(176,216,'迦拿')"></span>
 </li>
 <li>
 到耶路撒冷過節
 <ol>
-    <li>
-        醫治卅八年的癱子
-        <span class='inc' onclick="showS([['Jhn',5,1,47]]);"></span>
-        <span class='imp' onclick="showM(147,514,'畢士大池子')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',5,1,47]]);">
+醫治卅八年的癱子
+</span>
+<span class='imp' onclick="showM(147,514,'畢士大池子')"></span>
     </li>
 </ol>
 
-                            </ol>
-
-                        <li>
-                            約翰入監後 (路
-                            <span class='num'>:3-5</span>
-                            ) 
-                            <span class='exp'></span>
-                            <ol>
+    </ol>
 
 <li>
+    <span class='exp'>
+    約翰入監後 (路加福音 3-5 章)</span>
+    <ol>
+
+<li><span class='inc' onclick="showS([['Luk',3,19,20]]);">
 施洗約翰下監
-<span class='inc' onclick="showS([['Luk',3,19,20]]);"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',4,12],['Mat',4,17],['Mak',1,14,15],['Luk',4,14,15]]);">
 宣傳&#12300;神國的福音&#12301;
-<span class='inc' onclick="showS([['Mat',4,12],['Mat',4,17],['Mak',1,14,15],['Luk',4,14,15]]);"></span>
+</span>
 <span class='imp' onclick="showM(198,232,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,15,30]]);">
 在拿撒勒被棄
-<span class='inc' onclick="showS([['Luk',4,15,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(152,236,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,31,32],['Mat',4,13,16]]);">
 遷往迦百農
-<span class='inc' onclick="showS([['Luk',4,31,32],['Mat',4,13,16]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,33,37],['Mak',1,21,28]]);">
 安息日在會堂趕鬼
-<span class='inc' onclick="showS([['Luk',4,33,37],['Mak',1,21,28]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,38,39],['Mat',8,14,15],['Mak',1,29,31]]);">
 醫好西門岳母的熱病
-<span class='inc' onclick="showS([['Luk',4,38,39],['Mat',8,14,15],['Mak',1,29,31]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,40,41],['Mat',8,16,17],['Mak',1,32,34]]);">
 安息日黃昏醫病
-<span class='inc' onclick="showS([['Luk',4,40,41],['Mat',8,16,17],['Mak',1,32,34]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',4,42,44],['Mat',4,23,25],['Mak',1,35,39]]);">
 走遍加利利
-<span class='inc' onclick="showS([['Luk',4,42,44],['Mat',4,23,25],['Mak',1,35,39]]);"></span>
+</span>
 <span class='imp' onclick="showM(198,232,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',5,1,11],['Mat',4,18,22],['Mak',1,16,20]]);">
 第二次呼召四門徒:彼得&#12289;安得烈&#12289;雅各&#12289;約翰
-<span class='inc' onclick="showS([['Luk',5,1,11],['Mat',4,18,22],['Mak',1,16,20]]);"></span>
+</span>
 <span class='imp' onclick="showM(227,186,'革尼撒勒湖邊')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',5,12,16],['Mat',8,2,4],['Mak',1,40,45]]);">
 潔淨長大痲瘋;極多的人聚集也指望得醫治
-<span class='inc' onclick="showS([['Luk',5,12,16],['Mat',8,2,4],['Mak',1,40,45]]);"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',5,17,26],['Mat',9,2,8],['Mak',2,1,12]]);">
 醫治四個人抬來的癱子
-<span class='inc' onclick="showS([['Luk',5,17,26],['Mat',9,2,8],['Mak',2,1,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',5,27,28],['Mat',9,9],['Mak',2,13,14]]);">
 呼召利未(馬太)
-<span class='inc' onclick="showS([['Luk',5,27,28],['Mat',9,9],['Mak',2,13,14]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',5,29,39],['Mat',9,10,17],['Mak',2,15,22]]);">
 與稅吏和罪人同席,論禁食,新舊比喻
-<span class='inc' onclick="showS([['Luk',5,29,39],['Mat',9,10,17],['Mak',2,15,22]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',6,1,5],['Mat',12,1,8],['Mak',2,23,28]]);">
 門徒在安息日掐麥穗 &#12300;人子是安息日的主&#12301;
-<span class='inc' onclick="showS([['Luk',6,1,5],['Mat',12,1,8],['Mak',2,23,28]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',6,6,11],['Mat',12,9,14],['Mak',3,1,6]]);">
 安息日醫治手枯乾的人,法利賽人商議除滅耶穌
-<span class='inc' onclick="showS([['Luk',6,6,11],['Mat',12,9,14],['Mak',3,1,6]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mak',3,7,12],['Mat',12,15,21]]);">
 退到海邊,多人跟隨&#65292;治好許多人
-<span class='inc' onclick="showS([['Mak',3,7,12],['Mat',12,15,21]]);"></span>
+</span>
 </li>
-                            </ol>
-
-                        <li>
-                            揀選十二使徒 (路 
-                            <span class='num'>:6-8</span>
-                            )
-                            <span class='exp'></span>
-                            <ol>
+    </ol>
 
 <li>
+    <span class='exp'>
+    揀選十二使徒 (路加福音 6-8 章)
+ </span>
+    <ol>
+
+<li><span class='inc' onclick="showS([['Luk',6,12,16],['Mat',10,1,4],['Mak',3,13,19]]);">
 揀選十二使徒
-<span class='inc' onclick="showS([['Luk',6,12,16],['Mat',10,1,4],['Mak',3,13,19]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',6,17,19]]);">
 下山醫好許多人
-<span class='inc' onclick="showS([['Luk',6,17,19]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',6,20,49],['Mat',5,1,48],['Mat',6,1,34],['Mat',7,1,29],['Mat',8,1]]);">
 教訓
-<span class='inc' onclick="showS([['Luk',6,20,49],['Mat',5,1,48],['Mat',6,1,34],['Mat',7,1,29],['Mat',8,1]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',7,1,10],['Mat',8,5,13]]);">
 醫治百夫長的僕人
-<span class='inc' onclick="showS([['Luk',7,1,10],['Mat',8,5,13]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',7,11,17]]);">
 使拿因寡婦兒子復活
-<span class='inc' onclick="showS([['Luk',7,11,17]]);"></span>
+</span>
 <span class='imp' onclick="showM(177,250,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',7,18,35],['Mat',11,2,19]]);">
 施洗約翰的困惑
-<span class='inc' onclick="showS([['Luk',7,18,35],['Mat',11,2,19]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',7,36,50]]);">
 在法利賽人家裡&#65292;有罪女人香膏抹主腳
-<span class='inc' onclick="showS([['Luk',7,36,50]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',8,1,3]]);">
 周遊傳道
-<span class='inc' onclick="showS([['Luk',8,1,3]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mak',3,20,21]]);">
 主的親屬說主癲狂了
-<span class='inc' onclick="showS([['Mak',3,20,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',12,46,50],['Mak',3,31,35],['Luk',8,19,21]]);">
 誰是主的親屬
-<span class='inc' onclick="showS([['Mat',12,46,50],['Mak',3,31,35],['Luk',8,19,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
 <li>
 天國的比喻
 <ol>
-    <li>
-        撒種
-        <span class='inc' onclick="showS([['Mat',13,1,23],['Mak',4,1,20],['Luk',8,4,15]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,1,23],['Mak',4,1,20],['Luk',8,4,15]]);">
+撒種
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        稗子
-        <span class='inc' onclick="showS([['Mat',13,24,30]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,24,30]]);">
+稗子
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        芥菜種
-        <span class='inc' onclick="showS([['Mat',13,31,32],['Mak',4,30,34],['Luk',13,18,19]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,31,32],['Mak',4,30,34],['Luk',13,18,19]]);">
+芥菜種
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        麵酵
-        <span class='inc' onclick="showS([['Mat',13,33,35],['Luk',13,20,21]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,33,35],['Luk',13,20,21]]);">
+麵酵
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        藏寶於地
-        <span class='inc' onclick="showS([['Mat',13,44]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,44]]);">
+藏寶於地
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        尋找好珠子
-        <span class='inc' onclick="showS([['Mat',13,45,46]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,45,46]]);">
+尋找好珠子
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        撒網聚水族
-        <span class='inc' onclick="showS([['Mat',13,47,50]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,47,50]]);">
+撒網聚水族
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
-    <li>
-        家主
-        <span class='inc' onclick="showS([['Mat',13,51,53]]);"></span>
-        <span class='imp' onclick="showM(231,171,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',13,51,53]]);">
+家主
+</span>
+<span class='imp' onclick="showM(231,171,'')"></span>
     </li>
 </ol>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',11,14,23],['Mat',12,22,37],['Mak',3,22,30]]);">
 醫治瞎啞鬼附的人,法利賽人褻瀆聖靈
-<span class='inc' onclick="showS([['Luk',11,14,23],['Mat',12,22,37],['Mak',3,22,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',11,24,26],['Mat',12,43,45]]);">
 污鬼另帶七個更邪惡的鬼來
-<span class='inc' onclick="showS([['Luk',11,24,26],['Mat',12,43,45]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',11,29,32],['Mat',12,38,42]]);">
 文士和法利賽人求神蹟
-<span class='inc' onclick="showS([['Luk',11,29,32],['Mat',12,38,42]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',8,22,25],['Mat',8,18,27],['Mak',4,35,41]]);">
 平靜風和海
-<span class='inc' onclick="showS([['Luk',8,22,25],['Mat',8,18,27],['Mak',4,35,41]]);"></span>
+</span>
 <span class='imp' onclick="showM(239,199,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',8,26,39],['Mat',8,28,34],['Mak',5,1,20]]);">
 釋放格拉森被鬼附的人
-<span class='inc' onclick="showS([['Luk',8,26,39],['Mat',8,28,34],['Mak',5,1,20]]);"></span>
+</span>
 <span class='imp' onclick="showM(257,270,'格拉森/加大拉')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',8,40,56],['Mat',9,1],['Mat',9,18,26],['Mak',5,21,43]]);">
 使睚魯的女兒復活,醫治血漏婦人
-<span class='inc' onclick="showS([['Luk',8,40,56],['Mat',9,1],['Mat',9,18,26],['Mak',5,21,43]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',9,27,34]]);">
 醫治兩個瞎子得,趕啞巴鬼
-<span class='inc' onclick="showS([['Mat',9,27,34]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',13,54,58],['Mak',6,1,6]]);">
 再回拿撒勒被棄
-<span class='inc' onclick="showS([['Mat',13,54,58],['Mak',6,1,6]]);"></span>
+</span>
 <span class='imp' onclick="showM(152,236,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,1,6],['Mat',10,5,42],['Mat',11,1],['Mak',6,7,13]])">
 差遣十二使徒出去
-<span class='inc' onclick="showS([['Luk',9,1,6],['Mat',10,5,42],['Mat',11,1],['Mak',6,7,13]])"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,7,9],['Mat',14,1,12],['Mak',6,14,29]]);">
 施洗約翰被斬
-<span class='inc' onclick="showS([['Luk',9,7,9],['Mat',14,1,12],['Mak',6,14,29]]);"></span>
+</span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,10],['Mak',6,30]]);">
 十二使徒工作回來
-<span class='inc' onclick="showS([['Luk',9,10],['Mak',6,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(259,177,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,10,17],['Mat',14,13,21],['Mak',6,31,44],['Jhn',6,1,14]]);">
 五餅二魚
-<span class='inc' onclick="showS([['Luk',9,10,17],['Mat',14,13,21],['Mak',6,31,44],['Jhn',6,1,14]]);"></span>
+</span>
 <span class='imp' onclick="showM(259,177,'')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Mat',14,22,23],['Mak',6,45,46],['Jhn',6,15]]);">
 獨自上山禱告
-<span class='inc' onclick="showS([['Mat',14,22,23],['Mak',6,45,46],['Jhn',6,15]]);"></span>
+</span>
 <span class='imp' onclick="showM(259,177,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',14,24,33],['Mak',6,47,52],['Jhn',6,16,21]]);">
 在海面上行走
-<span class='inc' onclick="showS([['Mat',14,24,33],['Mak',6,47,52],['Jhn',6,16,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(239,199,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',14,34,36],['Mak',6,53,56]]);">
 醫治許多病人
-<span class='inc' onclick="showS([['Mat',14,34,36],['Mak',6,53,56]]);"></span>
+</span>
 <span class='imp' onclick="showM(220,183,'')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Jhn',6,22,59]]);">
 &#12300;我就是生命的糧&#12301;
-<span class='inc' onclick="showS([['Jhn',6,22,59]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',6,60,71]]);">
 好些門徒退去
-<span class='inc' onclick="showS([['Jhn',6,60,71]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',7,1]]);">
 猶太人想殺主
-<span class='inc' onclick="showS([['Jhn',7,1]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Mat',15,1,20],['Mak',7,1,23]]);">
 責備法利賽人拘守遺傳
-<span class='inc' onclick="showS([['Mat',15,1,20],['Mak',7,1,23]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',15,21,28],['Mak',7,24,30]]);">
 讚迦南婦人的信心
-<span class='inc' onclick="showS([['Mat',15,21,28],['Mak',7,24,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(144,72,'推羅西頓')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',15,29,31],['Mak',7,31,37]]);">
 醫治耳聾舌結的人
-<span class='inc' onclick="showS([['Mat',15,29,31],['Mak',7,31,37]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',15,32,38],['Mak',8,1,9]]);">
 使四千人吃飽 
-<span class='inc' onclick="showS([['Mat',15,32,38],['Mak',8,1,9]]);"></span>
+</span>
 <span class='imp' onclick="showM(262,292,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',15,39],['Mat',16,1,12],['Mak',8,10,12]]);">
 法利賽人和撒都該人要主顯神蹟
-<span class='inc' onclick="showS([['Mat',15,39],['Mat',16,1,12],['Mak',8,10,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'大瑪努他')"></span>
 </li>
 
-<li>
-到耶路撒冷過住棚節(約 
-<span class='num'>: 7-8</span>
- )
+<li><span class='exp'>
+到耶路撒冷過住棚節 (約翰福音 7-8 章)</span>
 <ol>
-    <li>
-        暗暗上耶路撒冷
-        <span class='inc' onclick="showS([['Jhn',7,2,10]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',7,2,10]]);">
+暗暗上耶路撒冷
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        聖殿裡教訓人,人想捉拿祂
-        <span class='inc' onclick="showS([['Jhn',7,11,52],['Jhn',8,1]]);"></span>
-        <span class='imp' onclick="showM(147,514,'聖殿')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',7,11,52],['Jhn',8,1]]);">
+聖殿裡教訓人,人想捉拿祂
+</span>
+<span class='imp' onclick="showM(147,514,'聖殿')"></span>
     </li>
-    <li>
-        不定淫婦的罪
-        <span class='inc' onclick="showS([['Jhn',8,2,11]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',8,2,11]]);">
+不定淫婦的罪
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        &#12300;我是世界的光&#12301;
-        <span class='inc' onclick="showS([['Jhn',8,12,59]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',8,12,59]]);">
+&#12300;我是世界的光&#12301;
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
 </ol>
 
-                            </ol>
+    </ol>
 
-                        <li>
-                            向門徒表明身份 (路 
-                            <span class='num'>:9</span>
-                            )
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    向門徒表明身份 (路加福音 9 章
+    )</span>
+    <ol>
+<li><span class='inc' onclick="showS([['Mak',8,12,21]]);">
 門徒忘記帶餅
-<span class='inc' onclick="showS([['Mak',8,12,21]]);"></span>
+</span>
 <span class='imp' onclick="showM(259,177,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mak',8,22,26]]);">
 伯賽大醫好瞎眼的人
-<span class='inc' onclick="showS([['Mak',8,22,26]]);"></span>
+</span>
 <span class='imp' onclick="showM(259,177,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,18,21],['Mat',16,13,20],['Mak',8,27,30]]);">
 彼得承認耶穌為基督
-<span class='inc' onclick="showS([['Luk',9,18,21],['Mat',16,13,20],['Mak',8,27,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(265,80,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,22,27],['Mat',16,21,28],['Mak',8,31],['Mak',9,1]]);">
 預言被殺&#65292;三天復活
-<span class='inc' onclick="showS([['Luk',9,22,27],['Mat',16,21,28],['Mak',8,31],['Mak',9,1]]);"></span>
+</span>
 <span class='imp' onclick="showM(265,80,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,28,36],['Mat',17,1,9],['Mak',9,2,10]]);">
 登山變像
-<span class='inc' onclick="showS([['Luk',9,28,36],['Mat',17,1,9],['Mak',9,2,10]]);"></span>
+</span>
 <span class='imp' onclick="showM(293,43,'黑門山')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',17,10,13],['Mak',9,11,13]]);">
 談論&#12300;以利亞&#12301;要先來
-<span class='inc' onclick="showS([['Mat',17,10,13],['Mak',9,11,13]]);"></span>
+</span>
 <span class='imp' onclick="showM(293,43,'黑門山')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,37,43],['Mat',17,14,21],['Mak',9,14,29]]);">
 醫治癲癇的孩子
-<span class='inc' onclick="showS([['Luk',9,37,43],['Mat',17,14,21],['Mak',9,14,29]]);"></span>
+</span>
 <span class='imp' onclick="showM(293,43,'黑門山下')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,43,45],['Mat',17,22,23],['Mak',9,30,32]]);">
 再預言被賣受死復活
-<span class='inc' onclick="showS([['Luk',9,43,45],['Mat',17,22,23],['Mak',9,30,32]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',17,24,27]]);">
 彼得魚口得銀
-<span class='inc' onclick="showS([['Mat',17,24,27]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',18,1,35],['Mak',9,33,50],['Luk',9,46,50]]);">
 天國裡誰是最大的?
-<span class='inc' onclick="showS([['Mat',18,1,35],['Mak',9,33,50],['Luk',9,46,50]]);"></span>
+</span>
 <span class='imp' onclick="showM(231,171,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,51],['Mat',19,1,2],['Mak',10,1]]);">
 最後一次離開加利利
-<span class='inc' onclick="showS([['Luk',9,51],['Mat',19,1,2],['Mak',10,1]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,52,56]]);">
 在撒瑪利亞遭棄絕
-<span class='inc' onclick="showS([['Luk',9,52,56]]);"></span>
-<span class='imp' onclick="showM(119,385,'撒瑪利亞的一個村莊')"></span>
+</span>
+<span class='imp' onclick="showM(119,385,'撒瑪利亞')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',9,57,62],['Mat',8,19,22]]);">
 人子沒有枕首的地方
-<span class='inc' onclick="showS([['Luk',9,57,62],['Mat',8,19,22]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 
-                            </ol>
+    </ol>
 
-                        <li>
-                            約但河外傳道 (路 
-                            <span class='num'>:10-17</span>
-                            )
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    約但河外傳道 (路加福音 10-17 章)</span>
+    <ol>
+<li><span class='inc' onclick="showS([['Luk',10,1,12]]);">
 差遣七十人
-<span class='inc' onclick="showS([['Luk',10,1,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',10,13,16],['Mat',11,20,24]]);">
 責備頑固不悔的城
-<span class='inc' onclick="showS([['Luk',10,13,16],['Mat',11,20,24]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',10,17,20]]);">
 七十人回來
-<span class='inc' onclick="showS([['Luk',10,17,20]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',10,21,24],['Mat',11,25,30]]);">
 主歡樂感謝的禱告
-<span class='inc' onclick="showS([['Luk',10,21,24],['Mat',11,25,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',10,25,37]]);">
 好撒瑪利亞人的比喻
-<span class='inc' onclick="showS([['Luk',10,25,37]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',10,38,42]]);">
 馬利亞那上好福分
-<span class='inc' onclick="showS([['Luk',10,38,42]]);"></span>
+</span>
 <span class='imp' onclick="showM(167,543,'')"></span>
 </li>
 
@@ -899,830 +761,829 @@ div.divider{height:3px;margin:0;padding:0}
 <span class='num'>: 9-10</span>
 )
 <ol>
-    <li>
-        生來是瞎眼,是誰犯了罪?
-        <span class='inc' onclick="showS([['Jhn',9,1,41]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',9,1,41]]);">
+生來是瞎眼,是誰犯了罪?
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        &#12300;我是好牧人&#12301;
-        <span class='inc' onclick="showS([['Jhn',10,1,21]]);"></span>
-        <span class='imp' onclick="showM(147,514,'聖殿')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',10,1,21]]);">
+&#12300;我是好牧人&#12301;
+</span>
+<span class='imp' onclick="showM(147,514,'聖殿')"></span>
     </li>
-    <li>
-        過修殿節 &#12300;我與父原為一&#12301;
-        <span class='inc' onclick="showS([['Jhn',10,22,39]]);"></span>
-        <span class='imp' onclick="showM(147,514,'聖殿')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',10,22,39]]);">
+過修殿節 &#12300;我與父原為一&#12301;
+</span>
+<span class='imp' onclick="showM(147,514,'聖殿')"></span>
     </li>
 </ol>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',10,40,42]]);">
 避居約但河外
-<span class='inc' onclick="showS([['Jhn',10,40,42]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',11,1,13],['Mat',6,5,14],['Mat',7,7,11]]);">
 論禱告
-<span class='inc' onclick="showS([['Luk',11,1,13],['Mat',6,5,14],['Mat',7,7,11]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',11,37,54]]);">
 法利賽人六禍
-<span class='inc' onclick="showS([['Luk',11,37,54]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',12,1,59]]);">
 教訓門徒和眾人
-<span class='inc' onclick="showS([['Luk',12,1,59]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',13,1,9]]);">
 &#12300;你們若不悔改&#12289;都要如此滅亡&#12301;
-<span class='inc' onclick="showS([['Luk',13,1,9]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',13,10,17]]);">
 安息日醫好一個被鬼附&#12289;病了十八年的女人
-<span class='inc' onclick="showS([['Luk',13,10,17]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',13,22]]);">
 往各城鄉教訓人
-<span class='inc' onclick="showS([['Luk',13,22]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',13,23,30]]);">
 &#12300;要努力進窄門&#12301;
-<span class='inc' onclick="showS([['Luk',13,23,30]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',13,31,35]]);">
 哀嘆耶路撒冷
-<span class='inc' onclick="showS([['Luk',13,31,35]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 <li>
 在法利賽人家裡作客
 <ol>
-    <li>
-        治好一個患水臌的人
-        <span class='inc' onclick="showS([['Luk',14,1,6]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',14,1,6]]);">
+治好一個患水臌的人
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
-    <li>
-        教訓作客的
-        <span class='inc' onclick="showS([['Luk',14,7,11]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',14,7,11]]);">
+教訓作客的
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
-    <li>
-        教訓請客的
-        <span class='inc' onclick="showS([['Luk',14,12,14]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',14,12,14]]);">
+教訓請客的
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
-    <li>
-        天國筵席的比喻
-        <span class='inc' onclick="showS([['Luk',14,15,24]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',14,15,24]]);">
+天國筵席的比喻
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
 </ol>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',14,25,35]]);">
 作門徒的代價
-<span class='inc' onclick="showS([['Luk',14,25,35]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 <li>
 失落的三個比喻
 <ol>
-    <li>
-        迷羊
-        <span class='inc' onclick="showS([['Luk',15,1,7]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',15,1,7]]);">
+迷羊
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
-    <li>
-        失錢
-        <span class='inc' onclick="showS([['Luk',15,8,10]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',15,8,10]]);">
+失錢
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
-    <li>
-        失兒子
-        <span class='inc' onclick="showS([['Luk',15,11,32]]);"></span>
-        <span class='imp' onclick="showM(230,490,'約但河外')"></span>
+    <li><span class='inc' onclick="showS([['Luk',15,11,32]]);">
+失兒子
+</span>
+<span class='imp' onclick="showM(230,490,'約但河外')"></span>
     </li>
 </ol>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',16,1,12]]);">
 不義的管家
-<span class='inc' onclick="showS([['Luk',16,1,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',16,13,17]]);">
 責備法利賽人貪財
-<span class='inc' onclick="showS([['Luk',16,13,17]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',16,18],['Mat',19,3,12],['Mak',10,2,12]]);">
 法利賽人辯論休妻
-<span class='inc' onclick="showS([['Luk',16,18],['Mat',19,3,12],['Mak',10,2,12]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',16,19,31]]);">
 財主與拉撒路
-<span class='inc' onclick="showS([['Luk',16,19,31]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Luk',17,1,10]]);">
 論饒恕弟兄,信心和作僕人
-<span class='inc' onclick="showS([['Luk',17,1,10]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 
-<li>
+<li><span class='inc' onclick="showS([['Jhn',11,1,53]]);">
 使拉撒路復活
-<span class='inc' onclick="showS([['Jhn',11,1,53]]);"></span>
+</span>
 <span class='imp' onclick="showM(167,543,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',11,54]]);">
 避居以法蓮城
-<span class='inc' onclick="showS([['Jhn',11,54]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,456,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',11,55,57]]);">
 祭司長和法利賽人通緝主
-<span class='inc' onclick="showS([['Jhn',11,55,57]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',17,11,19]]);">
 醫治十個大痲瘋
-<span class='inc' onclick="showS([['Luk',17,11,19]]);"></span>
+</span>
 <span class='imp' onclick="showM(171,504,'往耶路撒冷途中一個村子')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',17,20,27],['Mat',24,23,28],['Mat',24,36,44]]);">
 論神國的降臨
-<span class='inc' onclick="showS([['Luk',17,20,27],['Mat',24,23,28],['Mat',24,36,44]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',18,1,14]]);">
 禱告的比喻:寡婦求官
-<span class='inc' onclick="showS([['Luk',18,1,14]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',18,15,17],['Mat',19,13,15],['Mak',10,13,16]]);">
 &#12300;讓小孩子到我這裡來&#12301;
-<span class='inc' onclick="showS([['Luk',18,15,17],['Mat',19,13,15],['Mak',10,13,16]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',18,18,30],['Mat',19,16,30],['Mak',10,17,31]]);">
 少年的官問永生
-<span class='inc' onclick="showS([['Luk',18,18,30],['Mat',19,16,30],['Mak',10,17,31]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',20,1,16]]);">
 葡萄園的比喻
-<span class='inc' onclick="showS([['Mat',20,1,16]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',18,31,34],['Mat',20,17,19],['Mak',10,32,34]]);">
 第三次預言被賣&#12289;受死&#12289;復活
-<span class='inc' onclick="showS([['Luk',18,31,34],['Mat',20,17,19],['Mak',10,32,34]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',20,20,28],['Mak',10,35,45]]);">
 雅各約翰求寶座
-<span class='inc' onclick="showS([['Mat',20,20,28],['Mak',10,35,45]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,490,'約但河外')"></span>
 </li>
 
-                            </ol>
-                    </ol>
+    </ol>
+    </ol>
 
-                <li>
-                    第三階段 :
-                    十字架的道路
-                    <span class='exp'></span>
-                    <ol>
-                        <li>
-                            往耶路撒冷的路上 
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    第三階段 :
+    十字架的道路</span>
+    <ol>
+<li>
+    <span class='exp'>
+    往耶路撒冷的路上 </span>
+    <ol>
+<li><span class='inc' onclick="showS([['Luk',18,35,43],['Mat',20,29,34],['Mak',10,46,52]]);">
 醫好瞎子巴底買
-<span class='inc' onclick="showS([['Luk',18,35,43],['Mat',20,29,34],['Mak',10,46,52]]);"></span>
+</span>
 <span class='imp' onclick="showM(207,491,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',19,1,10]]);">
 尋找拯救失喪的撒該
-<span class='inc' onclick="showS([['Luk',19,1,10]]);"></span>
+</span>
 <span class='imp' onclick="showM(207,491,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Luk',19,11,28]]);">
 交銀予十個僕人的比喻
-<span class='inc' onclick="showS([['Luk',19,11,28]]);"></span>
+</span>
 <span class='imp' onclick="showM(207,491,'')"></span>
 </li>
-                            </ol>
+    </ol>
 
-                        <li>
-                            最後的一週
-                            <span class='exp'></span>
-                            <ol>
 <li>
-受難前4天 : 受膏 
-<span class='exp'></span>
+    <span class='exp'>
+    最後的一週</span>
+    <ol>
+<li>
+<span class='exp'>
+受難前4天 : 受膏 </span>
 <ol>
-    <li>
-        騎驢下橄欖山
-        <span class='inc' onclick="showS([['Luk',19,29,40],['Mat',21,1,11],['Mak',11,1,11]]);"></span>
-        <span class='imp' onclick="showM(163,530,'')"></span>
+    <li><span class='inc' onclick="showS([['Luk',19,29,40],['Mat',21,1,11],['Mak',11,1,11]]);">
+騎驢下橄欖山
+</span>
+<span class='imp' onclick="showM(163,530,'')"></span>
     </li>
-    <li>
-        為耶路撒冷哀哭
-        <span class='inc' onclick="showS([['Luk',19,41,44]]);"></span>
-        <span class='imp' onclick="showM(167,543,'')"></span>
+    <li><span class='inc' onclick="showS([['Luk',19,41,44]]);">
+為耶路撒冷哀哭
+</span>
+<span class='imp' onclick="showM(167,543,'')"></span>
     </li>
-    <li>
-        第四次預言被賣&#12289;受死&#12289;復活
-        <span class='inc' onclick="showS([['Mat',26,1,2]]);"></span>
-        <span class='imp' onclick="showM(167,543,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',26,1,2]]);">
+第四次預言被賣&#12289;受死&#12289;復活
+</span>
+<span class='imp' onclick="showM(167,543,'')"></span>
     </li>
-    <li>
-        馬利亞膏主
-        <span class='inc' onclick="showS([['Jhn',12,1,8]]);"></span>
-        <span class='imp' onclick="showM(167,543,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',12,1,8]]);">
+馬利亞膏主
+</span>
+<span class='imp' onclick="showM(167,543,'')"></span>
     </li>
 </ol>
 
-<li>
+<li><span class='exp'>
 受難前3天 : 進城,接受盤問 
-<span class='exp'></span>
+</span>
 <ol>
 
-    <li>
-        正式騎驢入城,眾人手拿樹枝歡迎
-        <span class='inc' onclick="showS([['Mat',21,10,11],['Jhn',12,12,19]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',21,10,11],['Jhn',12,12,19]]);">
+正式騎驢入城,眾人手拿樹枝歡迎
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',21,18,22],['Mak',11,12,14]]);">
+咒詛無花果樹
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',21,12,17],['Mak',11,15,26],['Luk',19,45,48]]);">
+第二次潔淨聖殿
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',21,23,27],['Mak',11,27,33],['Luk',20,1,8]]);">
+祭司長長老辯駁耶穌的權柄
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
     <li>
-        咒詛無花果樹
-        <span class='inc' onclick="showS([['Mat',21,18,22],['Mak',11,12,14]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+耶穌說三個比喻
+<ol>
+    <li><span class='inc' onclick="showS([['Mat',21,28,32]]);">
+兩個兒子的比喻
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        第二次潔淨聖殿
-        <span class='inc' onclick="showS([['Mat',21,12,17],['Mak',11,15,26],['Luk',19,45,48]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',21,33,46],['Mak',12,1,12],['Luk',20,9,19]]);">
+兇惡園戶的比喻
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        祭司長長老辯駁耶穌的權柄
-        <span class='inc' onclick="showS([['Mat',21,23,27],['Mak',11,27,33],['Luk',20,1,8]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        耶穌說三個比喻
-        <ol>
-            <li>
-                兩個兒子的比喻
-                <span class='inc' onclick="showS([['Mat',21,28,32]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                兇惡園戶的比喻
-                <span class='inc' onclick="showS([['Mat',21,33,46],['Mak',12,1,12],['Luk',20,9,19]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                娶親筵席的比喻
-                <span class='inc' onclick="showS([['Mat',22,1,14]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-        </ol>
-
-    <li>
-        法利賽人和希律黨的人問納稅給該撒
-        <span class='inc' onclick="showS([['Luk',20,20,26],['Mat',22,15,22],['Mak',12,13,17]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        撒都該人問復活
-        <span class='inc' onclick="showS([['Luk',20,27,40],['Mat',22,23,33],['Mak',12,18,27]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        律法師問最大的誡命
-        <span class='inc' onclick="showS([['Mat',22,34,40],['Mak',12,28,34]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        耶穌反問人:基督是誰的子孫
-        <span class='inc' onclick="showS([['Luk',20,41,44],['Mat',22,41,46],['Mak',12,35,37]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        宣佈法利賽人的七禍
-        <span class='inc' onclick="showS([['Mat',23,1,36],['Mak',12,38,40]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        哀耶路撒冷
-        <span class='inc' onclick="showS([['Luk',20,45,47],['Mat',23,37,39]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        寡婦的兩個小錢
-        <span class='inc' onclick="showS([['Luk',21,1,4],['Mak',12,41,44]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        希利尼人求見主
-        <span class='inc' onclick="showS([['Jhn',12,20,50]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
-    </li>
-    <li>
-        橄欖山上的預言
-        <ol>
-            <li>
-                預言聖殿被毀
-                <span class='inc' onclick="showS([['Luk',21,5,6],['Mat',24,1,2],['Mak',13,1,2]]);"></span>
-                <span class='imp' onclick="showM(166,516,'')"></span>
-            </li>
-            <li>
-                主降臨的預兆
-                <span class='inc' onclick="showS([['Luk',21,7,28],['Mat',24,3,31],['Mak',13,3,27]]);"></span>
-                <span class='imp' onclick="showM(166,516,'')"></span>
-            </li>
-            <li>
-                要儆醒等候主來
-                <span class='inc' onclick="showS([['Luk',21,29,36],['Mat',24,32,44],['Mak',13,28,37]]);"></span>
-                <span class='imp' onclick="showM(166,516,'')"></span>
-            </li>
-        </ol>
-
-    <li>
-        善僕和惡僕
-        <span class='inc' onclick="showS([['Mat',24,45,51]]);"></span>
-        <span class='imp' onclick="showM(166,516,'')"></span>
-    </li>
-    <li>
-        十個童女的比喻
-        <span class='inc' onclick="showS([['Mat',25,1,13]]);"></span>
-        <span class='imp' onclick="showM(166,516,'')"></span>
-    </li>
-    <li>
-        家業分三僕人的比喻
-        <span class='inc' onclick="showS([['Mat',25,14,30]]);"></span>
-        <span class='imp' onclick="showM(166,516,'')"></span>
-    </li>
-    <li>
-        綿羊山羊的比喻
-        <span class='inc' onclick="showS([['Mat',25,31,46]]);"></span>
-        <span class='imp' onclick="showM(166,516,'')"></span>
-    </li>
-
-    <li>
-        西門家裡女人以香膏膏頭
-        <span class='inc' onclick="showS([['Mat',26,6,13],['Mak',14,3,9]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',22,1,14]]);">
+娶親筵席的比喻
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
 </ol>
 
-<li>
+    <li><span class='inc' onclick="showS([['Luk',20,20,26],['Mat',22,15,22],['Mak',12,13,17]]);">
+法利賽人和希律黨的人問納稅給該撒
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',20,27,40],['Mat',22,23,33],['Mak',12,18,27]]);">
+撒都該人問復活
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',22,34,40],['Mak',12,28,34]]);">
+律法師問最大的誡命
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',20,41,44],['Mat',22,41,46],['Mak',12,35,37]]);">
+耶穌反問人:基督是誰的子孫
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',23,1,36],['Mak',12,38,40]]);">
+宣佈法利賽人的七禍
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',20,45,47],['Mat',23,37,39]]);">
+哀耶路撒冷
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',21,1,4],['Mak',12,41,44]]);">
+寡婦的兩個小錢
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',12,20,50]]);">
+希利尼人求見主
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li>
+橄欖山上的預言
+<ol>
+    <li><span class='inc' onclick="showS([['Luk',21,5,6],['Mat',24,1,2],['Mak',13,1,2]]);">
+預言聖殿被毀
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',21,7,28],['Mat',24,3,31],['Mak',13,3,27]]);">
+主降臨的預兆
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',21,29,36],['Mat',24,32,44],['Mak',13,28,37]]);">
+要儆醒等候主來
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+</ol>
+
+    <li><span class='inc' onclick="showS([['Mat',24,45,51]]);">
+善僕和惡僕
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',25,1,13]]);">
+十個童女的比喻
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',25,14,30]]);">
+家業分三僕人的比喻
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',25,31,46]]);">
+綿羊山羊的比喻
+</span>
+<span class='imp' onclick="showM(166,516,'')"></span>
+    </li>
+
+    <li><span class='inc' onclick="showS([['Mat',26,6,13],['Mak',14,3,9]]);">
+西門家裡女人以香膏膏頭
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+</ol>
+
+<li><span class='exp'>
 受難前2天 : 最後囑咐:彼此相愛
-<span class='exp'></span>
+</span>
 <ol>
 
-    <li>
-        祭司長&#12289;長老商議要殺害耶穌
-        <span class='inc' onclick="showS([['Luk',22,1,2],['Mat',26,3,5],['Mak',14,1,2]]);"></span>
-        <span class='imp' onclick="showM(147,514,'該亞法的院裡')"></span>
+    <li><span class='inc' onclick="showS([['Luk',22,1,2],['Mat',26,3,5],['Mak',14,1,2]]);">
+祭司長&#12289;長老商議要殺害耶穌
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法的院裡')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,3,6],['Mat',26,14,16],['Mak',14,10,12]]);">
+猶大設計賣主
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,7,13],['Mat',26,17,19],['Mak',14,12,16]]);">
+預備逾越節的筵席
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
     <li>
-        猶大設計賣主
-        <span class='inc' onclick="showS([['Luk',22,3,6],['Mat',26,14,16],['Mak',14,10,12]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+最後晚餐
+<ol>
+    <li><span class='inc' onclick="showS([['Luk',22,14,18],['Mat',26,20],['Mak',14,17]]);">
+與門徒吃逾越節筵席
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        預備逾越節的筵席
-        <span class='inc' onclick="showS([['Luk',22,7,13],['Mat',26,17,19],['Mak',14,12,16]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',13,1,20]]);">
+為門徒洗腳
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        最後晚餐
-        <ol>
-            <li>
-                與門徒吃逾越節筵席
-                <span class='inc' onclick="showS([['Luk',22,14,18],['Mat',26,20],['Mak',14,17]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                為門徒洗腳
-                <span class='inc' onclick="showS([['Jhn',13,1,20]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                主指出賣祂的人
-                <span class='inc' onclick="showS([['Luk',22,22,23],['Mat',26,21,25],['Mak',14,18,21],['Jhn',13,21,27]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                門徒爭論誰為大
-                <span class='inc' onclick="showS([['Luk',22,24,30]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                猶大出去了
-                <span class='inc' onclick="showS([['Jhn',13,26,30]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                賜下新命令:彼此相愛
-                <span class='inc' onclick="showS([['Jhn',13,31,35]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                &#12300;同領基督的身體&#12301;
-                <span class='inc' onclick="showS([['Luk',22,19],['Mat',26,26],['Mak',14,22]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                &#12300;同領基督的血&#12301;
-                <span class='inc' onclick="showS([['Luk',22,20,23],['Mat',26,27,29],['Mak',14,23,25]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                第一次預言彼得要跌倒
-                <span class='inc' onclick="showS([['Luk',22,31,34],['Jhn',13,36,38]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-            <li>
-                囑咐門徒提防敵人
-                <span class='inc' onclick="showS([['Luk',22,35,38]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
+    <li><span class='inc' onclick="showS([['Luk',22,22,23],['Mat',26,21,25],['Mak',14,18,21],['Jhn',13,21,27]]);">
+主指出賣祂的人
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,24,30]]);">
+門徒爭論誰為大
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',13,26,30]]);">
+猶大出去了
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',13,31,35]]);">
+賜下新命令:彼此相愛
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,19],['Mat',26,26],['Mak',14,22]]);">
+&#12300;同領基督的身體&#12301;
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,20,23],['Mat',26,27,29],['Mak',14,23,25]]);">
+&#12300;同領基督的血&#12301;
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,31,34],['Jhn',13,36,38]]);">
+第一次預言彼得要跌倒
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Luk',22,35,38]]);">
+囑咐門徒提防敵人
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
 
-            <li>
-                最後的說話 (約 
-                <span class='num'>14,15,16</span>
-                )
-                <ol>
-                    <li>
-                        主是將信徒引向父那裡的道路
-                        <span class='inc' onclick="showS([['Jhn',14,1,14]])"></span>
-                    </li>
-                    <li>
-                        應許賜聖靈給信徒作保護勸慰者
-                        <span class='inc' onclick="showS([['Jhn',14,15,31]])"></span>
-                    </li>
-                    <li>
-                        葡萄樹與枝子
-                        <span class='inc' onclick="showS([['Jhn',15,1,8]])"></span>
-                    </li>
-                    <li>
-                        效法主愛
-                        <span class='inc' onclick="showS([['Jhn',15,9,17]])"></span>
-                    </li>
-                    <li>
-                        恨主者必恨信徒
-                        <span class='inc' onclick="showS([['Jhn',15,18,27]])"></span>
-                    </li>
-                    <li>
-                        預先告知免跌倒
-                        <span class='inc' onclick="showS([['Jhn',16,1,11]])"></span>
-                    </li>
-                    <li>
-                        聖靈
-                        <span class='inc' onclick="showS([['Jhn',16,12,22]])"></span>
-                    </li>
-                    <li>
-                        奉主名求必得著
-                        <span class='inc' onclick="showS([['Jhn',16,23,33]])"></span>
-                    </li>
-                </ol>
-
-            <li>
-                分離的禱告 (約 
-                <span class='num'>17</span>
-                )
-                <ol>
-                    <li>
-                        為自己
-                        <span class='inc' onclick="showS([['Jhn',17,1,5]])"></span>
-                    </li>
-                    <li>
-                        為門徒求保守
-                        <span class='inc' onclick="showS([['Jhn',17,6,19]])"></span>
-                    </li>
-                    <li>
-                        為眾信徒求合而為一
-                        <span class='inc' onclick="showS([['Jhn',17,20,26]])"></span>
-                    </li>
-                </ol>
-
-            <li>
-                唱詩
-                <span class='inc' onclick="showS([['Mat',26,30],['Mak',14,26]]);"></span>
-                <span class='imp' onclick="showM(147,514,'')"></span>
-            </li>
-        </ol>
     <li>
-        往橄欖山去
-        <span class='inc' onclick="showS([['Mat',26,30],['Mak',14,26],['Luk',22,39],['Jhn',18,1]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+最後的說話 (約 14,15,16
+)
+<ol>
+    <li><span class='inc' onclick="showS([['Jhn',14,1,14]])">
+主是將信徒引向父那裡的道路
+</span>
     </li>
-    <li>
-        第二次預言彼得要跌倒
-        <span class='inc' onclick="showS([['Mat',26,31,35],['Mak',14,27,31]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',14,15,31]])">
+應許賜聖靈給信徒作保護勸慰者
+</span>
     </li>
-    <li>
-        客西馬尼的禱告
-        <span class='inc' onclick="showS([['Mat',26,36,45],['Mak',14,32,42],['Luk',22,40,46]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',15,1,8]])">
+葡萄樹與枝子
+</span>
     </li>
-    <li>
-        主被捉拿
-        <span class='inc' onclick="showS([['Mat',26,46,56],['Mak',14,43,52],['Luk',22,47,53],['Jhn',18,1,12]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Jhn',15,9,17]])">
+效法主愛
+</span>
     </li>
-    <li>
-        受猶太領袖審問
-        <ol>
-            <li>
-                受亞那審問
-                <span class='inc' onclick="showS([['Jhn',18,12,14],['Jhn',18,19,24]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                受大祭司該亞法審問
-                <span class='inc' onclick="showS([['Mat',26,57],['Mak',14,53],['Luk',22,54]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                其間彼得三次不認主
-                <span class='inc' onclick="showS([['Mat',26,58],['Mat',26,69,74],['Mak',14,54],['Mak',14,66,72],['Luk',22,54,62],['Jhn',18,15,18],['Jhn',18,25,27]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                祭司長和公會以假見證控告
-                <span class='inc' onclick="showS([['Mat',26,59,62],['Mak',14,55,60]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                大祭司問:你是 神的兒子基督不是?
-                <span class='inc' onclick="showS([['Mat',26,63],['Mak',14,61,62],['Luk',22,66,70]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                大祭司控告耶穌褻瀆
-                <span class='inc' onclick="showS([['Mat',26,65,66],['Mak',14,63,64],['Luk',22,71]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-            <li>
-                看守的人吐口水&#12289;打耶穌
-                <span class='inc' onclick="showS([['Mat',26,67,68],['Mak',14,65],['Luk',22,63,65]]);"></span>
-                <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
-            </li>
-        </ol>
+    <li><span class='inc' onclick="showS([['Jhn',15,18,27]])">
+恨主者必恨信徒
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',16,1,11]])">
+預先告知免跌倒
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',16,12,22]])">
+聖靈
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',16,23,33]])">
+奉主名求必得著
+</span>
+    </li>
 </ol>
 
-<li>
+    <li>
+分離的禱告 (約 
+<span class='num'>17</span>
+)
+<ol>
+    <li><span class='inc' onclick="showS([['Jhn',17,1,5]])">
+為自己
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',17,6,19]])">
+為門徒求保守
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',17,20,26]])">
+為眾信徒求合而為一
+</span>
+    </li>
+</ol>
+
+    <li><span class='inc' onclick="showS([['Mat',26,30],['Mak',14,26]]);">
+唱詩
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+</ol>
+    <li><span class='inc' onclick="showS([['Mat',26,30],['Mak',14,26],['Luk',22,39],['Jhn',18,1]]);">
+往橄欖山去
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,31,35],['Mak',14,27,31]]);">
+第二次預言彼得要跌倒
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,36,45],['Mak',14,32,42],['Luk',22,40,46]]);">
+客西馬尼的禱告
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,46,56],['Mak',14,43,52],['Luk',22,47,53],['Jhn',18,1,12]]);">
+主被捉拿
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
+    </li>
+    <li>
+受猶太領袖審問
+<ol>
+    <li><span class='inc' onclick="showS([['Jhn',18,12,14],['Jhn',18,19,24]]);">
+受亞那審問
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,57],['Mak',14,53],['Luk',22,54]]);">
+受大祭司該亞法審問
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,58],['Mat',26,69,74],['Mak',14,54],['Mak',14,66,72],['Luk',22,54,62],['Jhn',18,15,18],['Jhn',18,25,27]]);">
+其間彼得三次不認主
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,59,62],['Mak',14,55,60]]);">
+祭司長和公會以假見證控告
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,63],['Mak',14,61,62],['Luk',22,66,70]]);">
+大祭司問:你是 神的兒子基督不是?
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,65,66],['Mak',14,63,64],['Luk',22,71]]);">
+大祭司控告耶穌褻瀆
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',26,67,68],['Mak',14,65],['Luk',22,63,65]]);">
+看守的人吐口水&#12289;打耶穌
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    </li>
+</ol>
+</ol>
+
+<li><span class='exp'>
 受難前1天 : 受羅馬領袖審問 
-<span class='exp'></span>
+</span>
 <ol>
-    <li>
-        猶太領袖將耶穌交巡撫彼拉多
-        <span class='inc' onclick="showS([['Mat',27,1,2],['Mak',15,1],['Luk',23,1,2],['Jhn',18,28,32]]);"></span>
-        <span class='imp' onclick="showM(147,514,'該亞法府')"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,1,2],['Mak',15,1],['Luk',23,1,2],['Jhn',18,28,32]]);">
+猶太領袖將耶穌交巡撫彼拉多
+</span>
+<span class='imp' onclick="showM(147,514,'該亞法府')"></span>
     </li>
-    <li>
-        猶大吊死
-        <span class='inc' onclick="showS([['Mat',27,3,10]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,3,10]])">
+猶大吊死
+</span>
     </li>
-    <li>
-        彼拉多問:你是猶太人的王麼?
-        <span class='inc' onclick="showS([['Mat',27,11],['Mak',15,2],['Luk',23,3],['Jhn',18,33,37]]);"></span>
-        <span class='imp' onclick="showM(147,514,'衙門')"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,11],['Mak',15,2],['Luk',23,3],['Jhn',18,33,37]]);">
+彼拉多問:你是猶太人的王麼?
+</span>
+<span class='imp' onclick="showM(147,514,'衙門')"></span>
     </li>
-    <li>
-        彼拉多查不出罪
-        <span class='inc' onclick="showS([['Mat',27,12,14],['Mak',15,3,5],['Luk',23,4],['Jhn',18,38]]);"></span>
-        <span class='imp' onclick="showM(147,514,'衙門')"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,12,14],['Mak',15,3,5],['Luk',23,4],['Jhn',18,38]]);">
+彼拉多查不出罪
+</span>
+<span class='imp' onclick="showM(147,514,'衙門')"></span>
     </li>
-    <li>
-        彼拉多將耶穌交希律
-        <span class='inc' onclick="showS([['Luk',23,5,12]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Luk',23,5,12]]);">
+彼拉多將耶穌交希律
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
 
 </ol>
 
 <li>
-受難日 
-<span class='exp'></span>
+<span class='exp'>
+受難日 </span>
 <ol>
-    <li>
-        彼拉多按猶太人要求放巴拉巴&#65292;釘耶穌十字架
-        <span class='inc' onclick="showS([['Mat',27,15,26],['Mak',15,6,15],['Luk',23,13,25],['Jhn',18,39,40]]);"></span>
-        <span class='imp' onclick="showM(147,514,'衙門')"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,15,26],['Mak',15,6,15],['Luk',23,13,25],['Jhn',18,39,40]]);">
+彼拉多按猶太人要求放巴拉巴&#65292;釘耶穌十字架
+</span>
+<span class='imp' onclick="showM(147,514,'衙門')"></span>
+    </li>
+
+    <li><span class='inc' onclick="showS([['Mat',27,27,30],['Mak',15,16,19],['Jhn',19,1,3]])">
+被鞭打戲弄
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',19,4,14]])">
+彼拉多:&#12300;看哪&#12289;這是你們的王&#12301;
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',19,15]])">
+猶太人:&#12300;除掉祂&#12301;
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',27,31,33],['Mak',15,20,22],['Luk',23,26,32],['Jhn',19,16,17]])">
+上各各他山
+</span>
+    </li>
+
+    <li><span class='inc' onclick="showS([['Mat',27,34],['Mak',15,23]])">
+不受沒藥調和的酒
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',27,35],['Mat',27,38],['Mak',15,24],['Mak',15,27,28],['Luk',23,33],['Jhn',19,18]])">
+與強盜同釘十字架
+</span>
     </li>
 
     <li>
-        被鞭打戲弄
-        <span class='inc' onclick="showS([['Mat',27,27,30],['Mak',15,16,19],['Jhn',19,1,3]])"></span>
+十字架的前三小時
+<ol>
+    <li><span class='inc' onclick="showS([['Mat',27,35,36],['Mak',15,24],['Luk',23,34],['Jhn',19,23,24]])">
+兵丁拈鬮分衣服
+</span>
     </li>
-    <li>
-        彼拉多:&#12300;看哪&#12289;這是你們的王&#12301;
-        <span class='inc' onclick="showS([['Jhn',19,4,14]])"></span>
+    <li><span class='inc' onclick="showS([['Luk',23,34]])">
+&#12300;父啊 !赦免他們&#12301;
+</span>
     </li>
-    <li>
-        猶太人:&#12300;除掉祂&#12301;
-        <span class='inc' onclick="showS([['Jhn',19,15]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,39,44],['Mak',15,29,32],['Luk',23,35,37]])">
+受譏諷
+</span>
     </li>
-    <li>
-        上各各他山
-        <span class='inc' onclick="showS([['Mat',27,31,33],['Mak',15,20,22],['Luk',23,26,32],['Jhn',19,16,17]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,37],['Mak',15,25,26],['Luk',23,38],['Jhn',19,19,22]])">
+猶太人的王
+</span>
     </li>
+    <li><span class='inc' onclick="showS([['Luk',23,39,43]])">
+強盜悔改
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',19,25,27]])">
+&#12300;看你的兒子&#12301;&#12300;看你的母親&#12301;
+</span>
+    </li>
+</ol>
 
     <li>
-        不受沒藥調和的酒
-        <span class='inc' onclick="showS([['Mat',27,34],['Mak',15,23]])"></span>
+十字架的後三小時
+<ol>
+    <li><span class='inc' onclick="showS([['Mat',27,45],['Mak',15,33],['Luk',23,44,45]])">
+黑暗
+</span>
     </li>
-    <li>
-        與強盜同釘十字架
-        <span class='inc' onclick="showS([['Mat',27,35],['Mat',27,38],['Mak',15,24],['Mak',15,27,28],['Luk',23,33],['Jhn',19,18]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,46,49],['Mak',15,34,36]])">
+&#12300;我的神&#65292;我的神為什麼離棄我&#12301;
+</span>
     </li>
+    <li><span class='inc' onclick="showS([['Jhn',19,28,29]])">
+&#12300;我渴了&#12301;
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Jhn',19,30]])">
+&#12300;成了&#12301;
+</span>
+    </li>
+    <li><span class='inc' onclick="showS([['Mat',27,50],['Mak',15,37],['Luk',23,45,46],['Jhn',19,30]])">
+&#12300;我將我的靈魂交在你的手裡&#12301;&#65292;斷氣
+</span>
+    </li>
+</ol>
 
-    <li>
-        十字架的前三小時
-        <ol>
-            <li>
-                兵丁拈鬮分衣服
-                <span class='inc' onclick="showS([['Mat',27,35,36],['Mak',15,24],['Luk',23,34],['Jhn',19,23,24]])"></span>
-            </li>
-            <li>
-                &#12300;父啊 !赦免他們&#12301;
-                <span class='inc' onclick="showS([['Luk',23,34]])"></span>
-            </li>
-            <li>
-                受譏諷
-                <span class='inc' onclick="showS([['Mat',27,39,44],['Mak',15,29,32],['Luk',23,35,37]])"></span>
-            </li>
-            <li>
-                猶太人的王
-                <span class='inc' onclick="showS([['Mat',27,37],['Mak',15,25,26],['Luk',23,38],['Jhn',19,19,22]])"></span>
-            </li>
-            <li>
-                強盜悔改
-                <span class='inc' onclick="showS([['Luk',23,39,43]])"></span>
-            </li>
-            <li>
-                &#12300;看你的兒子&#12301;&#12300;看你的母親&#12301;
-                <span class='inc' onclick="showS([['Jhn',19,25,27]])"></span>
-            </li>
-        </ol>
-
-    <li>
-        十字架的後三小時
-        <ol>
-            <li>
-                黑暗
-                <span class='inc' onclick="showS([['Mat',27,45],['Mak',15,33],['Luk',23,44,45]])"></span>
-            </li>
-            <li>
-                &#12300;我的神&#65292;我的神為什麼離棄我&#12301;
-                <span class='inc' onclick="showS([['Mat',27,46,49],['Mak',15,34,36]])"></span>
-            </li>
-            <li>
-                &#12300;我渴了&#12301;
-                <span class='inc' onclick="showS([['Jhn',19,28,29]])"></span>
-            </li>
-            <li>
-                &#12300;成了&#12301;
-                <span class='inc' onclick="showS([['Jhn',19,30]])"></span>
-            </li>
-            <li>
-                &#12300;我將我的靈魂交在你的手裡&#12301;&#65292;斷氣
-                <span class='inc' onclick="showS([['Mat',27,50],['Mak',15,37],['Luk',23,45,46],['Jhn',19,30]])"></span>
-            </li>
-        </ol>
-
-    <li>
-        幔子裂開,地大震動 磐石崩裂,死人復活
-        <span class='inc' onclick="showS([['Mat',27,51,56],['Mak',15,38,41],['Luk',23,45,49]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,51,56],['Mak',15,38,41],['Luk',23,45,49]])">
+幔子裂開,地大震動 磐石崩裂,死人復活
+</span>
     </li>
-    <li>
-        槍刺肋旁
-        <span class='inc' onclick="showS([['Jhn',19,31,37]])"></span>
+    <li><span class='inc' onclick="showS([['Jhn',19,31,37]])">
+槍刺肋旁
+</span>
     </li>
-    <li>
-        埋葬
-        <span class='inc' onclick="showS([['Mat',27,57,60],['Mak',15,42,46],['Luk',23,50,54],['Jhn',19,38,42]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,57,60],['Mak',15,42,46],['Luk',23,50,54],['Jhn',19,38,42]])">
+埋葬
+</span>
     </li>
-    <li>
-        兩婦女見証耶穌埋葬的地方
-        <span class='inc' onclick="showS([['Mat',27,61],['Mak',15,47]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,61],['Mak',15,47]])">
+兩婦女見証耶穌埋葬的地方
+</span>
     </li>
-    <li>
-        兵把守墳墓
-        <span class='inc' onclick="showS([['Mat',27,62,66]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',27,62,66]])">
+兵把守墳墓
+</span>
     </li>
 </ol>
 
 <li>安息日
 <li>
-主日
-<span class='exp'></span>
+<span class='exp'>
+主日</span>
 <ol>
-    <li>
-        婦女們到墳墓,墓石已輥開
-        <span class='inc' onclick="showS([['Mat',28,1,4],['Mak',16,1,4],['Luk',24,1,3],['Jhn',20,1,2]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',28,1,4],['Mak',16,1,4],['Luk',24,1,3],['Jhn',20,1,2]])">
+婦女們到墳墓,墓石已輥開
+</span>
     </li>
-    <li>
-        天使向婦女們顯現,說主復活了
-        <span class='inc' onclick="showS([['Mat',28,5,8],['Mak',16,5,8],['Luk',24,4,11]])"></span>
+    <li><span class='inc' onclick="showS([['Mat',28,5,8],['Mak',16,5,8],['Luk',24,4,11]])">
+天使向婦女們顯現,說主復活了
+</span>
     </li>
-    <li>
-        彼得約翰發現墳墓是空的
-        <span class='inc' onclick="showS([['Luk',24,12],['Jhn',20,3,10]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Luk',24,12],['Jhn',20,3,10]]);">
+彼得約翰發現墳墓是空的
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        向抹大拉的馬利亞顯現
-        <span class='inc' onclick="showS([['Mak',16,9,11],['Jhn',20,11,18]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mak',16,9,11],['Jhn',20,11,18]]);">
+向抹大拉的馬利亞顯現
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        婦女們遇見主
-        <span class='inc' onclick="showS([['Mat',28,9,10]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',28,9,10]]);">
+婦女們遇見主
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        看守墳墓的兵丁報告
-        <span class='inc' onclick="showS([['Mat',28,11,15]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Mat',28,11,15]]);">
+看守墳墓的兵丁報告
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
-    <li>
-        向彼得顯現&#65292;又向往以馬忤斯的兩個門徒顯現
-        <span class='inc' onclick="showS([['Mak',16,12,13],['Luk',24,13,35]]);"></span>
-        <span class='imp' onclick="showM(78,506,'')"></span>
+    <li><span class='inc' onclick="showS([['Mak',16,12,13],['Luk',24,13,35]]);">
+向彼得顯現&#65292;又向往以馬忤斯的兩個門徒顯現
+</span>
+<span class='imp' onclick="showM(78,506,'')"></span>
     </li>
-    <li>
-        向十個使徒顯現
-        <span class='inc' onclick="showS([['Luk',24,36,49],['Jhn',20,19,25]]);"></span>
-        <span class='imp' onclick="showM(147,514,'')"></span>
+    <li><span class='inc' onclick="showS([['Luk',24,36,49],['Jhn',20,19,25]]);">
+向十個使徒顯現
+</span>
+<span class='imp' onclick="showM(147,514,'')"></span>
     </li>
 </ol>
 
-                            </ol>
+    </ol>
 
-                        <li>
-                            復活後的顯現
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+    復活後的顯現</span>
+    <ol>
+<li><span class='inc' onclick="showS([['Mak',16,14],['Jhn',20,26,29]]);">
 向十一個使徒顯現
-<span class='inc' onclick="showS([['Mak',16,14],['Jhn',20,26,29]]);"></span>
+</span>
 <span class='imp' onclick="showM(147,514,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',21,1,24]]);">
 在提比哩亞海邊向七位門徒顯現
-<span class='inc' onclick="showS([['Jhn',21,1,24]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,224,'提比哩亞海邊')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Mat',28,16,20],['Mak',16,15,18]]);">
 在約定的山上向十一個使徒顯現
-<span class='inc' onclick="showS([['Mat',28,16,20],['Mak',16,15,18]]);"></span>
+</span>
 <span class='imp' onclick="showM(230,224,'加利利約定的山上')"></span>
 </li>
 <li>向五百個弟兄顯現又向雅各顯現,以後再向使徒顯現
  
-                            </ol>
+    </ol>
 
-                        <li>
-                            升天
-                            <span class='exp'></span>
-                            <ol>
 <li>
+    <span class='exp'>
+升天</span>
+    <ol>
+<li><span class='inc' onclick="showS([['Mak',16,19,20],['Luk',24,50,53]]);">
 橄欖山升天
-<span class='inc' onclick="showS([['Mak',16,19,20],['Luk',24,50,53]]);"></span>
+</span>
 <span class='imp' onclick="showM(164,516,'')"></span>
 </li>
-<li>
+<li><span class='inc' onclick="showS([['Jhn',20,30,31],['Jhn',21,25]])">
 約翰福音結束語
-<span class='inc' onclick="showS([['Jhn',20,30,31],['Jhn',21,25]])"></span>
+</span>
 </li>
-                            </ol>
+    </ol>
 
-                    </ol>
+    </ol>
 
-            </ol>
+    </ol>
 
-        </div>
+</div>
     </div>
 <script src='../json/cuv.js'></script>
     <script>
     
-          var divHt = 0
+var divHt = 0
 $('div_map').hide();
 
 $('span.imp').each(function() {
@@ -1736,7 +1597,7 @@ var liid = "li" + $(this).index('span.inc');
 var refLen = chp[1].length
 var ref = chp[1]
 var thisRef = ""
-var out = ""
+var out = "<small>〖&nbsp;"
 while (ref.indexOf("['") > 0)
 {
    thisRef = ref.substring(ref.indexOf("['") + 2, ref.indexOf("]"))
@@ -1746,7 +1607,7 @@ while (ref.indexOf("['") > 0)
    bk = thisRef.substring(0, 3)
    out += CUV[bk]['bk_c_s']
    vx = thisRef.substring(4, thisRef.length)
-   out = out + " <span class='num'>" + vx + "</span>"
+   out = out + " "+vx
    ref = ref.substring(ref.indexOf("]") + 1, refLen)
    refLen = ref.length
    if (ref.indexOf("['") > 0)
@@ -1755,7 +1616,7 @@ out = out + " / "
    }
    else
    {
-out = out + ""
+out = out + "&nbsp;〗</small>"
    }
 }
 $(this).append(out)
@@ -1768,9 +1629,11 @@ $(this).next('ol').toggle();
 return false;
 });
 var out;
+
+
+
 function showS(ref)
 {
-
 var allLi = $('span.inc');
 
 //Get Index - April 12, 2020
@@ -1782,46 +1645,46 @@ out = "<span id='span_cuv'>"
 for (i = 0; i < ref.length; i++)
 {
    var bk_nm = ref[i][0];
-   out += "<br/>" + CUV[bk_nm]['bk_c'] //book name
+   out += "<div class='divider'></div> 〖&nbsp;" + CUV[bk_nm]['bk_c'] //book name
 
    if (ref[i].length == 5) { // more than one chapter
-out = out + " <span class='num'>" + ref[i][1] + "-" + ref[i][4] + "</span><div class='divider'></div>";
+out = out + " <span class='num'>" + ref[i][1] + "-" + ref[i][4] + "</span>&nbsp;〗<div class='divider'></div>";
 
 for (j = ref[i][1]; j <= ref[i][4]; j++)
 {
     //*each chapter J
     for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
     {
-        out += "<sup><small>" + k + "</small></sup> <span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span>";
+out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span>&nbsp;〗";
     } //
-    out += "<br/>"
+    out += "<br/><br/>"
 }
 
    } //if 5 param
 
    if (ref[i].length == 4) {  // several verses
-out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</span><div class='divider'></div>";
+out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</span>&nbsp;〗<div class='divider'></div>";
 for (j = ref[i][2]; j <= ref[i][3]; j++)
 {
-    out += "<sup><small>" + j + "</small></sup> <span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span>";
+    out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span>";
 }
-  out += "<br/>"
+  out += "<br/><br/>"
    } // 4 param
 
    if (ref[i].length == 3) // one verse
    {
-out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "</span><div class='divider'></div>";
-out += "<sup><small>" + ref[i][2] + "</small></sup> <span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
+out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "</span>&nbsp;〗<div class='divider'></div>";
+out += "<span class='v_sup'>" + ref[i][2] + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
 
    } //3 param
 
    if (ref[i].length == 2) // whole chapter
    {
-out = out + " </b><span class='num'>" + ref[i][1] + "</span><div class='divider'></div>";
+out = out + " </b><span class='num'>" + ref[i][1] + "</span>&nbsp;〗<div class='divider'></div>";
 
 for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
 {
-    out += "<sup><small>" + j + "</small></sup> <span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+    out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
 }
 
    }
@@ -1843,17 +1706,14 @@ if ($(this).next().attr("id") != "span_cuv" && $(this).next().next().attr("id") 
 }
 else
 {
-   if ($(this).next().attr("id") == "span_cuv") {
+if ($(this).next().attr("id") == "span_cuv") {
 $(this).next().remove();
    }
-   if ($(this).next().next().attr("id") == "span_cuv") {
+if ($(this).next().next().attr("id") == "span_cuv") {
 $(this).next().next().remove();
    }
 }
 $('#div_map').css('left', 0);
-
-
-
 
 });
 
@@ -1878,8 +1738,9 @@ else
    divHt = $(allLi[thisIndex]).offset().top;
 }
 
-$('#mapLoc').css('top', yCor - 64);
-$('#mapLoc').css('left', xCor - 38);
+//$('#mapLoc').css('top', yCor - 64);
+$('#mapLoc').css('top', yCor - 86);
+$('#mapLoc').css('left', xCor - 46);
 
 var divMark = document.getElementById("mapLoc");
 divMark.setAttribute('data-content', loc);
