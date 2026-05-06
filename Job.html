@@ -1,0 +1,217 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>約伯記</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <div id='div_container'>
+       
+        <div id="div_list">
+                              
+            <h1>約伯記</h1>                                       
+                                              
+ <ol >
+                                                 
+<li><span class='inc' onclick="showS([['Job',1,,,2]])">一. 前言</span></li>
+<li>二. 言論和回應<ol>
+<li> <span class='inc' onclick="showS([['Job',3]])">約伯的哀慟自白</span></li>
+<li><span class='exp'>1) 第一回合</span><ol>
+<li>以利法 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',4,,,5]])">以利法說話</span></li>
+<li><span class='inc' onclick="showS([['Job',6,,,7]])">約伯的回應</span></li>
+</ol></li>
+
+<li>比勒達 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',8]])">比勒達說話</span></li>
+<li><span class='inc' onclick="showS([['Job',9,,,10]])">約伯的回應</span></li>
+</ol></li>
+
+<li>瑣法 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',11]])">瑣法說話</span></li>
+<li><span class='inc' onclick="showS([['Job',12,,,14]])">約伯的回應</span></li>
+</ol></li></ol></li>
+
+<li><span class='exp'>2) 第二回合</span><ol>
+<li>以利法 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',15]])">以利法說話</span></li>
+<li><span class='inc' onclick="showS([['Job',16,,,17]])">約伯的回應</span></li>
+</ol></li>
+
+<li>比勒達 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',18]])">比勒達說話</span></li>
+<li><span class='inc' onclick="showS([['Job',19]])">約伯的回應</span></li>
+</ol></li>
+
+<li>瑣法 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',20]])">瑣法說話</span></li>
+<li><span class='inc' onclick="showS([['Job',21]])">約伯的回應</span></li>
+</ol></li></ol></li>
+
+
+<li><span class='exp'>3) 第三回合</span><ol>
+<li>以利法 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',22]])">以利法說話</span></li>
+<li><span class='inc' onclick="showS([['Job',23,,,24]])">約伯的回應</span></li>
+</ol></li>
+
+<li>比勒達 - 約伯<ol>
+<li><span class='inc' onclick="showS([['Job',25]])">比勒達說話</span></li>
+<li><span class='inc' onclick="showS([['Job',26]])">約伯的回應</span></li>
+</ol></li>
+
+<li><span class='inc' onclick="showS([['Job',27,,,31]])">約伯的獨白</span></li>
+</ol></li>
+</ol></li>
+
+<li><span class='inc' onclick="showS([['Job',32,,,37]])">三. 以利戶發言</span></li>
+<li><span class='inc' onclick="showS([['Job',38,,,41]])">四. 神的回應</span></li>
+<li><span class='inc' onclick="showS([['Job',42,1,6]])">五. 約伯降服</span></li>
+<li><span class='inc' onclick="showS([['Job',42,7,17]])">六. 後記  </span></li>                                               
+
+</ol>
+
+        </div>
+    </div>
+<script src='json/cuv.js'></script>
+<script>
+    
+$('span.inc').each(function() {
+var regExp = /\(([^)]+)\)/;
+var chp = regExp.exec($(this).attr('onclick'))
+var liid = "li" + $(this).index('span.inc');
+var refLen = chp[1].length
+var ref = chp[1]
+var thisRef = ""
+var out = "<small>〖&nbsp;"
+while (ref.indexOf("['") > 0)
+{
+   thisRef = ref.substring(ref.indexOf("['") + 2, ref.indexOf("]"))
+   thisRef = thisRef.replace("',", " ")
+   thisRef = thisRef.replace(",", ":")
+   thisRef = thisRef.replace(",", "-")
+   thisRef = thisRef.replace(":-,", "-")
+   bk = thisRef.substring(0, 3)
+   out += CUV[bk]['bk_c_s']
+   vx = thisRef.substring(4, thisRef.length)
+   out = out + " "+vx
+   ref = ref.substring(ref.indexOf("]") + 1, refLen)
+   refLen = ref.length
+   if (ref.indexOf("['") > 0)
+   {
+out = out + " / "
+   }
+   else
+   {
+out = out + "&nbsp;〗</small>"
+   }
+}
+$(this).append(out)
+});
+
+
+$('span.exp').click(function() {
+$(this).toggleClass('coll');
+$(this).next('ol').toggle();
+return false;
+});
+var out;
+
+
+
+function showS(ref)
+{
+
+var allLi = $('span.inc');
+
+//Get Index - April 12, 2020
+var thisIndex
+thisIndex = parseInt(event.target.id.substring(2, event.target.id.length))
+var liid = event.target.id
+
+out = "<span id='span_cuv'>"
+for (i = 0; i < ref.length; i++)
+{
+   var bk_nm = ref[i][0];
+   out += "<div class='divider'></div> 〖&nbsp;" + CUV[bk_nm]['bk_c']  //book name
+
+   if (ref[i].length == 5) { // more than one chapter
+out = out + " <span class='num'>" + ref[i][1] + "-" + ref[i][4] + "</span>&nbsp;〗<div class='divider'></div>";
+
+for (j = ref[i][1]; j <= ref[i][4]; j++)
+{
+    //*each chapter J
+    for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+    {
+        out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span>";
+    } //
+    out += "<br/><br/>"
+}
+
+   } //if 5 param
+
+   if (ref[i].length == 4) {  // several verses
+out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</span>&nbsp;〗<div class='divider'></div>";
+for (j = ref[i][2]; j <= ref[i][3]; j++)
+{
+    out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span>";
+}
+  out += "<br/><br/>"
+   } // 4 param
+
+   if (ref[i].length == 3) // one verse
+   {
+out = out + " <span class='num'>" + ref[i][1] + ":" + ref[i][2] + "</span>&nbsp;〗<div class='divider'></div>";
+out += "<span class='v_sup'>" + ref[i][2] + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
+
+   } //3 param
+
+   if (ref[i].length == 2) // whole chapter
+   {
+out = out + " </b><span class='num'>" + ref[i][1] + "</span>&nbsp;〗<div class='divider'></div>";
+
+for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+{
+    out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span>";
+}
+
+   }
+}
+out = out + "</span>"
+
+}
+
+//2020 fix, track the current position
+$('span.inc').click(function()
+{
+$('span.inc').removeClass('active');
+if ($(this).next().attr("id") != "span_cuv" && $(this).next().next().attr("id") != "span_cuv")
+{
+   $(this).parent().append(out);
+   $(this).addClass('active');
+}
+else
+{
+   if ($(this).next().attr("id") == "span_cuv") {
+$(this).next().remove();
+   }
+   if ($(this).next().next().attr("id") == "span_cuv") {
+$(this).next().next().remove();
+   }
+}
+
+});
+
+
+</script>
+    
+    </body>
+    </html>
