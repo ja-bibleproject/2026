@@ -1,2 +1,3 @@
-My bible projects since 2018.
-Finally find a place to host them.
+May 2026.
+My bible projects since 2017.
+
