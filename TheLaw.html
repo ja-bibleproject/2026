@@ -7,6 +7,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+ol > li:before, ul > li:before {
+content: "－ ";
+width: 25px;
+}
+
+
+</style>
 </head>
 <body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -18,14 +26,14 @@
         <div id="div_list">
 
        <h1>律法綱要</h1>
+<p>《讀經輔輯》p32-36  </p>
 <ol>
 
-<p><br>
-《聖經輔輯》p32-36  <br></p>
+<br>
 
 <li>I 律法總網<ol>
-<li><span class='inc'  onclick="showS([['Deu',6,5],['Deu',10,12],['Mat',22,37,38]])">1.盡心愛神</span></li>
-<li><span class='inc'  onclick="showS([['Lev',19,18],['Mat',22,39,40]])">2.愛人如己</span></li></ol></li>
+<li><span class='inc'  onclick="showS([['Deu',6,5],['Deu',10,12],['Mat',22,37,38]])">1. 盡心愛神</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,18],['Mat',22,39,40]])">2. 愛人如己</span></li></ol></li>
 <li>II 律法基礎<ol>
 <li><span class='inc'  onclick="showS([['Lev',11,44,45],['Lev',19,2]])">神的聖潔</span></li>
 </ol></li>
@@ -33,19 +41,19 @@
 <li><span class='inc'  onclick="showS([['Exo',20,3,17],['Deu',5,7,21]])">十誡</span></li>
 </ol></li>
  <li>IV 律法内容<ol>
-<li>一、宗教禮儀<ol>
-<li><span class="exp">A.會幕	</span><ol>
+<li><span class="exp">一、宗教禮儀</span><ol>
+<li><span class="exp">A. 會幕	</span><ol>
 
-<li><span class='inc'  onclick="showS([['Exo',25,1,9],['Exo',30,11,16],['Exo',31,1,11]])">0.奉獻</span></li>
-<li><span class='inc'  onclick="showS([['Exo',25,10,22],['Exo',16,32,34],['Exo',40,20],['Num',17,10],['Deu',31,26]])">1.約櫃</span></li>
-<li><span class='inc'  onclick="showS([['Exo',25,23,30],['Lev',24,5,9]])">2.餅桌</span></li>
-<li><span class='inc'  onclick="showS([['Exo',25,31,40],['Num',8,4]])">3.燈臺</span></li>
-<li><span class='inc'  onclick="showS([['Exo',26,1,14]])">4.幕幔</span></li>
-<li><span class='inc'  onclick="showS([['Exo',26,15,30]])">5.幕板</span></li>
-<li><span class='inc'  onclick="showS([['Exo',26,31,33]])">6.幔子</span></li>
-<li><span class='inc'  onclick="showS([['Exo',26,36,37]])">7.門簾</span></li>
-<li><span class='inc'  onclick="showS([['Exo',27,1,8],['Num',16,36,38]])">8.祭壇</span></li>
-<li><span class='inc'  onclick="showS([['Exo',27,9,19]])">9.院子</span></li>
+<li><span class='inc'  onclick="showS([['Exo',25,1,9],['Exo',30,11,16],['Exo',31,1,11]])">0. 奉獻</span></li>
+<li><span class='inc'  onclick="showS([['Exo',25,10,22],['Exo',16,32,34],['Exo',40,20],['Num',17,10],['Deu',31,26]])">1. 約櫃</span></li>
+<li><span class='inc'  onclick="showS([['Exo',25,23,30],['Lev',24,5,9]])">2. 餅桌</span></li>
+<li><span class='inc'  onclick="showS([['Exo',25,31,40],['Num',8,4]])">3. 燈臺</span></li>
+<li><span class='inc'  onclick="showS([['Exo',26,1,14]])">4. 幕幔</span></li>
+<li><span class='inc'  onclick="showS([['Exo',26,15,30]])">5. 幕板</span></li>
+<li><span class='inc'  onclick="showS([['Exo',26,31,33]])">6. 幔子</span></li>
+<li><span class='inc'  onclick="showS([['Exo',26,36,37]])">7. 門簾</span></li>
+<li><span class='inc'  onclick="showS([['Exo',27,1,8],['Num',16,36,38]])">8. 祭壇</span></li>
+<li><span class='inc'  onclick="showS([['Exo',27,9,19]])">9. 院子</span></li>
 <li><span class='inc'  onclick="showS([['Exo',30,1,5],['Exo',30,9]])">10.香壇</span></li>
 <li><span class='inc'  onclick="showS([['Exo',30,17,21]])">11.洗濯盆</span></li>
 <li><span class='inc'  onclick="showS([['Exo',30,22,23]])">12.聖膏油</span></li>
@@ -54,122 +62,366 @@
 <li><span class='inc'  onclick="showS([['Exo',40,1,11]])">15.會幕立起</span></li>
 </ol></li>
 
-<li><span class="exp">B.祭司</span><ol>
-<li>1.祭司<ol>
-<li>a.資格<ol>
+<li><span class="exp">B. 祭司</span><ol>
+<li>1. 祭司<ol>
+<li>a. 資格<ol>
 <li><span class='inc'  onclick="showS([['Exo',29,44]])">i 亞倫後代</span></li>
 <li><span class='inc'  onclick="showS([['Lev',21,16,23]])">ii 沒有殘疾</span></li></ol></li>
-<li>b.工作職責<ol>
+<li>b. 工作職責<ol>
 <li>- 獻祭（參D.獻祭）</li>
 <li><span class='inc'  onclick="showS([['Lev',13,,,14]])">- 審核潔淨</span></li>
 <li><span class='inc'  onclick="showS([['Num',3,38],['Num',18,1,7]])">- 看守會幕</span></li>
 <li><span class='inc'  onclick="showS([['Num',10,9,10],['Lev',23,24],['Lev',25,9]])">- 吹號吹角</span></li>
 </ol></li>
-<li><span class='inc'  onclick="showS([['Lev',22,1,9]])">c.潔净之例</span></li>
-<li><span class='inc'  onclick="showS([['Lev',21,1,15]])">d.自潔之責</span></li>
-<li><span class='inc'  onclick="showS([['Lev',7,28,36]])">e.所得之份</span></li>
-<li><span class='inc'  onclick="showS([['Lev',18,8,20],['Lev',18,25,28],['Lev',5,9,10]])">f.入會幕之例</span></li>
-<li><span class='inc'  onclick="showS([['Lev',10,12,14]])">g.食祭物之例</span></li>
-<li><span class='inc'  onclick="showS([['Num',6,22,27]])">h.祝福語</span></li>
+<li><span class='inc'  onclick="showS([['Lev',22,1,9]])">c. 潔净之例</span></li>
+<li><span class='inc'  onclick="showS([['Lev',21,1,15]])">d. 自潔之責</span></li>
+<li><span class='inc'  onclick="showS([['Lev',7,28,36]])">e. 所得之份</span></li>
+<li><span class='inc'  onclick="showS([['Lev',18,8,20],['Lev',18,25,28],['Lev',5,9,10]])">f. 入會幕之例</span></li>
+<li><span class='inc'  onclick="showS([['Lev',10,12,14]])">g. 食祭物之例</span></li>
+<li><span class='inc'  onclick="showS([['Num',6,22,27]])">h. 祝福語</span></li>
 </ol></li><!-- b -->
 
-<li>2.大祭司<ol>
-<li><span class='inc'  onclick="showS([['Exo',28,1]])">a.資格</span></li>
-<li><span class='inc'  onclick="showS([['Exo',28,2,43]])">b.服飾</span></li>
-<li><span class='inc'  onclick="showS([['Exo',29,1,46]])">c.就職</span></li>
-<li>d. 經常工作<ol>
+<li>2. 大祭司<ol>
+<li><span class='inc'  onclick="showS([['Exo',28,1]])">a. 資格</span></li>
+<li><span class='inc'  onclick="showS([['Exo',28,2,43]])">b. 服飾</span></li>
+<li><span class='inc'  onclick="showS([['Exo',29,1,46]])">c. 就職</span></li>
+<li>d.  經常工作<ol>
 <li><span class='inc'  onclick="showS([['Exo',27,20,21],['Lev',24,1,4],['Num',8,1,2]])">- 㸃燈</span></li>
 <li><span class='inc'  onclick="showS([['Exo',30,7,8]])">- 燒香</span></li>
 <li><span class='inc'  onclick="showS([['Lev',4,13,21]])">- 贖罪祭</span></li>
 <li><span class='inc'  onclick="showS([['Lev',16,1,34]])">- 贖罪日</span></li>
 <li><span class='inc'  onclick="showS([['Lev',6,19,23]])">- 受職素祭</span></li>
 </ol></li><!-- 1 -->
-<li><span class='inc'  onclick="showS([['Lev',16,1,28]])">e.入至聖所之例</span></li>
+<li><span class='inc'  onclick="showS([['Lev',16,1,28]])">e. 入至聖所之例</span></li>
 
 </ol></li><!-- 2 -->
 </ol></li><!-- B -->
-<li><span class="exp">C.利未人</span><ol>
-<li><span class='inc'  onclick="showS([['Exo',32,25,29],['Num',3,45],['Num',8,14],['Num',16,8,10],['Deu',10,8]])">1.被選</span></li>
-<li><span class='inc'  onclick="showS([['Deu',18,6,8]])">2.甘心</span></li>
-<li><span class='inc'  onclick="showS([['Num',8,5,19]])">3.受職</span></li>
-<li><span class='inc'  onclick="showS([['Num',8,23,26]])">4.年歲</span></li>
-<li><span class='inc'  onclick="showS([['Num',1,50,53],['Num',3,5,39],['Num',4,1,33]])">5.職任</span></li>
-<li>6.得份<ol>
-<li><span class='inc'  onclick="showS([['Deu',10,9]])">a.耶和華</span></li>
-<li><span class='inc'  onclick="showS([['Num',18,21,32],['Deu',14,28,29]])">b.出產的十分一</span></li>
-<li><span class='inc'  onclick="showS([['Num',35,6]])">c.逃城</span></li>
-<li><span class='inc'  onclick="showS([['Num',35,1,8],['Lev',25,32,34]])">d.地</span></li>
+<li><span class="exp">C. 利未人</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',32,25,29],['Num',3,45],['Num',8,14],['Num',16,8,10],['Deu',10,8]])">1. 被選</span></li>
+<li><span class='inc'  onclick="showS([['Deu',18,6,8]])">2. 甘心</span></li>
+<li><span class='inc'  onclick="showS([['Num',8,5,19]])">3. 受職</span></li>
+<li><span class='inc'  onclick="showS([['Num',8,23,26]])">4. 年歲</span></li>
+<li><span class='inc'  onclick="showS([['Num',1,50,53],['Num',3,5,39],['Num',4,1,33]])">5. 職任</span></li>
+<li>6. 得份<ol>
+<li><span class='inc'  onclick="showS([['Deu',10,9]])">a. 耶和華</span></li>
+<li><span class='inc'  onclick="showS([['Num',18,21,32],['Deu',14,28,29]])">b. 出產的十分一</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,6]])">c. 逃城</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,1,8],['Lev',25,32,34]])">d. 地</span></li>
 
 </ol></li><!-- 6 -->
 
 </ol></li><!-- C -->
 
-<li><span class="exp">D.獻祭</span><ol>
-<li>1.各祭<ol>
-<li><span class='inc'  onclick="showS([['Lev',1,3,17],['Lev',6,8,13]])">a.燔祭</span></li>
-<li><span class='inc'  onclick="showS([['Lev',2,1,16],['Lev',6,14,18],['Num',15,1,10]])">b.素祭</span></li>
-<li><span class='inc'  onclick="showS([['Lev',3,1,17],['Lev',7,11,25],['Lev',19,5,8]])">c.平安祭</span></li>
-<li><span class='inc'  onclick="showS([['Lev',5,14,19],['Lev',6,1,7],['Lev',7,1,10]])">d.贖愆祭</span></li>
-<li><span class='inc'  onclick="showS([['Lev',5,1,13],['Lev',4,1,35],['Lev',16,29,34],['Num',15,22,28]])">e.贖罪祭</span></li>
-<li><span class='inc'  onclick="showS([['Exo',29,38,43],['Num',28,1,8]])">f.早晚祭</span></li>
-<li><span class='inc'  onclick="showS([['Num',28,9,10]])">g.安息日</span></li>
-<li><span class='inc'  onclick="showS([['Num',28,11,15]])">h.月朔</span></li>
-<li><span class='inc'  onclick="showS([['Num',28,16],['Num',29,39]])">i.節期</span></li>
+<li><span class="exp">D. 獻祭</span><ol>
+<li>1. 各祭<ol>
+<li><span class='inc'  onclick="showS([['Lev',1,3,17],['Lev',6,8,13]])">a. 燔祭</span></li>
+<li><span class='inc'  onclick="showS([['Lev',2,1,16],['Lev',6,14,18],['Num',15,1,10]])">b. 素祭</span></li>
+<li><span class='inc'  onclick="showS([['Lev',3,1,17],['Lev',7,11,25],['Lev',19,5,8]])">c. 平安祭</span></li>
+<li><span class='inc'  onclick="showS([['Lev',5,14,19],['Lev',6,1,7],['Lev',7,1,10]])">d. 贖愆祭</span></li>
+<li><span class='inc'  onclick="showS([['Lev',5,1,13],['Lev',4,1,35],['Lev',16,29,34],['Num',15,22,28]])">e. 贖罪祭</span></li>
+<li><span class='inc'  onclick="showS([['Exo',29,38,43],['Num',28,1,8]])">f. 早晚祭</span></li>
+<li><span class='inc'  onclick="showS([['Num',28,9,10]])">g. 安息日</span></li>
+<li><span class='inc'  onclick="showS([['Num',28,11,15]])">h. 月朔</span></li>
+<li><span class='inc'  onclick="showS([['Num',28,16],['Num',29,39]])">i. 節期</span></li>
 </ol></li>
-<li><span class='inc'  onclick="showS([['Lev',22,10,16],['Deu',12,15,28]])">2.食祭牲資格</span></li>
-<li><span class='inc'  onclick="showS([['Lev',22,17,18],['Deu',17,1]])">3.選祭牲之例</span></li>
-<li><span class='inc'  onclick="showS([['Exo',23,18],['Exo',34,25]])">4.禁帶酵而獻</span></li>
-<li><span class='inc'  onclick="showS([['Exo',20,24,26]])">5.築壇</span></li>
-<li>6.獻祭處<ol>
+<li><span class='inc'  onclick="showS([['Lev',22,10,16],['Deu',12,15,28]])">2. 食祭牲資格</span></li>
+<li><span class='inc'  onclick="showS([['Lev',22,17,18],['Deu',17,1]])">3. 選祭牲之例</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,18],['Exo',34,25]])">4. 禁帶酵而獻</span></li>
+<li><span class='inc'  onclick="showS([['Exo',20,24,26]])">5. 築壇</span></li>
+<li>6. 獻祭處<ol>
 <li><span class='inc'  onclick="showS([['Lev',17,1,9]])">- 會幕門口</span></li>
 <li><span class='inc'  onclick="showS([['Deu',12,5,14]])">- 神選定處</span></li></ol></li>
 </ol></li>
 
-<li><span class="exp">E.節日</span><ol>
-<li><span class='inc'  onclick="showS([['Gen',2,1,3],['Lev',23,3],['Num',28,9,10],['Mak',2,23,28],['Luk',13,14,16],['Luk',14,3,5],['Jhn',5,8,16]])">1.安息日</span></li>
-<li><span class='inc'  onclick="showS([['Exo',12,1,14],['Exo',12,43,49],['Lev',23,4,5],['Num',9,1,14],['Deu',16,1,8]])">2.逾越節</span></li>
-<li><span class='inc'  onclick="showS([['Exo',12,15,20],['Exo',13,3,10],['Exo',34,18],['Lev',23,6,8],['Num',28,17,25],['Deu',16,1,8]])">3.無酵節</span></li>
-<li><span class='inc'  onclick="showS([['Deu',23,9,21],['Num',28,26,31],['Deu',16,9,11]])">4.七七節</span></li>
-<li><span class='inc'  onclick="showS([['Num',29,12,40],['Lev',23,33,44],['Deu',16,13,17]])">5.住棚節</span></li>
-<li><span class='inc'  onclick="showS([['Lev',23,23,25],['Num',29,1,6]])">6.吹角節</span></li>
-<li><span class='inc'  onclick="showS([['Exo',23,10,11],['Lev',25,1,7],['Deu',15,1,11]])">7.安息年</span></li>
-<li><span class='inc'  onclick="showS([['Lev',25,8,17]])">8.禧年</span></li>
-<li><span class='inc'  onclick="showS([['Lev',23,26,32],['Lev',16,29,34],['Num',29,7,11]])">9.贖罪目</span></li>
+<li><span class="exp">E. 節日</span><ol>
+<li><span class='inc'  onclick="showS([['Gen',2,1,3],['Lev',23,3],['Num',28,9,10],['Mak',2,23,28],['Luk',13,14,16],['Luk',14,3,5],['Jhn',5,8,16]])">1. 安息日</span></li>
+<li><span class='inc'  onclick="showS([['Exo',12,1,14],['Exo',12,43,49],['Lev',23,4,5],['Num',9,1,14],['Deu',16,1,8]])">2. 逾越節</span></li>
+<li><span class='inc'  onclick="showS([['Exo',12,15,20],['Exo',13,3,10],['Exo',34,18],['Lev',23,6,8],['Num',28,17,25],['Deu',16,1,8]])">3. 無酵節</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,9,21],['Num',28,26,31],['Deu',16,9,11]])">4. 七七節</span></li>
+<li><span class='inc'  onclick="showS([['Num',29,12,40],['Lev',23,33,44],['Deu',16,13,17]])">5. 住棚節</span></li>
+<li><span class='inc'  onclick="showS([['Lev',23,23,25],['Num',29,1,6]])">6. 吹角節</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,10,11],['Lev',25,1,7],['Deu',15,1,11]])">7. 安息年</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,8,17]])">8. 禧年</span></li>
+<li><span class='inc'  onclick="showS([['Lev',23,26,32],['Lev',16,29,34],['Num',29,7,11]])">9. 贖罪目</span></li>
 </ol></li>
-<li><span class="exp">F.宗教義務</span><ol>
-<li><span class='inc'  onclick="showS([['Exo',13,12,16],['Exo',34,19,20],['Num',3,11,13],['Deu',15,19,20]])">1.獻首生</span></li>
-<li><span class='inc'  onclick="showS([['Exo',34,26],['Deu',18,4],['Exo',23,19]])">2.獻初果</span></li>
-<li><span class='inc'  onclick="showS([['Lev',27,30,33],['Deu',14,22,26],['Mal',3,8,11]])">3.什一奉獻</span></li>
-<li><span class='inc'  onclick="showS([['Exo',30,12,16]])">4.贖命之價</span></li>
-<li><span class='inc'  onclick="showS([['Lev',22,18],['Num',15,1,3]])">5.甘心祭</span></li>
-<li><span class='inc'  onclick="showS([['Lev',27,2],['Deu',23,21,23]])">6.還願</span></li>
+<li><span class="exp">F. 宗教義務</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',13,12,16],['Exo',34,19,20],['Num',3,11,13],['Deu',15,19,20]])">1. 獻首生</span></li>
+<li><span class='inc'  onclick="showS([['Exo',34,26],['Deu',18,4],['Exo',23,19]])">2. 獻初果</span></li>
+<li><span class='inc'  onclick="showS([['Lev',27,30,33],['Deu',14,22,26],['Mal',3,8,11]])">3. 什一奉獻</span></li>
+<li><span class='inc'  onclick="showS([['Exo',30,12,16]])">4. 贖命之價</span></li>
+<li><span class='inc'  onclick="showS([['Lev',22,18],['Num',15,1,3]])">5. 甘心祭</span></li>
+<li><span class='inc'  onclick="showS([['Lev',27,2],['Deu',23,21,23]])">6. 還願</span></li>
 </ol></li>
-<li><span class="exp">G.潔淨禮儀</span><ol>
-<li><span class='inc'  onclick="showS([['Num',19,1,10]])">1.紅牛灰製法</span></li>
-<li><span class='inc'  onclick="showS([['Lev',12,1,8]])">2.婦人生子後</span></li>
-<li><span class='inc'  onclick="showS([['Lev',13,1,46],['Lev',14,1,32],['Num',5,1,3]])">3.痳瘋患者</span></li>
-<li><span class='inc'  onclick="showS([['Lev',14,33,53],['Lev',13,47,59]])">4.麻瘋者物件</span></li>
-<li><span class='inc'  onclick="showS([['Lev',15,1,15]])">5.漏症</span></li>
-<li><span class='inc'  onclick="showS([['Lev',15,16,33]])">6.夢遺、月經</span></li>
-<li><span class='inc'  onclick="showS([['Lev',11,24,25],['Lev',11,31,40],['Lev',17,15,16],['Lev',5,2],['Num',19,11,12]])">7.因屍體不潔</span></li>
+<li><span class="exp">G. 潔淨禮儀</span><ol>
+<li><span class='inc'  onclick="showS([['Num',19,1,10]])">1. 紅牛灰製法</span></li>
+<li><span class='inc'  onclick="showS([['Lev',12,1,8]])">2. 婦人生子後</span></li>
+<li><span class='inc'  onclick="showS([['Lev',13,1,46],['Lev',14,1,32],['Num',5,1,3]])">3. 痳瘋患者</span></li>
+<li><span class='inc'  onclick="showS([['Lev',14,33,53],['Lev',13,47,59]])">4. 麻瘋者物件</span></li>
+<li><span class='inc'  onclick="showS([['Lev',15,1,15]])">5. 漏症</span></li>
+<li><span class='inc'  onclick="showS([['Lev',15,16,33]])">6. 夢遺、月經</span></li>
+<li><span class='inc'  onclick="showS([['Lev',11,24,25],['Lev',11,31,40],['Lev',17,15,16],['Lev',5,2],['Num',19,11,12]])">7. 因屍體不潔</span></li>
 </ol></li>
-<li><span class='inc'  onclick="showS([['Lev',11,1,47],['Lev',20,25,26],['Deu',14,3,21]])">H.潔與不潔之物</span></li>
-<li><span class="exp">I.禁食之物</span><ol>
-<li>1.不潔之物 </li>
-<li><span class='inc'  onclick="showS([['Lev',3,17],['Lev',7,26,27],['Lev',17,10,14],['Lev',19,26]])">2.脂油和血</span></li>
-<li><span class='inc'  onclick="showS([['Lev',7,24],['Lev',17,15,16],['Deu',14,21]])">3.自死的野獸</span></li>
-<li><span class='inc'  onclick="showS([['Exo',22,31],['Lev',7,24]])">4.野獸撕碎之肉</span></li>
-<li><span class='inc'  onclick="showS([['Lev',19,23,25]])">5.幼樹之果</span></li>
+<li><span class='inc'  onclick="showS([['Lev',11,1,47],['Lev',20,25,26],['Deu',14,3,21]])">H. 潔與不潔之物</span></li>
+<li><span class="exp">I. 禁食之物</span><ol>
+<li>1. 不潔之物 </li>
+<li><span class='inc'  onclick="showS([['Lev',3,17],['Lev',7,26,27],['Lev',17,10,14],['Lev',19,26]])">2. 脂油和血</span></li>
+<li><span class='inc'  onclick="showS([['Lev',7,24],['Lev',17,15,16],['Deu',14,21]])">3. 自死的野獸</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,31],['Lev',7,24]])">4. 野獸撕碎之肉</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,23,25]])">5. 幼樹之果</span></li>
 </ol></li>
-<li><span class="exp">J.待先知</span><ol>
-<li><span class='inc'  onclick="showS([['Deu',18,15,19]])">1.待真先知</span></li>
-<li><span class='inc'  onclick="showS([['Deu',18,20,22]])">2.待假先知</span></li>
-<li><span class='inc'  onclick="showS([['Deu',13,1,18]])">3.待誘離道者</span></li>
+<li><span class="exp">J. 待先知</span><ol>
+<li><span class='inc'  onclick="showS([['Deu',18,15,19]])">1. 待真先知</span></li>
+<li><span class='inc'  onclick="showS([['Deu',18,20,22]])">2. 待假先知</span></li>
+<li><span class='inc'  onclick="showS([['Deu',13,1,18]])">3. 待誘離道者</span></li>
 </ol></li>
-<li><span class='inc'  onclick="showS([['Num',6,1,21]])">K.拿細耳人</span></li>
-<li><span class='inc'  onclick="showS([['Deu',23,21,23],['Lev',27,1,29],['Num',30,1,16]])">L.許願之例</span></li>
-<li><span class='inc'  onclick="showS([['Gen',17,9,14]])">M.割禮</span></li>
-</ol></ol> 
+<li><span class='inc'  onclick="showS([['Num',6,1,21]])">K. 拿細耳人</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,21,23],['Lev',27,1,29],['Num',30,1,16]])">L. 許願之例</span></li>
+<li><span class='inc'  onclick="showS([['Gen',17,9,14]])">M. 割禮</span></li>
+</ol>
+<li><span class="exp">二、社會律例</span><ol>
+<li><span class="exp">A. 家庭</span><ol>
+<li>1. 婚姻<ol>
+<li><span class='inc'  onclick="showS([['Gen',1,27,28],['Gen',2,18,24]])">a. 神設立</span></li>
+<li><span class='inc'  onclick="showS([['Deu',21,10,14]])">b. 可娶俘虜</span></li>
+<li><span class='inc'  onclick="showS([['1Co',7,2],['1Ti',3,2]])">c. 禁多妻</span></li>
+<li>d. 禁通婚者<ol>
+
+<li><span class='inc'  onclick="showS([['Lev',18,6,18],['Lev',20,11,21]])">- 親人</span></li>
+<li><span class='inc'  onclick="showS([['Deu',7,1,4],['Exo',34,15,16]])">- 異族</span></li></ol></li>
+<li><span class='inc'  onclick="showS([['Deu',25,5,10]])">e. 娶兄遺孀</span></li>
+<li>f. 離婚<ol>
+<li><span class='inc'  onclick="showS([['Deu',24,1,4],['1Co',7,10,15]])">- 離婚已嫁不可回娶</span></li>
+<li><span class='inc'  onclick="showS([['Mat',19,3,9],['Mak',10,2,12],['Luk',16,18]])">- 只可為淫亂</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Num',30,6,15]])">g. 丈夫之權</span></li>
+<li><span class='inc'  onclick="showS([['Num',5,11,31],['Deu',22,13,21]])">h. 關於不貞</span></li></ol></li>
+<li>2. 父母子女<ol>
+<li><span class='inc'  onclick="showS([['Num',30,3,5]])">a. 權在父親</span></li>
+<li><span class='inc'  onclick="showS([['Gen',24,4]])">b. 父親安排婚事</span></li>
+<li><span class='inc'  onclick="showS([['Eph',6,4],['Col',3,21],['Pro',22,6]])">c. 父母教養</span></li>
+<li><span class='inc'  onclick="showS([['Deu',21,18,21],['Pro',22,15]])">d. 父母管数</span></li>
+<li><span class='inc'  onclick="showS([['Exo',20,12],['Deu',5,16],['Eph',6,1,3],['Col',3,20]])">e. 子女孝敬</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,15,17],['Lev',20,9],['Deu',21,18,21]])">f. 忤逆之子的刑罰</span></li>
+</ol></li></ol></li>
+<li><span class="exp">B. 土地繼承、分配</span><ol>
+<li>1. 繼承<ol>
+<li><span class='inc'  onclick="showS([['Gen',21,10,13]])">a. 由子繼承</span></li>
+<li><span class='inc'  onclick="showS([['Deu',21,15,17]])">b. 長子雙份不可偏私</span></li>
+<li><span class='inc'  onclick="showS([['Num',27,8]])">c. 無子則由女繼承</span></li>
+<li><span class='inc'  onclick="showS([['Num',27,9,11],['Rut',4,1,12]])">d. 若無子女妻子不得繼承，產業歸至親之親屬</span></li>
+<li><span class='inc'  onclick="showS([['Num',36,1,12]])">e. 得產業之女要嫁與同支派者</span></li></ol></li>
+<li>2. 產業土地<ol>
+<li><span class='inc'  onclick="showS([['Num',26,52,56],['Jos',11,23],['Jos',14,5]])">a. 所分地</span></li>
+<li><span class='inc'  onclick="showS([['Num',36,6,9]])">b. 不可轉别支派</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,23,28]])">c. 售出者可贖回</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,15,17]])">d. 地價按禧年後之年數計</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,28]])">e. 禧年得回士地</span></li></ol></li>
+</ol></li>
+<li><span class="exp">C. 奴隸</span><ol>
+<li>1. 來源<ol>
+<li><span class='inc'  onclick="showS([['Num',31,9]])">a. 戰俘</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,46]])">b. 後代</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,2]])">c. 購貫</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,3]])">d. 償還</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,47]])">e. 自賣</span></li></ol></li>
+<li>2. 對待奴隸<ol>
+<li>a. 希伯來人<ol>
+<li><span class='inc'  onclick="showS([['Lev',25,47,55]])">- 可以贖回</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,2,6],['Deu',15,12,18]])">- 買來者七年得自由</span></li>
+<li><span class='inc'  onclick="showS([['Lev',25,39,41]])">- 自賣者到禧年得自由</span></li></ol></li>
+<li><span class='inc'  onclick="showS([['Lev',25,44,46]])">b. 外人</span></li>
+<li>c.  其他細則<ol>
+<li><span class='inc'  onclick="showS([['Exo',20,17]])">- 成爲主人的產業</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,20,21]])">- 主人可責打</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,15,16]])">- 禁交還逃奴</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,26,27]])">- 受虐得自由</span></li></ol></li>
+<li>d. 宗教特權<ol>
+<li><span class='inc'  onclick="showS([['Exo',20,10]])">- 可守安息日</span></li>
+<li><span class='inc'  onclick="showS([['Exo',12,44],['Deu',16,10,11]])">- 可守節期</span></li>
+<li><span class='inc'  onclick="showS([['Deu',12,17,18]])">- 可吃祭物</span></li></ol></li>
+<li><span class='inc'  onclick="showS([['Exo',21,7,11],['Deu',15,12,18]])">e. 待婢女</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,13],['Deu',24,14,15]])">f. 待雇工</span></li></ol></li>
+</ol></li>
+<li><span class="exp">D. 刑事</span><ol>
+<li>1. 有害公安之罪<ol>
+<li><span class='inc'  onclick="showS([['Exo',23,8],['Deu',16,19]])">a. 賄賂</span></li>
+<li><span class='inc'  onclick="showS([['Num',15,30],['Deu',17,12,13]])">b. 藐視律法</span></li>
+<li><span class='inc'  onclick="showS([['Exo',20,16],['Exo',23,1],['Lev',19,12],['Deu',19,16,20],['Deu',5,20]])">c. 起假誓</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,2,6],['Lev',19,15],['Deu',16,19,20]])">d. 有礙公正</span></li>
+</ol></li>
+<li>2. 敗性之罪<ol>
+<li><span class='inc'  onclick="showS([['Exo',20,14],['Lev',18,20],['Lev',20,10],['Deu',5,18],['Deu',22,22,24]])">a. 淫亂</span></li>
+<li><span class='inc'  onclick="showS([['Deu',22,25,29]])">b. 强姦</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,29],['Deu',23,17,18]])">c. 娼孌</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,16,17],['Lev',19,20,22],['Deu',22,28,29]])">d. 誘姦</span></li>
+<li><span class='inc'  onclick="showS([['Lev',18,6,18],['Lev',20,11,21],['Deu',22,30],['Deu',27,20,23]])">e. 亂倫</span></li>
+<li><span class='inc'  onclick="showS([['Lev',18,22],['Lev',20,13]])">f. 同性戀</span></li>
+<li><span class='inc'  onclick="showS([['Deu',27,21],['Lev',18,23],['Lev',20,15,16],['Exo',22,19]])">g. 與獸淫合</span></li>
+</ol></li>
+<li>3. 傷害人身之罪<ol>
+<li><span class='inc'  onclick="showS([['Exo',20,13],['Exo',21,12]])">a. 謀殺</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,13,14],['Num',35,11],['Num',35,22,28]])">b. 誤殺</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,18,19],['Lev',24,19,20]])">c. 襲擊</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,21,14]])">d. 欺壓</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,16],['Deu',24,7]])">e. 拐帶</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,1],['Lev',19,16]])">f. 謠言</span></li>
+</ol></li>
+<li>4. 有損財物之罪<ol>
+<li><span class='inc'  onclick="showS([['Exo',20,15],['Exo',22,1,11]])">a. 偷盗</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,6]])">b. 縱火</span></li>
+<li><span class='inc'  onclick="showS([['Deu',19,14],['Deu',27,17]])">c. 私移地界</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,36,38],['Deu',25,13,16]])">d. 詭詐交易</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,7,9]])">e. 失物</span></li>
+</ol></li>
+<li>5. 敵對神之罪<ol>
+<li><span class='inc'  onclick="showS([['Deu',6,16,19]])">a. 試探神</span></li>
+<li><span class='inc'  onclick="showS([['Exo',20,4,5],['Exo',22,20]])">b. 拜假神</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,18],['Lev',19,26,31],['Lev',20,6],['Deu',18,9,14]])">c. 交鬼巫術</span></li>
+<li><span class='inc'  onclick="showS([['Lev',24,16],['Deu',5,11]])">d. 藜瀆主名</span></li>
+<li><span class='inc'  onclick="showS([['Deu',13,1,18]])">e. 背道</span></li>
+<li><span class='inc'  onclick="showS([['Lev',18,21],['Deu',12,31]])">f. 獻子女</span></li>
+<li><span class='inc'  onclick="showS([['Deu',18,20,22]])">g. 假預言</span></li>
+<li><span class='inc'  onclick="showS([['Exo',35,2,3],['Deu',5,12,15],['Num',15,32,36]])">h. 犯安息日</span></li>
+</ol></li>
+</ol></li>
+<li><span class="exp">E. 審訊</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',18,13,26],['Deu',16,18]])">1. 立審判官</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,6,9],['Lev',19,15,35],['Deu',16,18,20]])">2. 番判官責任</span></li>
+<li>3. 案件呈遊<ol>
+<li><span class='inc'  onclick="showS([['Deu',25,1,2]])">a. 普通案件：審判官</span></li>
+<li><span class='inc'  onclick="showS([['Deu',17,8,11]])">b. 特殊案件：指定處</span></li>
+<li><span class='inc'  onclick="showS([['Num',5,11,31],['Deu',21,1,9]])">c. 極端案件：神自己</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Num',35,30],['Deu',17,6,7],['Deu',19,15]])">4. 見證人</span></li>
+<li>5. 法庭所在<ol>
+<li><span class='inc'  onclick="showS([['Deu',21,19]])">a. 城門</span></li>
+<li><span class='inc'  onclick="showS([['2Ki',7,7]])">b. 宮中廊下</span></li>
+</ol></li>
+<li>6. 審判<ol>
+<li><span class='inc'  onclick="showS([['Deu',1,17]])">a. 視之為神的決定</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,1]])">b. 要公正</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,2,3]])">c. 判决要執行</span></li>
+<li><span class='inc'  onclick="showS([['Exo',18,26],['Deu',17,8,11]])">d. 可上訴</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Deu',17,2,7],['Deu',21,1,9],['Deu',21,22,23]])">7. 程序</span></li>
+<li>8. 賠償<ol>
+<li><span class='inc'  onclick="showS([['Lev',24,19,20]])">a. 傷害别人</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,22,25]])">b. 傷及孕婦</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,1,4]])">c. 偷盜</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,6]])">d. 點火殃及別人財物</span></li>
+<li><span class='inc'  onclick="showS([['Lev',6,1,5]])">e. 失信行爲</span></li>
+<li><span class='inc'  onclick="showS([['Lev',24,18,21],['Exo',21,35,36]])">f. 弄死牲畜</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,33,34]])">g. 牲畜掉下坑中</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,32]])">h. 牲畜傷人</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,5]])">i. 牲畜傷物</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Num',5,5,8]])">9. 承受賠償者</span></li>
+<li>10.刑罰方法<ol>
+<li><span class='inc'  onclick="showS([['Lev',24,19,20]])">a. 與所受之損傷同類</span></li>
+<li><span class='inc'  onclick="showS([['Lev',20,14]])">b. 火燒</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,11,12]])">c. 斬手</span></li>
+<li><span class='inc'  onclick="showS([['Deu',21,22,23]])">d. 吊死</span></li>
+<li><span class='inc'  onclick="showS([['Lev',24,16]])">e. 石頭打死</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,2,3]])">f. 鞭打</span></li>
+<li><span class='inc'  onclick="showS([['Ezr',10,8]])">g. 抄家放逐</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,1]])">h. 賠物</span></li>
+<li><span class='inc'  onclick="showS([['Exo',21,19,32]])">i. 賠錢</span></li>
+<li><span class='inc'  onclick="showS([['Deu',24,16]])">* 原則</span></li>
+</ol></li>
+<li>11.保障法：逃城<ol>
+<li><span class='inc'  onclick="showS([['Exo',21,13,14],['Num',35,9,15],['Deu',19,1,10]])">a. 立逃城</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,12]])">b. 保護直至審訊</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,26,28]])">c. 逃城外不受保護</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,30,31],['Deu',19,11,13]])">d. 謀殺犯不受保護</span></li>
+<li><span class='inc'  onclick="showS([['Num',35,25,32],['Jos',20,1,6]])">e. 誤殺犯受保護至大祭司死</span></li>
+</ol></li>
+</ol></li>
+<li><span class="exp">F. 借貸貿易</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',22,25],['Deu',23,19,20],['Lev',25,35,37]])">1. 不可向同胞取利</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,20]])">2. 可向外邦人取利</span></li>
+<li><span class='inc'  onclick="showS([['Deu',15,1,18]])">3. 豁免年</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,13,16]])">4. 不可用不同的法碼</span></li>
+<li>5. 抵押物<ol>
+<li><span class='inc'  onclick="showS([['Deu',24,6]])">a. 禁取磨石</span></li>
+<li><span class='inc'  onclick="showS([['Deu',24,17]])">b. 禁取寡婦衣裳</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,26,27],['Deu',24,12,13]])">c. 禁留過夜</span></li>
+<li><span class='inc'  onclick="showS([['Deu',24,10,11]])">d. 自願交出</span></li>
+</ol></li>
+</ol></li>
+<li><span class="exp">G. 待人</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',22,22,23],['Deu',14,28,29],['Deu',24,19,21],['Deu',26,12,15]])">1. 孤兒寡婦</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,13],['Deu',23,24,26]])">2. 鄰舍</span></li>
+<li><span class='inc'  onclick="showS([['Exo',22,25],['Lev',19,9,10],['Lev',23,22],['Deu',15,7,11]])">3. 窮人</span></li>
+<li><span class='inc'  onclick="showS([['Deu',14,28,29],['Deu',26,12,13]])">4. 利未人</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,14],['Deu',27,18]])">5. 寄居者</span></li>
+<li>6. 殘廢者<ol>
+<li><span class='inc'  onclick="showS([['Lev',19,14],['Deu',27,18]])">a. 瞎眼</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,14]])">b. 耳聾</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Exo',23,4,5],['Deu',22,1,3]])">7. 失物主人</span></li>
+</ol></li>
+<li><span class="exp">H. 牲畜</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',23,12],['Deu',25,4]])">1. 家畜</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,11]])">2. 野獸</span></li>
+<li><span class='inc'  onclick="showS([['Exo',34,26],['Lev',22,28],['Deu',22,6,7]])">3. 母子</span></li>
+<li><span class='inc'  onclick="showS([['Deu',22,4],['Exo',23,4,5]])">4. 鄰人之牲畜</span></li>
+</ol></li>
+<li><span class="exp">I. 起居</span><ol>
+<li><span class='inc'  onclick="showS([['Lev',19,27,28],['Deu',14,1,2]])">1. 禁剃頭紋身</span></li>
+<li><span class='inc'  onclick="showS([['Deu',22,8]])">2. 房屋加欄杆</span></li>
+<li><span class='inc'  onclick="showS([['Deu',22,5]])">3. 衣飾分男女</span></li>
+<li><span class='inc'  onclick="showS([['Lev',19,19],['Deu',22,9,11]])">4. 不可雑交配</span></li>
+<li><span class='inc'  onclick="showS([['Deu',22,12]])">5. 外衣加縫子</span></li>
+</ol></li>
+</ol></li>
+<li><span class="exp">三、政治法則</span><ol>
+<li><span class="exp">A. 政體</span><ol>
+<li><span class='inc'  onclick="showS([['Job',1,5]])">1. 家長制</span></li>
+<li><span class='inc'  onclick="showS([['Exo',19,3,8]])">2. 神權制</span></li>
+<li><span class='inc'  onclick="showS([['Jug',2,13,18]])">3. 士師制</span></li>
+<li><span class='inc'  onclick="showS([['1Sa',10,24]])">4. 君王制</span></li>
+<li><span class='inc'  onclick="showS([['Deu',17,14,20]])">5. 君王資格</span></li>
+</ol></li>
+<li><span class="exp">B. 軍事</span><ol>
+<li><span class='inc'  onclick="showS([['Num',1,2,3],['Num',26,2]])">1. 士兵年歲</span></li>
+<li>2. 免徵者<ol>
+<li><span class='inc'  onclick="showS([['Num',1,49]])">a. 利未人</span></li>
+<li><span class='inc'  onclick="showS([['Deu',20,5,7]])">b. 某些人等</span></li>
+<li><span class='inc'  onclick="showS([['Deu',20,8]])">c. 膽怯者</span></li>
+<li><span class='inc'  onclick="showS([['Deu',24,5]])">d. 新婚者</span></li>
+</ol></li>
+<li><span class='inc'  onclick="showS([['Deu',23,9,14],['Num',31,19,20]])">3. 清潔戰營</span></li>
+<li>4. 戰爭條例<ol>
+<li><span class='inc'  onclick="showS([['Num',10,9]])">a. 吹銀號</span></li>
+<li><span class='inc'  onclick="showS([['Deu',20,10,11]])">b. 要先警告</span></li>
+<li><span class='inc'  onclick="showS([['Deu',20,19,20]])">c. 禁毀果樹</span></li>
+<li><span class='inc'  onclick="showS([['Num',31,17,18],['Deu',20,13,18],['Deu',25,17,19],['Jos',11,14]])">d. 對待戰俘</span></li>
+<li><span class='inc'  onclick="showS([['Num',31,21,30],['Deu',7,25,26],['Deu',20,14]])">e. 戰利品</span></li>
+</ol></li>
+
+</ol></li>
+<li><span class="exp">C. 公民權</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',19,5,8],['Deu',6,1,9]])">1. 以色列人有</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,3]])">2. 亞捫人/摩押人永遠沒有</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,8]])">3. 以東人/埃及人第三代才有</span></li>
+<li><span class='inc'  onclick="showS([['Deu',23,1,2]])">4. 特別人沒有</span></li>
+
+</ol></li>
+
+<li><span class="exp">D. 待外族</span><ol>
+<li><span class='inc'  onclick="showS([['Exo',34,11],['Deu',7,1]])">1. 趕出迦南人</span></li>
+<li><span class='inc'  onclick="showS([['Exo',34,12],['Deu',7,2]])">2. 禁與他們立約</span></li>
+<li><span class='inc'  onclick="showS([['Exo',23,24],['Exo',34,13,17],['Deu',7,5,25],['Deu',12,1,4],['Deu',12,29,31]])">3. 禁效法他們</span></li>
+<li><span class='inc'  onclick="showS([['Deu',7,3,4]])">4. 禁通婚</span></li>
+<li><span class='inc'  onclick="showS([['Deu',20,17,18]])">5. 滅迦南地人</span></li>
+<li><span class='inc'  onclick="showS([['Deu',25,17,18]])">6. 滅亞瑪力人</span></li>
+
+</ol></li>
+
+</ol></li>
+
+
+</ol> 
 
 
 </div>
