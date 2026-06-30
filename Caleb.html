@@ -1,0 +1,309 @@
+<html>
+
+<head>
+<title>迦勒班 讀經</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+@font-face {
+  font-family: 'Georgia';
+  src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
+  unicode-range: U+0030-0039; /* Targets Unicode characters 0 through 9 */
+}
+
+body {
+  /* List the numbers-only font first, followed by your main alphabet font */
+  font-family: 'Georgia', 'Lato', sans-serif;
+}
+
+    
+a{font-family: "Klee One", cursive;
+  font-weight: 100; color:#999;
+  font-style: normal;
+}
+#div_list{width:90%;margin-left:30px;}
+#span_cuv {border:none}
+b{font-family: "Klee One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* -------------- */
+
+.wrap {z-index:99;
+    margin:20px;
+}
+
+.button {
+  width: 60px;
+  height: 50px;
+    margin-left:10px;margin-right:10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #FA9082;
+  box-shadow: 0px 0px 20px rgba(255,140,105, 0.6);
+  color: #fff;
+}
+
+#div_list {position:static}
+#todayIs {font-size:1.5em;font-family:cursive;color:#FA9082;
+}
+h3{  color: #FA9082}
+#todayIs:hover { background-color: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(255,140,105, 0.6);
+  color: #FA9082}
+  
+::selection {
+  background:rgba(255,140,125, 0.4);
+color:#333333;
+}
+
+ol.qt1{list-style-type:decimal}
+ol.qt2{list-style-type:lower-alpha}
+
+ol { padding-inline-start: 1em;margin-left:7px}
+ol.qt1 li,ol.qt2 li{display:list-item;line-height:2em}
+
+ol > li:before{content:none}
+
+.flex-container {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+  gap: 15px;              /* Safely adds space between them */
+}
+
+#comments{margin-left:30px}
+</style>
+    </head>
+    <body>
+
+<div class="flex-container">
+<div class="wrap">
+  <button class="button b2" onclick='showB()'>PREV</button>
+    <button  id="todayIs" class="button" ></button>
+  <button class="button b2" onclick='showF()'>NEXT</button>
+</div>
+
+
+<div id="div_list">
+</div>
+
+
+    <div id='comments'>    
+    <b>問題:</b>
+<ol class='qt1'>
+<li>請為這一段經文加一個七字的標題</li>
+<li>從這段看到
+<ol class='qt2' ><li>神的特性：______________</li>
+<li>人的特性：______________</li>
+<li>神與人的關係：_____________</li>
+</ol></li></ol>
+        
+
+        </div>
+        
+        
+</div>
+<script src='json/niv.js'></script>
+<script src='json/tcv.js'></script>
+<script src='json/cuv.js'></script>
+<script type='text/javascript'>
+
+
+
+function showDays(firstDate){
+var now = new Date();
+var start = new Date(now.getFullYear(), 0, 0);
+var diff = now - start;
+var oneDay = 1000 * 60 * 60 * 24;
+var dayOfYear = Math.floor(diff / oneDay);
+
+return (dayOfYear );
+
+}
+
+var dt = new Date()
+var showDt=new Date()
+
+var timenow=dt.getTime()
+var todayIndex
+todayIndex=showDays(dt) //PLAN START Jan 1
+
+/*
+week 1 <= 193
+week 2 194-200
+week 3 201-207
+week 4 >=208
+*/
+var anyIndex
+
+if (todayIndex <= 193) { anyIndex=1}
+if (todayIndex > 193 && todayIndex <= 200) { anyIndex=2}
+if (todayIndex > 200 && todayIndex <= 207) { anyIndex=3}
+if (todayIndex >= 208) { anyIndex=4}
+
+   function showB() {
+   if (anyIndex>=1){
+   anyIndex--;
+   scripture365(anyIndex);}
+}
+   function showF() {
+   if (anyIndex<4){
+   	anyIndex++;
+   	scripture365(anyIndex);
+   	}
+   	}
+   var out="";
+   scripture365(anyIndex)   
+//==============================================
+//==============================================
+//==============================================
+//==============================================
+   function showS(ref)
+   {
+   
+   // here is for if there is more than one passage
+  out="<h3>"+anyIndex+" : "
+     
+   for (i = 0; i < ref.length; i++)
+   {
+        if (i>0) {out+=" / "}
+       var bk_nm = ref[i][0];
+       out += " " + CUV[bk_nm]['bk_c'] +""//book name
+       
+//// =================== 'Gen',1,,,3  ===================
+       if (ref[i].length == 5) {  
+  out = out + "  " + ref[i][1] + "-" + ref[i][4] + " ";
+       }
+       
+// =================== 'Gen',1,1,3  a range of verses in one chapter ===================
+       if (ref[i].length == 4) { 
+  out = out + " " + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + " ";
+       } // 4 param
+
+// =================== 'Gen',1,1  Just one verse  ===================
+       if (ref[i].length == 3)
+       {
+  out = out + " " + ref[i][1] + ":" + ref[i][2] + " ";
+       } //3 param
+// =================== 'Gen',1  One chapter  ===================
+
+       if (ref[i].length == 2)
+       {
+  out = out + " " + ref[i][1] + " ";
+       } // len=2
+   } // for each ref
+
+out = out+ "</h3>"
+
+       
+   for (i = 0; i < ref.length; i++)
+   {
+     
+//// =================== 'Gen',1,,,3  ===================
+  
+        if (ref[i].length == 5) {  
+
+  for (j = ref[i][1]; j <= ref[i][4]; j++)
+  {
+      //*each chapter J
+         out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+j+" </b><br/><br/>"
+      for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+      {
+ out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span><br/>";
+      } //
+      out += "<br/>"
+  }
+
+       } //if 5 param   
+// =================== 'Gen',1,1,3  a range of verses in one chapter ===================
+       if (ref[i].length == 4) { 
+  out += "<br/><b>" + TCV[bk_nm]['bk_c'] +" "+ ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + " 《現代中文譯本2019》 </b><br/><br/>";
+  for (j = ref[i][2]; j <= ref[i][3]; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + TCV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+
+  out += "<br/><b>" + NIV[bk_nm]['bk_e'] +" "+ ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + " - NIV</b><br/><br/>";
+  for (j = ref[i][2]; j <= ref[i][3]; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" +NIV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+
+
+
+
+       } // 4 param
+
+// =================== 'Gen',1,1  Just one verse  ===================
+       if (ref[i].length == 3)
+       {
+  out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1] + ":" + ref[i][2] + "</b><br/><br/>";
+  out += "<span class='v_sup'>" + ref[i][2] + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
+
+       } //3 param
+// =================== 'Gen',1  One chapter  ===================
+
+       if (ref[i].length == 2)
+       {
+       
+  
+  
+            out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1]+"  《現代中文譯本2019》</b><br/><br/>"
+  for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + TCV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+  
+       out += "<br/><b>" + CUV[bk_nm]['bk_e'] +" "+ref[i][1]+"  - NIV </b><br/><br/>"
+
+ 
+  for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + NIV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+  
+  
+       }
+   }
+
+$('#div_list').html(out);
+   }
+
+function scripture365(IndexX)
+    {
+     $('#todayIs').html(IndexX);   
+switch(IndexX){
+case 0: showS([['Gen',1]]); break;
+case 1: showS([['Gen',2,1,7]]); break;
+case 2: showS([['Gen',2,8,14]]); break;
+case 3: showS([['Gen',2,15,25]]); break;
+case 4: showS([['Gen',3,1,21]]); break;
+}//switch
+    }//scripture365
+        
+        </script>
+        
+    </body></html>
