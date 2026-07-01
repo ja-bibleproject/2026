@@ -21,8 +21,10 @@
 body {
   /* List the numbers-only font first, followed by your main alphabet font */
   font-family: 'Georgia', 'Lato', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
 }
-
+h3.klee{font-weight:600}
+    
     
 a{font-family: "Klee One", cursive;
   font-weight: 100; color:#999;
@@ -42,9 +44,9 @@ b{font-family: "Klee One", cursive;
 }
 
 .button {
-  width: 150px;
-  height: 50px;
-    margin-left:20px;margin-right:20px;
+  width: 90px;
+  height: 70px;
+    margin-left:10px;margin-right:10px;
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
@@ -59,7 +61,7 @@ b{font-family: "Klee One", cursive;
   cursor: pointer;
   outline: none;
   }
-
+.b2{width:70px}
 .button:hover {
   background-color: #FA9082;
   box-shadow: 0px 0px 20px rgba(255,140,105, 0.6);
@@ -82,9 +84,9 @@ color:#333333;
     </head>
     <body>
 <div class="wrap">
-  <button class="button" onclick='showB()'>PREV</button>
+  <button class="button b2" onclick='showB()'>PREV</button>
     <button  id="todayIs" class="button" ></button>
-  <button class="button" onclick='showF()'>NEXT</button>
+  <button class="button b2" onclick='showF()'>NEXT</button>
 </div>
 <div id="dateDisplay"></div>
 <div id="div_list">
@@ -141,7 +143,7 @@ anyIndex=todayIndex
    {
    
    // here is for if there is more than one passage
-  out="<h3>"+anyIndex+" : "
+  out="<h3 class='klee'>"+anyIndex+" : "
      
    for (i = 0; i < ref.length; i++)
    {
