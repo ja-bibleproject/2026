@@ -8,10 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-
 @font-face {
   font-family: 'Georgia';
   src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
@@ -25,7 +24,8 @@ body {
   background-image:none;
   background-color:lightblue;
 }
-h3.klee{font-weight:600}
+h3.klee{font-weight:300;
+font-family:'Lato', sans-serif;}
     
     
 a{font-family: "Klee One", cursive;
@@ -74,7 +74,7 @@ display: flex;justify-content: center; /* Centers content horizontally inside th
 background:url(branch_brackets.png)  center / contain no-repeat;
 height:150px;
 }
-em{ font-size:1.5em}
+.bg{ font-size:1.5em;}
 /* ------STRUCTURE END ---- */
 .button {
   width: 70px;
@@ -131,6 +131,14 @@ color:#333333;
     // Ensure DOM is fully loaded using jQuery
     var st_mmdd=""
    var yyyy=""
+   var s_mm = 0
+   var s_dd = 0
+   
+const monthNames = ["Jan", "Feb", "March", "April", "May", "June", 
+                          "July", "Aug", "Sept", "Oct", "Nov", "Dec"];       
+       
+       
+       
 $(document).ready(function() {
 	// 1. Get the query string from the current URL
 	const queryString = window.location.search;
@@ -139,7 +147,12 @@ $(document).ready(function() {
 	// 3. Extract individual parameters by their keys
 	const stDate = urlParams.get('date');
 	// 4. Update the HTML text elements using jQuery
-            
+       
+       
+
+ s_mm = parseInt(stDate.substring(0,2));
+ s_dd= parseInt(stDate.substring(2,4));
+     
 	const today = new Date();
 	const tmm = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
 	const tdd = String(today.getDate()).padStart(2, '0');
@@ -216,6 +229,7 @@ function scripture365(IndexX)
     {
     
      var xthDay="Bible Plan<br/>Day "+IndexX+""
+    xthDay=xthDay+"<br/>Since " + monthNames[s_mm-1] +" " + s_dd     
      $('#todayIs').html(xthDay);
      
 switch(IndexX){

@@ -42,8 +42,19 @@ height:150px;width:450px;
   letter-spacing: 2.5px;
   font-weight: 500;line-height:1.5em}
 
-
+#bookmark{
+  display:flex; /* Forces vertical stacking */
+font-size:1.8em;
+  font-family: "Explora", serif;
+  font-weight:600;
+  font-style: normal;
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;color:#FFFFFF;
+background:url(bookmark.png)  center / contain no-repeat;
+height:155px;width:100%;}
 /* ----FORM ---------- */
+#dateDiv{ margin-top:20px;padding:0;margin-bottom:0}
+
 #dateForm{
 font-weight:200;
 }
@@ -65,7 +76,7 @@ h6{color: #FA9082}
 
 /* ----FORM ---------- */
 
-#outputA
+#outputA,label
 {
 line-height:1.8em;
 font-family: 'Roboto', sans-serif;
@@ -93,7 +104,7 @@ a.dp{font-size:1.5em;
 .vertical-container {
   display: flex;
   flex-direction: column; /* Stacks items vertically */
-  gap: 20px;             /* Optional: Adds space between the divs */
+  gap: 0px;             /* Optional: Adds space between the divs */
 }
 .hor-container {
   display: flex;
@@ -113,17 +124,16 @@ flex: 1;        /* Forces both divs to take up equal width */
  font-family: 'Roboto', sans-serif;
 font-size:1.0em;
  text-shadow: 
-    -1px -1px 3px rgba(250,250,120, 0.8),    /* Dark inner shadow top-left */
-     1px  1px 1px rgba(120, 125, 125, 0.2);
-
+    -1px -1px 3px rgba(50,50,20, 0.4),    /* Dark inner shadow top-left */
+     1px  1px 1px rgba(180, 105, 35, 0.2);
   width: 140px;
   height: 140px;
   position: relative;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #fff87c, #dca800);
   box-shadow: 
-    inset 0 4px 6px rgba(255, 255, 200, 0.8), 
-    inset 0 -6px 10px rgba(165, 116, 0, 0.7), 
+    inset 0 4px 6px rgba(200, 130, 60, 0.3), 
+    inset 0 -6px 10px rgba(165, 116, 0, 0.5), 
     0 4px 8px rgba(0, 0, 0, 0.2);
   border: 8px solid #f0D235;
 }
@@ -140,13 +150,14 @@ font-size:1.0em;
 <div id="title">  
 	Bible plan <Br/>Generator
 </div>
-<div >
+<div id='dateDiv' >
 	<form id="dateForm">
   	 	<label for="event-date">開始日期</label>
         <input type="date" id="myCalendar" name="selectedDate" required/>
 	</form>
 </div>
  <div id='outputA'></div>
+ <div id='bookmark'>Bookmark the pages below</div>
 <div class="hor-container">
   <div class="gold-coin" id='linkCalendar'></div>
   <div class="gold-coin" id='linkDaily'></div>
@@ -168,7 +179,7 @@ const todayString = `${year}-${month}-${day}`;
   function generateLinks()
   {
 var out= "套用 <a class='dp' href='https://davidpawson.storage.sardius.media/file/davidpawson/Pawson/Notes/2016-05%20Reading%20Through%20the%20Bible%20in%20One%20Year.pdf'>David Pawson's Read Through the Bible in One Year</a>"
-out=out+"<br/>按你的 《 開始日期 》 製成<br/>Bookmark these pages:"
+out=out+"<br/>按你的 《 開始日期 》 製成"
 
 var linkc=
 "<a href='1YrCalendar.html?date="+mmddyyyy+"'>讀經計劃<br/>月曆<br/><span class='sml'>"+year
@@ -179,7 +190,7 @@ if (mmdd!="0101") {
 }
 linkc=linkc+"</span></a>"
 $('#linkCalendar').html(linkc)
-$('#linkDaily').html("<a href='1YrPlan.html?date="+mmdd+"'>每日經文</a>");
+$('#linkDaily').html("<a href='1YrPlan.html?date="+mmdd+"'>每日經文<br/>(和合本)</a>");
 $('#outputA').html(out);
   
   }
