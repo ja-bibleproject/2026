@@ -1,0 +1,221 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
+    <title>1 Year Bible Plan Generator</title>
+    <style>
+
+@font-face {
+  font-family: 'Georgia';
+  src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
+  unicode-range: U+0030-0039; /* Targets Unicode characters 0 through 9 */
+font-weight:200;
+}
+body {
+  /* List the numbers-only font first, followed by your main alphabet font */
+  font-family: 'Georgia', 'Lato', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  margin:20px;
+}
+
+div{
+ justify-content: center; 
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+  }
+  
+    #title{ 
+  display:flex; /* Forces vertical stacking */
+  gap: 5px;              /* Adds spacing between the divs */
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;color:#00AACC;
+background:url(branch_brackets.png)  center / contain no-repeat;
+height:150px;width:450px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;line-height:1.5em}
+
+
+/* ----FORM ---------- */
+#dateForm{
+font-weight:200;
+}
+
+div.formTitle {font-family: "Klee One", cursive;
+  font-weight: 400;
+  font-style: normal; 
+  color:#000000;font-size:1.8em}
+ 
+.form-group { margin:0px; padding:0}
+input[type="date"] { padding: 8px; font-size: 16px; letter-spacing: 2px; 
+font-family:'Lato';border:1px solid #00AADD;
+  color:#0099CC;
+  }
+   
+h6{color: #FA9082}
+
+
+
+/* ----FORM ---------- */
+
+#outputA
+{
+line-height:1.8em;
+font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 200;
+  font-style: normal;
+
+}
+a{
+  font-weight:400; color:#000000;
+  font-style: normal;
+  text-decoration:none;
+  color:#000000;
+  text-shadow:#FFFFFF;
+}
+
+a.dp{font-size:1.5em;
+  font-family: "Explora", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* --- STRUCTURE ----------- */
+.vertical-container {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  gap: 20px;             /* Optional: Adds space between the divs */
+}
+.hor-container {
+  display: flex;
+  flex-direction: row; /* Stacks items vertically */
+  align-items: center; /* Aligns items vertically */
+  justify-content:  center; /* Centers the whole row */
+  gap:35px; /* Adds space between items */
+}
+
+.gold-coin a{color:#222222;font-weight:200;}
+.gold-coin {
+  display: flex;
+ justify-content: center; 
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+flex: 1;        /* Forces both divs to take up equal width */
+ font-family: 'Roboto', sans-serif;
+font-size:1.0em;
+ text-shadow: 
+    -1px -1px 3px rgba(250,250,120, 0.8),    /* Dark inner shadow top-left */
+     1px  1px 1px rgba(120, 125, 125, 0.2);
+
+  width: 140px;
+  height: 140px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff87c, #dca800);
+  box-shadow: 
+    inset 0 4px 6px rgba(255, 255, 200, 0.8), 
+    inset 0 -6px 10px rgba(165, 116, 0, 0.7), 
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 8px solid #f0D235;
+}
+
+.sml{font-size:16px;}
+        </style>
+</head>
+<body>
+
+
+
+<div class="vertical-container">
+
+<div id="title">  
+	Bible plan <Br/>Generator
+</div>
+<div >
+	<form id="dateForm">
+  	 	<label for="event-date">開始日期</label>
+        <input type="date" id="myCalendar" name="selectedDate" required/>
+	</form>
+</div>
+ <div id='outputA'></div>
+<div class="hor-container">
+  <div class="gold-coin" id='linkCalendar'></div>
+  <div class="gold-coin" id='linkDaily'></div>
+</div>
+</div>
+
+    <!-- JavaScript block linked below -->
+<script>
+const dateInput = document.getElementById('myCalendar');
+var startDayString= ""
+// 1. Get today's local date in YYYY-MM-DD format
+const today = new Date();
+var year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+const day = String(today.getDate()).padStart(2, '0');
+
+const todayString = `${year}-${month}-${day}`;
+
+  function generateLinks()
+  {
+var out= "套用 <a class='dp' href='https://davidpawson.storage.sardius.media/file/davidpawson/Pawson/Notes/2016-05%20Reading%20Through%20the%20Bible%20in%20One%20Year.pdf'>David Pawson's Read Through the Bible in One Year</a>"
+out=out+"<br/>按你的 《 開始日期 》 製成<br/>Bookmark these pages:"
+
+var linkc=
+"<a href='1YrCalendar.html?date="+mmddyyyy+"'>讀經計劃<br/>月曆<br/><span class='sml'>"+year
+if (mmdd!="0101") {
+	var year2=parseInt(year)+1
+	linkc=linkc + "/" + year2
+	
+}
+linkc=linkc+"</span></a>"
+$('#linkCalendar').html(linkc)
+$('#linkDaily').html("<a href='1YrPlan.html?date="+mmdd+"'>每日經文</a>");
+$('#outputA').html(out);
+  
+  }
+  
+
+// 2. Set today's date as the initial default value
+dateInput.value = todayString;
+var mmdd = todayString.slice(5).replace('-', ''); 
+var mmddyyyy=mmdd+year;
+
+generateLinks();
+
+
+// 3. Update the answer if the user actually clicks and changes the calendar
+dateInput.addEventListener('change', (event) => {
+  if (event.target.value) {
+    mmdd = event.target.value.slice(5).replace('-', ''); 
+    year=event.target.value.slice(0, 4);
+   	mmddyyyy=mmdd+year;
+
+  } else {
+    // Optional fallback: If they clear the input, reset to today
+    dateInput.value = todayString;
+    mmdd = todayString.slice(5).replace('-', ''); 
+  	mmddyyyy=mmdd+year;
+
+  }
+  
+  generateLinks();
+  
+  
+  
+
+});
+
+
+    </script>
+</body>
+</html>
