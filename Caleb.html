@@ -78,16 +78,16 @@ height:150px;
 .bg{ font-size:1.5em;}
 /* ------STRUCTURE END ---- */
 .button {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
- background-color: rgb(255 255 255 / 50%); 
+  color: #699;
+ background-color: rgb(255 255 255 / 40%); 
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -171,17 +171,17 @@ var todayIndex
 todayIndex=showDays(dt) //PLAN START Jan 1
 
 /*
-week 1 <= 193
-week 2 194-200
-week 3 201-207
-week 4 >=208
+week 1 <= 194
+week 2 195-201
+week 3 202-208
+week 4 >=209
 */
 var anyIndex
 
-if (todayIndex <= 193) { anyIndex=1}
-if (todayIndex > 193 && todayIndex <= 200) { anyIndex=2}
-if (todayIndex > 200 && todayIndex <= 207) { anyIndex=3}
-if (todayIndex >= 208) { anyIndex=4}
+if (todayIndex <= 194) { anyIndex=1}
+if (todayIndex > 194 && todayIndex <= 201) { anyIndex=2}
+if (todayIndex > 201 && todayIndex <= 208) { anyIndex=3}
+if (todayIndex >= 209) { anyIndex=4}
 
    function showB() {
    if (anyIndex>=1){
@@ -315,7 +315,7 @@ $('#div_list').html(out);
 
 function scripture365(IndexX)
     {
-     $('#todayIs').html("Week "+IndexX);   
+     $('#todayIs').html("Bible<br/>challenge<br/>Week "+IndexX);   
 switch(IndexX){
 case 0: showS([['Gen',1]]); break;
 case 1: showS([['Gen',2,1,7]]); break;
