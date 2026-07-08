@@ -8,10 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-
 @font-face {
   font-family: 'Georgia';
   src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
@@ -21,37 +20,74 @@
 body {
   /* List the numbers-only font first, followed by your main alphabet font */
   font-family: 'Georgia', 'Lato', sans-serif;
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(16px, 2vw, 20px);
+  background-image:none;
+  background-color:lightblue;
 }
-h3.klee{font-weight:600}
+h3.klee{font-weight:300;
+font-family:'Lato', sans-serif;}
+    
     
 a{font-family: "Klee One", cursive;
   font-weight: 100; color:#999;
   font-style: normal;
 }
-#div_list{width:90%;margin-left:10px;width:90%}
+#div_list{width:90%;margin-left:0px;}
 #span_cuv {border:none}
+
 b{font-family: "Klee One", cursive;
   font-weight: 400;
   font-style: normal;
 }
-/* -------------- */
-
-.wrap {z-index:99;
-    margin:20px;
+/* --- STRUCTURE ----------- */
+.vertical-container {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  gap: 10px;             /* Optional: Adds space between the divs */
 }
-
+.hor-container {
+  display: flex;
+  flex-direction: row; /* Stacks items vertically */
+  align-items: center; /* Aligns items vertically */
+  justify-content: space-evenly; /* Centers the whole row */
+  gap: 5px; /* Adds space between items */
+}
+.box1,.box2{
+ justify-content: center; /* Centers content horizontally inside the item */
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+  }
+.box1 {
+flex: 1;      
+}
+.box2 {
+  flex: 2;       
+}
+#todayIs {
+display: flex;justify-content: center; /* Centers content horizontally inside the item */
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;color:#00AACC;
+background:url(BiblePlan/branch_brackets.png)  center / contain no-repeat;
+height:150px;
+}
+.bg{ font-size:1.5em;}
+/* ------STRUCTURE END ---- */
 .button {
   width: 70px;
   height: 70px;
-    margin-left:10px;margin-right:10px;
+  
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color: #fff;
+ background-color: rgb(255 255 255 / 50%); 
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -61,53 +97,37 @@ b{font-family: "Klee One", cursive;
   }
 
 .button:hover {
-  background-color: #FA9082;
-  box-shadow: 0px 0px 20px rgba(255,140,105, 0.6);
+  background-color: #00BBDD;
   color: #fff;
 }
 
-#div_list {position:static}
-#todayIs {font-size:1.5em;font-family:cursive;color:#FA9082;font-weight: 800;
+#div_list {
+background-color:white;
+position:static;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-h3{  color: #FA9082}
-#todayIs:hover { background-color: #FFFFFF;
-  box-shadow: 0px 0px 20px rgba(255,140,105, 0.6);
-  color: #FA9082}
+h3{  color: #00AACC}
   
 ::selection {
-  background:rgba(255,140,125, 0.4);
+  background:rgba(255,255,255, 0.4);
 color:#333333;
 }
 
-ol.qt1{list-style-type:decimal}
-ol.qt2{list-style-type:lower-alpha}
-
-ol { padding-inline-start: 1em;margin-left:7px}
-ol.qt1 li,ol.qt2 li{display:list-item;line-height:2em}
-
-ol > li:before{content:none}
-
-.flex-container {
-  display: flex;
-  flex-direction: column; /* Stacks children vertically */
-  gap: 15px;              /* Safely adds space between them */
-}
-
-#comments{margin-left:30px}
+#comments{margin:30px;}
 </style>
     </head>
     <body>
 
-<div class="flex-container">
-<div class="wrap">
-  <button class="button b2" onclick='showB()'>PREV</button>
-    <button  id="todayIs" class="button" ></button>
-  <button class="button b2" onclick='showF()'>NEXT</button>
+<div class="vertical-container">
+<div class="hor-container">
+  <div class="box1"><button class="button b2" onclick='showB()'>PREV</button></div>
+  <div class="box2"><div id="todayIs"  ></div></div>
+  <div class="box1"><button class="button b2" onclick='showF()'>NEXT</button></div>
 </div>
 
 
-<div id="div_list">
-</div>
+<div id="dateDisplay"></div>
+<div id="div_list"></div>
 
 
     <div id='comments'>    
@@ -120,7 +140,7 @@ ol > li:before{content:none}
 <li>神與人的關係：_____________</li>
 </ol></li></ol>
         
-
+<br/><br/>
         </div>
         
         
@@ -295,7 +315,7 @@ $('#div_list').html(out);
 
 function scripture365(IndexX)
     {
-     $('#todayIs').html(IndexX);   
+     $('#todayIs').html("Week "+IndexX);   
 switch(IndexX){
 case 0: showS([['Gen',1]]); break;
 case 1: showS([['Gen',2,1,7]]); break;
