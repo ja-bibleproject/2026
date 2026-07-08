@@ -14,46 +14,51 @@
 
 body {
   margin:00px;
-  background-image: none;           /* hidden by default */
-  background-color: white;        /* light fallback color for mobile */
-  font-family: "LXGW WenKai Mono TC", monospace;
+   font-family: "LXGW WenKai Mono TC", monospace;
   font-weight: 200;
   line-height: 2;
   color: #000000;
 }
-h1,h2{margin:0;padding:0; font-style: normal;
+#title{background:url(BiblePlan/branch_brackets_cal.png)  center / contain no-repeat;background-color:#8DC8D6;
+height:180px;width:100%;
 
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Aligns items vertically */
+  justify-content:  center; /* Centers the whole row */
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; 
+}
+h1,h2{margin:-10;font-style: normal;
   display: flex;
   flex-direction: row; /* Stacks items vertically */
   align-items: center; /* Aligns items vertically */
   justify-content:  center; /* Centers the whole row */
- font-weight: 400;font-size:2em;padding:0px;color:#BBBBBB;
-text-shadow:
-3px 3px 2px rgba(120, 120, 120, 0.15)
+ font-weight: 400;font-size:2em;padding:0px;color:#0099CC;
+	text-shadow:
+3px 3px 2px rgba(60,200,255, 0.35)
  }
-h2{   white-space: nowrap;
+h2{white-space: nowrap;
   font-family: "Klee One", cursive;
 }
-h1 {
-  font-family: "Cedarville Cursive", cursive;
-
+h1{font-family: "Cedarville Cursive", cursive;
 }
 
 a{ font-size:1.7em;display:block;text-decoration:none;
   white-space: nowrap;
-  font-weight:200}
-  .macbookicon{width:200px}
+  font-weight:200;
+  border-bottom:1px dashed #99CCFF}
+.macbookicon{width:250px}
  @media screen and (max-width: 767px) {
   img.macbookicon {
-    width:120px;
+    width:250px;
   }
 } 
-  span.sml{ font-family: "Roboto", cursive;font-size:0.7em;
+span.sml{ font-family: "Roboto", cursive;font-size:0.7em;
   text-transform: uppercase;
   letter-spacing: 2.5px;font-weight:400}
   
 /* STRUCTURE  */
-  .vertical-container {
+.vertical-container {
   display: flex;
   flex-direction: column; /* Stacks items vertically */
   gap: 0px;             /* Optional: Adds space between the divs */
@@ -65,22 +70,23 @@ a{ font-size:1.7em;display:block;text-decoration:none;
   justify-content:  center; /* Centers the whole row */
   gap:0px; /* Adds space between items */
 }
-  .contents a{ color:#FFFFFF;
-  text-shadow:
-0 -3px 2px rgba(255, 255, 255, 0.15),
-0 3px 2px rgba(0, 0, 0, 0.55);
+  .contents{padding:40px ; background-color:white;
+  width:100%;margin:0; }
+  
+  
+  .contents a{
+  font-family: 'Lato', sans-serif;font-weight:200;
+   color:#00AACC;
   }
-  .contents{background-color:#8DC8D6;padding:40px ; color:#FFFFFF;
-  width:100%;margin:0;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;  }
+  
 </style>
 
 </head>
 <body>
 <div class="vertical-container">
-<div class="hor-container"><div class="vertical-container">
+<div id='title'>
 <h2>和合本 </h2><h1>Bible&nbsp;Browser</h1></div>
-<img  class='macbookicon' src='Macbook_icon.png'/>
+
 </div>
 <div class='contents'>
 <a href='BiblePlan/Generator.html'>一年讀經計劃<span class='sml'> GENERATOR</span></a>
@@ -95,7 +101,9 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
 <a href='Parables.html'>耶穌的比喻</a>
 <a href='Hebrews.html'>希伯來書引用舊約經文</a>
 <a href='Revelation.html'>啟示錄大綱</a>
-<a href='Rev_Notes.html'>啟示錄分析</a></div>
+<a href='Rev_Notes.html'>啟示錄分析</a>
+<img  class='macbookicon' src='Macbook_icon.png'/>
+</div>
 </div>
 </body>
 </html>
