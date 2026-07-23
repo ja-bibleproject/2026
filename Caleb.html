@@ -130,16 +130,7 @@ color:#333333;
 
 
     <div id='comments'>    
-    <b>問題:</b>
-<ol class='qt1'>
-<li>請為這一段經文加一個七字的標題</li>
-<li>從這段看到
-<ol class='qt2' ><li>神的特性：______________</li>
-<li>人的特性：______________</li>
-<li>神與人的關係：_____________</li>
-</ol></li></ol>
-        
-<br/><br/>
+   
         </div>
         
         
@@ -178,9 +169,9 @@ week 4 >=209
 var anyIndex
 
 if (todayIndex <= 194) { anyIndex=1}
-if (todayIndex > 194 && todayIndex <= 201) { anyIndex=2}
-if (todayIndex > 201 && todayIndex <= 208) { anyIndex=3}
-if (todayIndex >= 209) { anyIndex=4}
+if (todayIndex > 194 && todayIndex <= 203) { anyIndex=2}
+if (todayIndex > 203 && todayIndex <= 213) { anyIndex=3}
+if (todayIndex > 213) { anyIndex=4}
 
    function showB() {
    if (anyIndex>=1){
@@ -304,9 +295,7 @@ out = out+ "</h3>"
   {
       out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + NIV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
   }
-  
-  
-       }
+   }
    }
 
 $('#div_list').html(out);
@@ -315,6 +304,26 @@ $('#div_list').html(out);
 function scripture365(IndexX)
     {
      $('#todayIs').html("Bible<br/>challenge<br/>Week "+IndexX);   
+    
+var qt="" 
+if (IndexX !=3) {
+    
+qt=qt+"<b>問題:</b><ol class='qt1'><li>請為這一段經文加一個七字的標題</li>"
+qt=qt+"<li>從這段看到<ol class='qt2' ><li>神的特性：______________</li>"
+qt=qt+"<li>人的特性：______________</li><li>神與人的關係：_____________</li>"
+qt=qt+"</ol></li></ol><br/><br/>        "
+}    
+if (IndexX==3)
+{
+qt=qt+"<br/><br/><b>經文：創 2:15-25，重點包括神給人使命去修理看守園子、清楚吩咐不可吃分別善惡樹的果子，又說「那人獨居不好」，最後為他預備配偶。</b><br/><br/>"
+qt=qt+"<b>問題:</b><ol class='qt1'>"
+qt=qt+"<li>神把人放在園中，交付他們作甚麼？ 今天你覺得神交負你的工作是什麼？ 你可有盡力完成？</li>"
+qt=qt+"<li>神給人自由去吃園中各樣果子，但同時也給了一條界線，你覺得界線是限制人，還是保護人？為甚麼？</li>"
+qt=qt+"<li>你生命中有沒有一些你明知神不想你做、但你又很想越界的地方，例如說謊、沉迷、嫉妒、色情、報復？</li>"
+qt=qt+"<li>神說「那人獨居不好」，這讓你想到人為甚麼需要關係、陪伴和彼此幫助？想想在你身邊，有誰需要你的陪伴、鼓勵和幫助？</li>"
+qt=qt+"<li>經文最後提到夫妻二人赤身露體並不羞恥，這反映原本人與人、人與神之間的關係是怎樣的？</li></ol><br/><br/>"
+} 
+   $('#comments').html(qt);  
 switch(IndexX){
 case 0: showS([['Gen',1]]); break;
 case 1: showS([['Gen',2,1,7]]); break;
@@ -324,6 +333,13 @@ case 4: showS([['Gen',3,1,21]]); break;
 }//switch
     }//scripture365
         
+        
+var qt=""
+qt=qt+"<b>問題:</b><ol class='qt1'><li>請為這一段經文加一個七字的標題</li>"
+qt=qt+"<li>從這段看到<ol class='qt2' ><li>神的特性：______________</li>"
+qt=qt+"<li>人的特性：______________</li><li>神與人的關係：_____________</li>"
+qt=qt+"</ol></li></ol><br/><br/>        "
+
         </script>
         
     </body></html>
