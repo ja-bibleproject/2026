@@ -1,0 +1,758 @@
+<html>
+
+<head>
+<title>1 Year Bible Plan B</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+@font-face {
+  font-family: 'Georgia';
+  src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
+  unicode-range: U+0030-0039; /* Targets Unicode characters 0 through 9 */
+}
+
+body {
+  /* List the numbers-only font first, followed by your main alphabet font */
+  font-family: 'Georgia', 'Lato', sans-serif;
+  font-size: clamp(18px, 2vw, 16px);
+  background-image:none;
+  background-color:lightblue; 
+  scroll-behavior: smooth;
+}
+h3.klee{font-weight:300;color:#999999;
+}
+    
+    
+a{font-family: "Klee One", cursive;
+  font-weight: 100; color:#999;
+  font-style: normal;
+}
+#div_list{width:90%;margin-left:0px;
+font-family:'Lato', sans-serif;}
+#span_cuv {border:none}
+
+b{font-family: "Klee One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a{ color:#00AACC;text-decoration:none}
+/* --- STRUCTURE ----------- */
+.vertical-container {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  gap: 10px;             /* Optional: Adds space between the divs */
+}
+.hor-container {
+  display: flex;
+  flex-direction: row; /* Stacks items vertically */
+  align-items: center; /* Aligns items vertically */
+  justify-content: space-evenly; /* Centers the whole row */
+  gap: 5px; /* Adds space between items */
+}
+.box1,.box2{
+ justify-content: center; /* Centers content horizontally inside the item */
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+  }
+.box1 {
+flex: 1;      
+}
+.box2 {
+  flex: 2;       
+}
+#todayIs {
+display: flex;justify-content: center; /* Centers content horizontally inside the item */
+  align-items: center;     /* Centers content vertically inside the item */
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;color:#00AACC;
+background:url(branch_brackets_cal.png)  center / contain no-repeat;
+height:150px;
+}
+.bg{ font-size:1.5em;}
+/* ------STRUCTURE END ---- */
+.button {
+  width: 65px;
+  height: 65px;
+  
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #699;
+ background-color: rgb(255 255 255 / 40%); 
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #00BBDD;
+  color: #fff;
+}
+
+#div_list {
+background-color:white;
+position:static;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+h3{  color: #00AACC}
+  
+::selection {
+  background:rgba(255,255,255, 0.4);
+color:#333333;
+}
+
+section{ scroll-margin-top: 70px; }
+</style>
+    </head>
+    <body>
+<div class="vertical-container">
+<div class="hor-container">
+  <div class="box1"><button class="button b2" onclick='showB()'>PREV</button></div>
+  <div class="box2"><div id="todayIs"  ></div></div>
+  <div class="box1"><button class="button b2" onclick='showF()'>NEXT</button></div>
+</div>
+
+
+<div id="dateDisplay"></div>
+<div id="div_list"></div>
+
+</div>
+<script src='../json/cuv.js'></script>
+<script type='text/javascript'>
+    // Ensure DOM is fully loaded using jQuery
+    var st_mmdd=""
+   var yyyy=""
+   var s_mm = 0
+   var s_dd = 0
+   
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];       
+       
+$(document).ready(function() {
+	// 1. Get the query string from the current URL
+	const queryString = window.location.search;
+	// 2. Parse the query string using native JavaScript URLSearchParams
+	const urlParams = new URLSearchParams(queryString);
+	// 3. Extract individual parameters by their keys
+	const stDate = urlParams.get('date');
+	// 4. Update the HTML text elements using jQuery
+      
+ s_mm = parseInt(stDate.substring(0,2));
+ s_dd= parseInt(stDate.substring(2,4));
+     
+	const today = new Date();
+	const tmm = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+	const tdd = String(today.getDate()).padStart(2, '0');
+	const tmmdd = tmm + tdd; 
+
+	if (stDate) {
+		var s_nnn=getNNN(stDate)	
+		var t_nnn=getNNN(tmmdd)
+		if (t_nnn>=s_nnn)
+		{
+		todayIndex=t_nnn-s_nnn+1
+		yyyy=String(today.getFullYear() )
+		}
+		else
+		{
+		todayIndex=365-s_nnn+t_nnn+1
+		yyyy=String(today.getFullYear()-1 )
+		}
+		st_mmdd=stDate
+    } else {
+               
+     }
+
+function getNNN(mmdd) {
+    const month = parseInt(mmdd.substring(0, 2), 10) - 1;
+    const day = parseInt(mmdd.substring(2, 4), 10);
+    const year = new Date().getFullYear();
+    const targetDate = new Date(year, month, day);
+    const startOfYear = new Date(year, 0, 1);
+    return Math.floor((targetDate - startOfYear) / (1000 * 60 * 60 * 24)) + 1;
+}
+     
+     
+function showDays(firstDate){
+var now = new Date();
+var start = new Date(now.getFullYear(), 0, 0);
+var diff = now - start;
+var oneDay = 1000 * 60 * 60 * 24;
+var dayOfYear = Math.floor(diff / oneDay);
+return (dayOfYear);
+
+}
+var dt = new Date()
+var showDt=new Date()
+
+var timenow=dt.getTime()
+
+//todayIndex=showDays(dt) //PLAN START Jan 1
+    
+anyIndex=todayIndex 
+scripture365(anyIndex)   
+st_mmdd=stDate
+//==============================================
+//==============================================
+
+});
+var todayIndex=0
+var anyIndex
+var out
+function showB() {
+   if (anyIndex>1){
+   anyIndex--;
+   scripture365(anyIndex);
+   }
+}
+function showF() {
+   if (anyIndex<365){
+   	anyIndex++;
+   	scripture365(anyIndex);
+   	}
+}
+
+function scripture365(IndexX)
+    {
+    
+     var xthDay="Bible Plan B<br/>Day "+IndexX+""
+    xthDay=xthDay+"<br/>Since " + monthNames[s_mm-1] +" " + s_dd     
+     $('#todayIs').html(xthDay);
+     
+switch(IndexX){
+case 1:showS([['Gen',1,,,2],['Mat',1,1,,2,12],['Psm',1],['Pro',1,1,6]]);break;
+case 2:showS([['Gen',3,,,4],['Mat',2,13,,3,6],['Psm',2],['Pro',1,7,9]]);break;
+case 3:showS([['Gen',5,,,7],['Mat',3,7,,4,11],['Psm',3],['Pro',1,10,19]]);break;
+case 4:showS([['Gen',8,,,10],['Mat',4,12,25],['Psm',4],['Pro',1,20,23]]);break;
+case 5:showS([['Gen',11,1,,13,4],['Mat',5,1,26],['Psm',5],['Pro',1,24,28]]);break;
+case 6:showS([['Gen',13,5,,15,21],['Mat',5,27,48],['Psm',6],['Pro',1,29,33]]);break;
+case 7:showS([['Gen',16,1,,18,15],['Mat',6,1,24],['Psm',7],['Pro',2,1,5]]);break;
+case 8:showS([['Gen',18,16,,19,38],['Mat',6,25,,7,14],['Psm',8],['Pro',2,6,15]]);break;
+case 9:showS([['Gen',20,,,22],['Mat',7,15,29],['Psm',9,1,12],['Pro',2,16,22]]);break;
+case 10:showS([['Gen',23,1,,24,51],['Mat',8,1,17],['Psm',9,13,20],['Pro',3,1,6]]);break;
+case 11:showS([['Gen',24,52,,26,16],['Mat',8,18,34],['Psm',10,1,15],['Pro',3,7,8]]);break;
+case 12:showS([['Gen',26,17,,27,46],['Mat',9,1,17],['Psm',10,16,18],['Pro',3,9,10]]);break;
+case 13:showS([['Gen',28,,,29],['Mat',9,18,38],['Psm',11],['Pro',3,11,12]]);break;
+case 14:showS([['Gen',30,1,,31,16],['Mat',10,1,23],['Psm',12],['Pro',3,13,15]]);break;
+case 15:showS([['Gen',31,17,,32,12],['Mat',10,24,,11,6],['Psm',13],['Pro',3,16,18]]);break;
+case 16:showS([['Gen',32,13,,34,31],['Mat',11,7,30],['Psm',14],['Pro',3,19,20]]);break;
+case 17:showS([['Gen',35,,,36],['Mat',12,1,21],['Psm',15],['Pro',3,21,26]]);break;
+case 18:showS([['Gen',37,,,38],['Mat',12,22,45],['Psm',16],['Pro',3,27,32]]);break;
+case 19:showS([['Gen',39,1,,41,16],['Mat',12,46,,13,23],['Psm',17],['Pro',3,33,35]]);break;
+case 20:showS([['Gen',41,17,,42,17],['Mat',13,24,46],['Psm',18,1,15],['Pro',4,1,6]]);break;
+case 21:showS([['Gen',42,18,,43,34],['Mat',13,47,,14,12],['Psm',18,16,36],['Pro',4,7,10]]);break;
+case 22:showS([['Gen',44,,,45],['Mat',14,13,36],['Psm',18,37,50],['Pro',4,11,13]]);break;
+case 23:showS([['Gen',46,,,47],['Mat',15,1,28],['Psm',19],['Pro',4,14,19]]);break;
+case 24:showS([['Gen',48,,,49],['Mat',15,29,,16,12],['Psm',20],['Pro',4,20,27]]);break;
+case 25:showS([['Gen',50],['Mat',16,13,,17,9],['Psm',21],['Pro',5,1,6]]);break;
+case 26:showS([['Exo',1,,,3],['Mat',17,10,27],['Psm',22,1,18],['Pro',5,7,14]]);break;
+case 27:showS([['Exo',4,1,,5,21],['Mat',18,1,20],['Psm',22,19,31],['Pro',5,15,21]]);break;
+case 28:showS([['Exo',5,22,,7,25],['Mat',18,21,,19,12],['Psm',23],['Pro',5,22,23]]);break;
+case 29:showS([['Exo',8,,,9],['Mat',19,13,30],['Psm',24],['Pro',6,1,5]]);break;
+case 30:showS([['Exo',10,1,,12,13],['Mat',20,1,28],['Psm',25,1,15],['Pro',6,6,11]]);break;
+case 31:showS([['Exo',12,14,,13,16],['Mat',20,29,,21,22],['Psm',25,16,22],['Pro',6,12,15]]);break;
+case 32:showS([['Exo',13,17,,15,18],['Mat',21,23,46],['Psm',26],['Pro',6,16,19]]);break;
+case 33:showS([['Exo',15,19,,17,7],['Mat',22,1,33],['Psm',27,1,6],['Pro',6,20,26]]);break;
+case 34:showS([['Exo',17,8,,19,15],['Mat',22,34,,23,12],['Psm',27,7,14],['Pro',6,27,35]]);break;
+case 35:showS([['Exo',19,16,,21,21],['Mat',23,13,39],['Psm',28],['Pro',7,1,5]]);break;
+case 36:showS([['Exo',21,22,,23,13],['Mat',24,1,28],['Psm',29],['Pro',7,6,23]]);break;
+case 37:showS([['Exo',23,14,,25,40],['Mat',24,29,51],['Psm',30],['Pro',7,24,27]]);break;
+case 38:showS([['Exo',26,,,27],['Mat',25,1,30],['Psm',31,1,8],['Pro',8,1,11]]);break;
+case 39:showS([['Exo',28],['Mat',25,31,,26,13],['Psm',31,9,18],['Pro',8,12,13]]);break;
+case 40:showS([['Exo',29,1,,30,10],['Mat',26,14,46],['Psm',31,19,24],['Pro',8,14,26]]);break;
+case 41:showS([['Exo',30,11,,31,18],['Mat',26,47,68],['Psm',32],['Pro',8,27,32]]);break;
+case 42:showS([['Exo',32,,,33],['Mat',26,69,,27,14],['Psm',33,1,11],['Pro',8,33,36]]);break;
+case 43:showS([['Exo',34,1,,35,9],['Mat',27,15,31],['Psm',33,12,22],['Pro',9,1,6]]);break;
+case 44:showS([['Exo',35,10,,36,38],['Mat',27,32,66],['Psm',34,1,10],['Pro',9,7,8]]);break;
+case 45:showS([['Exo',37,,,38],['Mat',28,1,20],['Psm',34,11,22],['Pro',9,9,10]]);break;
+case 46:showS([['Exo',39,,,40],['Mak',1,1,28],['Psm',35,1,16],['Pro',9,11,12]]);break;
+case 47:showS([['Lev',1,,,3],['Mak',1,29,,2,12],['Psm',35,17,28],['Pro',9,13,18]]);break;
+case 48:showS([['Lev',4,,,5],['Mak',2,13,,3,6],['Psm',36],['Pro',10,1,2]]);break;
+case 49:showS([['Lev',6,1,,7,27],['Mak',3,7,30],['Psm',37,1,11],['Pro',10,3,4]]);break;
+case 50:showS([['Lev',7,28,,9,6],['Mak',3,31,,4,25],['Psm',37,12,29],['Pro',10,5]]);break;
+case 51:showS([['Lev',9,7,,10,20],['Mak',4,26,,5,20],['Psm',37,30,40],['Pro',10,6,7]]);break;
+case 52:showS([['Lev',11,,,12],['Mak',5,21,43],['Psm',38],['Pro',10,8,9]]);break;
+case 53:showS([['Lev',13],['Mak',6,1,29],['Psm',39],['Pro',10,10]]);break;
+case 54:showS([['Lev',14],['Mak',6,30,56],['Psm',40,1,10],['Pro',10,11,12]]);break;
+case 55:showS([['Lev',15,1,,16,28],['Mak',7,1,23],['Psm',40,11,17],['Pro',10,13,14]]);break;
+case 56:showS([['Lev',16,29,,18,30],['Mak',7,24,,8,10],['Psm',41],['Pro',10,15,16]]);break;
+case 57:showS([['Lev',19,1,,20,21],['Mak',8,11,38],['Psm',42],['Pro',10,17]]);break;
+case 58:showS([['Lev',20,22,,22,16],['Mak',9,1,29],['Psm',43],['Pro',10,18]]);break;
+case 59:showS([['Lev',22,17,,23,44],['Mak',9,30,,10,12],['Psm',44,1,8],['Pro',10,19]]);break;
+case 60:showS([['Lev',24,1,,25,46],['Mak',10,13,31],['Psm',44,9,26],['Pro',10,20,21]]);break;
+case 61:showS([['Lev',25,47,,27,13],['Mak',10,32,52],['Psm',45],['Pro',10,22]]);break;
+case 62:showS([['Lev',27,14,34],['Mak',11,1,26],['Psm',46],['Pro',10,23]]);break;
+case 63:showS([['Num',1,,,3],['Mak',11,27,,12,17],['Psm',47],['Pro',10,24,25]]);break;
+case 64:showS([['Num',4,,,5],['Mak',12,18,37],['Psm',48],['Pro',10,26]]);break;
+case 65:showS([['Num',6,,,7],['Mak',12,38,,13,13],['Psm',49],['Pro',10,27,28]]);break;
+case 66:showS([['Num',8,,,9],['Mak',13,14,37],['Psm',50],['Pro',10,29,30]]);break;
+case 67:showS([['Num',10,1,,11,23],['Mak',14,1,21],['Psm',51],['Pro',10,31,32]]);break;
+case 68:showS([['Num',11,24,,13,33],['Mak',14,22,52],['Psm',52],['Pro',11,1,3]]);break;
+case 69:showS([['Num',14,1,,15,16],['Mak',14,53,72],['Psm',53],['Pro',11,4]]);break;
+case 70:showS([['Num',15,17,,16,40],['Mak',15],['Psm',54],['Pro',11,5,6]]);break;
+case 71:showS([['Num',16,41,,18,32],['Mak',16],['Psm',55],['Pro',11,7]]);break;
+case 72:showS([['Num',19,,,20],['Luk',1,1,25],['Psm',56],['Pro',11,8]]);break;
+case 73:showS([['Num',21,1,,22,20],['Luk',1,26,56],['Psm',57],['Pro',11,9,11]]);break;
+case 74:showS([['Num',22,21,,23,30],['Luk',1,57,80],['Psm',58],['Pro',11,12,13]]);break;
+case 75:showS([['Num',24,,,25],['Luk',2,1,35],['Psm',59],['Pro',11,14]]);break;
+case 76:showS([['Num',26,1,,51],['Luk',2,36,52],['Psm',60],['Pro',11,15]]);break;
+case 77:showS([['Num',26,52,,28,15],['Luk',3,1,22],['Psm',61],['Pro',11,16,17]]);break;
+case 78:showS([['Num',28,16,,29,40],['Luk',3,23,38],['Psm',62],['Pro',11,18,19]]);break;
+case 79:showS([['Num',30,,,31],['Luk',4,1,30],['Psm',63],['Pro',11,20,21]]);break;
+case 80:showS([['Num',32,1,,33,39],['Luk',4,31,,5,11],['Psm',64],['Pro',11,22]]);break;
+case 81:showS([['Num',33,40,,35,34],['Luk',5,12,28],['Psm',65],['Pro',11,23]]);break;
+case 82:showS([['Num',36],['Luk',5,29,,6,11],['Psm',66],['Pro',11,24,26]]);break;
+case 83:showS([['Deu',1,,,2],['Luk',6,12,38],['Psm',67],['Pro',11,27]]);break;
+case 84:showS([['Deu',3,,,4],['Luk',6,39,,7,10],['Psm',68,1,18],['Pro',11,28]]);break;
+case 85:showS([['Deu',5,,,6],['Luk',7,11,35],['Psm',68,19,35],['Pro',11,29,31]]);break;
+case 86:showS([['Deu',7,,,8],['Luk',7,36,,8,3],['Psm',69,1,18],['Pro',12,1]]);break;
+case 87:showS([['Deu',9,,,10],['Luk',8,4,21],['Psm',69,19,36],['Pro',12,2,3]]);break;
+case 88:showS([['Deu',11,,,12],['Luk',8,22,39],['Psm',70],['Pro',12,4]]);break;
+case 89:showS([['Deu',13,,,15],['Luk',8,40,,9,6],['Psm',71],['Pro',12,5,7]]);break;
+case 90:showS([['Deu',16,,,17],['Luk',9,7,27],['Psm',72],['Pro',12,8,9]]);break;
+case 91:showS([['Deu',18,,,20],['Luk',9,28,50],['Psm',73],['Pro',12,10]]);break;
+case 92:showS([['Deu',21,,,22],['Luk',9,51,,10,12],['Psm',74],['Pro',12,11]]);break;
+case 93:showS([['Deu',23,,,25],['Luk',10,13,37],['Psm',75],['Pro',12,12,14]]);break;
+case 94:showS([['Deu',26,,,27],['Luk',10,38,,11,13],['Psm',76],['Pro',12,15,17]]);break;
+case 95:showS([['Deu',28],['Luk',11,14,36],['Psm',77],['Pro',12,18]]);break;
+case 96:showS([['Deu',29,,,30],['Luk',11,37,,12,7],['Psm',78,1,31],['Pro',12,19,20]]);break;
+case 97:showS([['Deu',31,1,,32,27],['Luk',12,8,34],['Psm',78,32,55],['Pro',12,21,23]]);break;
+case 98:showS([['Deu',32,28,52],['Luk',12,35,59],['Psm',78,56,64],['Pro',12,24]]);break;
+case 99:showS([['Deu',33,,,34],['Luk',13,1,21],['Psm',78,65,72],['Pro',12,25]]);break;
+case 100:showS([['Jos',1,,,2],['Luk',13,22,,14,6],['Psm',79],['Pro',12,26]]);break;
+case 101:showS([['Jos',3,,,4],['Luk',14,7,35],['Psm',80],['Pro',12,27,28]]);break;
+case 102:showS([['Jos',5,1,,7,15],['Luk',15],['Psm',81],['Pro',13,1]]);break;
+case 103:showS([['Jos',7,16,,9,2],['Luk',16,1,18],['Psm',82],['Pro',13,2,3]]);break;
+case 104:showS([['Jos',9,3,,10,43],['Luk',16,19,,17,10],['Psm',83],['Pro',13,4]]);break;
+case 105:showS([['Jos',11,,,12],['Luk',17,11,37],['Psm',84],['Pro',13,5,6]]);break;
+case 106:showS([['Jos',13,,,14],['Luk',18,1,17],['Psm',85],['Pro',13,7,8]]);break;
+case 107:showS([['Jos',15],['Luk',18,18,43],['Psm',86],['Pro',13,9,10]]);break;
+case 108:showS([['Jos',16,,,18],['Luk',19,1,27],['Psm',87],['Pro',13,11]]);break;
+case 109:showS([['Jos',19,,,20],['Luk',19,28,48],['Psm',88],['Pro',13,12,14]]);break;
+case 110:showS([['Jos',21,1,,22,20],['Luk',20,1,26],['Psm',89,1,13],['Pro',13,15,16]]);break;
+case 111:showS([['Jos',22,21,,23,16],['Luk',20,27,47],['Psm',89,14,37],['Pro',13,17,19]]);break;
+case 112:showS([['Jos',24],['Luk',21,1,28],['Psm',89,38,52],['Pro',13,20,23]]);break;
+case 113:showS([['Jug',1,1,,2,9],['Luk',21,29,,22,13],['Psm',90,1,91,16],['Pro',13,24,25]]);break;
+case 114:showS([['Jug',2,10,,3,31],['Luk',22,14,34],['Psm',92,,,93],['Pro',14,1,2]]);break;
+case 115:showS([['Jug',4,,,5],['Luk',22,35,53],['Psm',94],['Pro',14,3,4]]);break;
+case 116:showS([['Jug',6],['Luk',22,54,,23,12],['Psm',95,,,96],['Pro',14,5,6]]);break;
+case 117:showS([['Jug',7,1,,8,17],['Luk',23,13,43],['Psm',97,,,98],['Pro',14,7,8]]);break;
+case 118:showS([['Jug',8,18,,9,21],['Luk',23,44,,24,12],['Psm',99],['Pro',14,9,10]]);break;
+case 119:showS([['Jug',9,22,,10,18],['Luk',24,13,53],['Psm',100],['Pro',14,11,12]]);break;
+case 120:showS([['Jug',11,,,12],['Jhn',1,1,28],['Psm',101],['Pro',14,13,14]]);break;
+case 121:showS([['Jug',13,,,14],['Jhn',1,29,51],['Psm',102],['Pro',14,15,16]]);break;
+case 122:showS([['Jug',15,,,16],['Jhn',2],['Psm',103],['Pro',14,17,19]]);break;
+case 123:showS([['Jug',17,,,18],['Jhn',3,1,21],['Psm',104,1,23],['Pro',14,20,21]]);break;
+case 124:showS([['Jug',19,,,21],['Jhn',3,22,4,3],['Psm',104,24,35],['Pro',14,22,24]]);break;
+case 125:showS([['Rut',1,,,2],['Jhn',4,4,42],['Psm',105,1,15],['Pro',14,25]]);break;
+case 126:showS([['Rut',3,,,4],['Jhn',4,43,54],['Psm',105,16,36],['Pro',14,26,27]]);break;
+case 127:showS([['1Sa',1,1,,2,21],['Jhn',5,1,23],['Psm',105,37,45],['Pro',14,28,29]]);break;
+case 128:showS([['1Sa',2,22,,4,22],['Jhn',5,24,47],['Psm',106,1,12],['Pro',14,30,31]]);break;
+case 129:showS([['1Sa',5,,,7],['Jhn',6,1,21],['Psm',106,13,31],['Pro',14,32,33]]);break;
+case 130:showS([['1Sa',8,,,9],['Jhn',6,22,42],['Psm',106,32,48],['Pro',14,34,35]]);break;
+case 131:showS([['1Sa',10,,,11],['Jhn',6,43,71],['Psm',107],['Pro',15,1,3]]);break;
+case 132:showS([['1Sa',12,,,13],['Jhn',7,1,30],['Psm',108],['Pro',15,4]]);break;
+case 133:showS([['1Sa',14],['Jhn',7,31,53],['Psm',109],['Pro',15,5,7]]);break;
+case 134:showS([['1Sa',15,,,16],['Jhn',8,1,20],['Psm',110],['Pro',15,8,10]]);break;
+case 135:showS([['1Sa',17,1,,18,4],['Jhn',8,21,30],['Psm',111],['Pro',15,11]]);break;
+case 136:showS([['1Sa',18,5,,19,24],['Jhn',8,31,59],['Psm',112],['Pro',15,12,14]]);break;
+case 137:showS([['1Sa',20,,,21],['Jhn',9,1,41],['Psm',113,,,114],['Pro',15,15,17]]);break;
+case 138:showS([['1Sa',22,,,23],['Jhn',10,1,21],['Psm',115],['Pro',15,18,19]]);break;
+case 139:showS([['1Sa',24,,,25],['Jhn',10,22,42],['Psm',116],['Pro',15,20,21]]);break;
+case 140:showS([['1Sa',26,,,28],['Jhn',11,1,54],['Psm',117],['Pro',15,22,23]]);break;
+case 141:showS([['1Sa',29,,,31],['Jhn',11,55,,12,19],['Psm',118,1,18],['Pro',15,24,26]]);break;
+case 142:showS([['2Sa',1,1,,2,11],['Jhn',12,20,50],['Psm',118,19,29],['Pro',15,27,28]]);break;
+case 143:showS([['2Sa',2,12,,3,39],['Jhn',13,1,30],['Psm',119,1,16],['Pro',15,29,30]]);break;
+case 144:showS([['2Sa',4,,,6],['Jhn',13,31,,14,14],['Psm',119,17,32],['Pro',15,31,32]]);break;
+case 145:showS([['2Sa',7,,,8],['Jhn',14,15,31],['Psm',119,33,48],['Pro',15,33]]);break;
+case 146:showS([['2Sa',9,,,11],['Jhn',15,1,27],['Psm',119,49,64],['Pro',16,1,3]]);break;
+case 147:showS([['2Sa',12],['Jhn',16,1,33],['Psm',119,65,80],['Pro',16,4,5]]);break;
+case 148:showS([['2Sa',13],['Jhn',17,1,26],['Psm',119,81,96],['Pro',16,6,7]]);break;
+case 149:showS([['2Sa',14,1,,15,22],['Jhn',18,1,24],['Psm',119,97,112],['Pro',16,8,9]]);break;
+case 150:showS([['2Sa',15,23,,16,23],['Jhn',18,25,,19,22],['Psm',119,113,128],['Pro',16,10,11]]);break;
+case 151:showS([['2Sa',17],['Jhn',19,23,42],['Psm',119,129,152],['Pro',16,12,13]]);break;
+case 152:showS([['2Sa',18,1,,19,10],['Jhn',20,1,31],['Psm',119,153,176],['Pro',16,14,15]]);break;
+case 153:showS([['2Sa',19,11,,20,13],['Jhn',21,1,25],['Psm',120],['Pro',16,16,17]]);break;
+case 154:showS([['2Sa',20,14,,21,22],['Act',1,1,26],['Psm',121],['Pro',16,18]]);break;
+case 155:showS([['2Sa',22,1,,23,23],['Act',2,1,47],['Psm',122],['Pro',16,19,20]]);break;
+case 156:showS([['2Sa',23,24,,24,25],['Act',3],['Psm',123],['Pro',16,21,23]]);break;
+case 157:showS([['1Ki',1],['Act',4],['Psm',124],['Pro',16,24]]);break;
+case 158:showS([['1Ki',2,1,,3,2],['Act',5],['Psm',125],['Pro',16,25]]);break;
+case 159:showS([['1Ki',3,3,,4,34],['Act',6],['Psm',126],['Pro',16,26,27]]);break;
+case 160:showS([['1Ki',5,,,6],['Act',7,1,29],['Psm',127],['Pro',16,28,30]]);break;
+case 161:showS([['1Ki',7],['Act',7,30,50],['Psm',128],['Pro',16,31,33]]);break;
+case 162:showS([['1Ki',8],['Act',7,51,,8,13],['Psm',129],['Pro',17,1]]);break;
+case 163:showS([['1Ki',9,,,10],['Act',8,14,40],['Psm',130],['Pro',17,2,3]]);break;
+case 164:showS([['1Ki',11,1,,12,19],['Act',9,1,25],['Psm',131],['Pro',17,4,5]]);break;
+case 165:showS([['1Ki',12,20,,13,34],['Act',9,26,43],['Psm',132],['Pro',17,6]]);break;
+case 166:showS([['1Ki',14,1,,15,24],['Act',10,1,23],['Psm',133],['Pro',17,7,8]]);break;
+case 167:showS([['1Ki',15,25,,17,24],['Act',10,24,48],['Psm',134],['Pro',17,9,11]]);break;
+case 168:showS([['1Ki',18],['Act',11],['Psm',135],['Pro',17,12,13]]);break;
+case 169:showS([['1Ki',19],['Act',12,1,23],['Psm',136],['Pro',17,14,15]]);break;
+case 170:showS([['1Ki',20,,,21],['Act',12,24,,13,15],['Psm',137],['Pro',17,16]]);break;
+case 171:showS([['1Ki',22],['Act',13,16,41],['Psm',138],['Pro',17,17,18]]);break;
+case 172:showS([['2Ki',1,,,2],['Act',13,42,,14,7],['Psm',139],['Pro',17,19,21]]);break;
+case 173:showS([['2Ki',3,1,,4,17],['Act',14,8,28],['Psm',140],['Pro',17,22]]);break;
+case 174:showS([['2Ki',4,18,,5,27],['Act',15,1,35],['Psm',141],['Pro',17,23]]);break;
+case 175:showS([['2Ki',6,,,7],['Act',15,36,,16,15],['Psm',142],['Pro',17,24,25]]);break;
+case 176:showS([['2Ki',8,1,,9,13],['Act',16,16,40],['Psm',143],['Pro',17,26]]);break;
+case 177:showS([['2Ki',9,14,,10,31],['Act',17],['Psm',144],['Pro',17,27,28]]);break;
+case 178:showS([['2Ki',10,32,,12,21],['Act',18,1,22],['Psm',145],['Pro',18,1]]);break;
+case 179:showS([['2Ki',13,,,14],['Act',18,23,,19,12],['Psm',146],['Pro',18,2,3]]);break;
+case 180:showS([['2Ki',15,,,16],['Act',19,13,41],['Psm',147],['Pro',18,4,5]]);break;
+case 181:showS([['2Ki',17,1,,18,12],['Act',20],['Psm',148],['Pro',18,6,7]]);break;
+case 182:showS([['2Ki',18,13,,19,37],['Act',21,1,17],['Psm',149],['Pro',18,8]]);break;
+case 183:showS([['2Ki',20,1,,22,2],['Act',21,18,36],['Psm',150],['Pro',18,9,10]]);break;
+case 184:showS([['2Ki',22,3,,23,30],['Act',21,37,,22,16],['Psm',1],['Pro',18,11,12]]);break;
+case 185:showS([['2Ki',23,31,,25,30],['Act',22,17,,23,10],['Psm',2],['Pro',18,13]]);break;
+case 186:showS([['1Ch',1,1,,2,17],['Act',23,11,35],['Psm',3],['Pro',18,14,15]]);break;
+case 187:showS([['1Ch',2,18,,4,4],['Act',24],['Psm',4],['Pro',18,16,18]]);break;
+case 188:showS([['1Ch',4,5,,5,17],['Act',25],['Psm',5],['Pro',18,19]]);break;
+case 189:showS([['1Ch',5,18,,6,81],['Act',26],['Psm',6],['Pro',18,20,21]]);break;
+case 190:showS([['1Ch',7,,,8],['Act',27,1,20],['Psm',7],['Pro',18,22]]);break;
+case 191:showS([['1Ch',9,,,10],['Act',27,21,44],['Psm',8],['Pro',18,23,24]]);break;
+case 192:showS([['1Ch',11,1,,12,18],['Act',28],['Psm',9,1,12],['Pro',19,1,3]]);break;
+case 193:showS([['1Ch',12,19,,14,17],['Rom',1,1,17],['Psm',9,13,20],['Pro',19,4,5]]);break;
+case 194:showS([['1Ch',15,1,,16,36],['Rom',1,18,32],['Psm',10,1,15],['Pro',19,6,7]]);break;
+case 195:showS([['1Ch',16,37,,18,17],['Rom',2,1,24],['Psm',10,16,18],['Pro',19,8,9]]);break;
+case 196:showS([['1Ch',19,,,21],['Rom',2,25,,3,8],['Psm',11],['Pro',19,10,12]]);break;
+case 197:showS([['1Ch',22,,,23],['Rom',3,9,31],['Psm',12],['Pro',19,13,14]]);break;
+case 198:showS([['1Ch',24,1,,26,11],['Rom',4,1,12],['Psm',13],['Pro',19,15,16]]);break;
+case 199:showS([['1Ch',26,12,,27,34],['Rom',4,13,,5,5],['Psm',14],['Pro',19,17]]);break;
+case 200:showS([['1Ch',28,,,29],['Rom',5,6,21],['Psm',15],['Pro',19,18,19]]);break;
+case 201:showS([['2Ch',1,,,3],['Rom',6],['Psm',16],['Pro',19,20,21]]);break;
+case 202:showS([['2Ch',4,1,,6,11],['Rom',7,1,13],['Psm',17],['Pro',19,22,23]]);break;
+case 203:showS([['2Ch',6,12,,8,10],['Rom',7,14,,8,8],['Psm',18,1,15],['Pro',19,24,25]]);break;
+case 204:showS([['2Ch',8,11,,10,19],['Rom',8,9,25],['Psm',18,16,36],['Pro',19,26]]);break;
+case 205:showS([['2Ch',11,,,13],['Rom',8,26,39],['Psm',18,37,50],['Pro',19,27,29]]);break;
+case 206:showS([['2Ch',14,,,16],['Rom',9,1,24],['Psm',19],['Pro',20,1]]);break;
+case 207:showS([['2Ch',17,,,18],['Rom',9,25,,10,13],['Psm',20],['Pro',20,2,3]]);break;
+case 208:showS([['2Ch',19,,,20],['Rom',10,14,,11,12],['Psm',21],['Pro',20,4,6]]);break;
+case 209:showS([['2Ch',21,,,23],['Rom',11,13,36],['Psm',22,1,18],['Pro',20,7]]);break;
+case 210:showS([['2Ch',24,,,25],['Rom',12],['Psm',22,19,31],['Pro',20,8,10]]);break;
+case 211:showS([['2Ch',26,,,28],['Rom',13],['Psm',23],['Pro',20,11]]);break;
+case 212:showS([['2Ch',29,,,29],['Rom',14],['Psm',24],['Pro',20,12]]);break;
+case 213:showS([['2Ch',30,,,31],['Rom',15,1,22],['Psm',25,1,15],['Pro',20,13,15]]);break;
+case 214:showS([['2Ch',32,1,,33,13],['Rom',15,23,,16,9],['Psm',25,16,22],['Pro',20,16,18]]);break;
+case 215:showS([['2Ch',33,14,,34,33],['Rom',16,10,27],['Psm',26],['Pro',20,19]]);break;
+case 216:showS([['2Ch',35,1,,36,23],['1Co',1,1,17],['Psm',27,1,6],['Pro',20,20,21]]);break;
+case 217:showS([['Ezr',1,,,2],['1Co',1,18,,2,5],['Psm',27,7,14],['Pro',20,22,23]]);break;
+case 218:showS([['Ezr',3,1,,4,23],['1Co',2,6,,3,4],['Psm',28],['Pro',20,24,25]]);break;
+case 219:showS([['Ezr',4,24,,6,22],['1Co',3,5,23],['Psm',29],['Pro',20,26,27]]);break;
+case 220:showS([['Ezr',7,1,,8,20],['1Co',4],['Psm',30],['Pro',20,28,30]]);break;
+case 221:showS([['Ezr',8,21,,9,15],['1Co',5],['Psm',31,1,8],['Pro',21,1,2]]);break;
+case 222:showS([['Ezr',10],['1Co',6],['Psm',31,9,18],['Pro',21,3]]);break;
+case 223:showS([['Neh',1,1,,3,14],['1Co',7,1,24],['Psm',31,19,24],['Pro',21,4]]);break;
+case 224:showS([['Neh',3,15,,5,13],['1Co',7,25,40],['Psm',32],['Pro',21,5,7]]);break;
+case 225:showS([['Neh',5,14,,7,73],['1Co',8],['Psm',33,1,11],['Pro',21,8,10]]);break;
+case 226:showS([['Neh',7,73,,9,21],['1Co',9,1,18],['Psm',33,12,22],['Pro',21,11,12]]);break;
+case 227:showS([['Neh',9,22,,10,39],['1Co',9,19,,10,13],['Psm',34,1,10],['Pro',21,13]]);break;
+case 228:showS([['Neh',11,1,,12,26],['1Co',10,14,33],['Psm',34,11,22],['Pro',21,14,16]]);break;
+case 229:showS([['Neh',12,27,,13,31],['1Co',11,1,16],['Psm',35,1,16],['Pro',21,17,18]]);break;
+case 230:showS([['Est',1,,,3],['1Co',11,17,34],['Psm',35,17,28],['Pro',21,19,20]]);break;
+case 231:showS([['Est',4,,,7],['1Co',12,1,26],['Psm',36],['Pro',21,21,22]]);break;
+case 232:showS([['Est',8,,,10],['1Co',12,27,,13,13],['Psm',37,1,11],['Pro',21,23,24]]);break;
+case 233:showS([['Job',1,,,3],['1Co',14,1,17],['Psm',37,12,29],['Pro',21,25,26]]);break;
+case 234:showS([['Job',4,,,7],['1Co',14,18,40],['Psm',37,30,40],['Pro',21,27]]);break;
+case 235:showS([['Job',8,,,11],['1Co',15,1,28],['Psm',38],['Pro',21,28,29]]);break;
+case 236:showS([['Job',12,,,15],['1Co',15,29,58],['Psm',39],['Pro',21,30,31]]);break;
+case 237:showS([['Job',16,,,19],['1Co',16],['Psm',40,1,10],['Pro',22,1]]);break;
+case 238:showS([['Job',20,,,22],['2Co',1,1,11],['Psm',40,11,17],['Pro',22,2,4]]);break;
+case 239:showS([['Job',23,,,27],['2Co',1,12,,2,11],['Psm',41],['Pro',22,5,6]]);break;
+case 240:showS([['Job',28,,,30],['2Co',2,12,17],['Psm',42],['Pro',22,7]]);break;
+case 241:showS([['Job',31,,,33],['2Co',3],['Psm',43],['Pro',22,8,9]]);break;
+case 242:showS([['Job',34,,,36],['2Co',4,1,12],['Psm',44,1,8],['Pro',22,10,12]]);break;
+case 243:showS([['Job',37,,,39],['2Co',4,13,,5,10],['Psm',44,9,26],['Pro',22,13]]);break;
+case 244:showS([['Job',40,,,42],['2Co',5,11,21],['Psm',45],['Pro',22,14]]);break;
+case 245:showS([['Ecc',1,,,3],['2Co',6,1,13],['Psm',46],['Pro',22,15]]);break;
+case 246:showS([['Ecc',4,,,6],['2Co',6,14,,7,7],['Psm',47],['Pro',22,16]]);break;
+case 247:showS([['Ecc',7,,,9],['2Co',7,8,16],['Psm',48],['Pro',22,17,19]]);break;
+case 248:showS([['Ecc',10,,,12],['2Co',8,1,15],['Psm',49],['Pro',22,20,21]]);break;
+case 249:showS([['Son',1,,,4],['2Co',8,16,24],['Psm',50],['Pro',22,22,23]]);break;
+case 250:showS([['Son',5,,,8],['2Co',9],['Psm',51],['Pro',22,24,25]]);break;
+case 251:showS([['Isa',1,,,2],['2Co',10],['Psm',52],['Pro',22,26,27]]);break;
+case 252:showS([['Isa',3,,,5],['2Co',11,1,15],['Psm',53],['Pro',22,28,29]]);break;
+case 253:showS([['Isa',6,,,7],['2Co',11,16,33],['Psm',54],['Pro',23,1,3]]);break;
+case 254:showS([['Isa',8,,,9],['2Co',12,1,10],['Psm',55],['Pro',23,4,5]]);break;
+case 255:showS([['Isa',10,,,11],['2Co',12,11,21],['Psm',56],['Pro',23,6,8]]);break;
+case 256:showS([['Isa',12,,,14],['2Co',13],['Psm',57],['Pro',23,9,11]]);break;
+case 257:showS([['Isa',15,,,18],['Gal',1],['Psm',58],['Pro',23,12]]);break;
+case 258:showS([['Isa',19,,,21],['Gal',2,1,16],['Psm',59],['Pro',23,13,14]]);break;
+case 259:showS([['Isa',22,,,24],['Gal',2,17,,3,9],['Psm',60],['Pro',23,15,16]]);break;
+case 260:showS([['Isa',25,1,,28,13],['Gal',3,10,22],['Psm',61],['Pro',23,17,18]]);break;
+case 261:showS([['Isa',28,14,,30,11],['Gal',3,23,,4,31],['Psm',62],['Pro',23,19,21]]);break;
+case 262:showS([['Isa',30,12,,33,9],['Gal',5,1,12],['Psm',63],['Pro',23,22]]);break;
+case 263:showS([['Isa',33,10,,36,22],['Gal',5,13,26],['Psm',64],['Pro',23,23]]);break;
+case 264:showS([['Isa',37,,,38],['Gal',6],['Psm',65],['Pro',23,24]]);break;
+case 265:showS([['Isa',39,1,,41,16],['Eph',1],['Psm',66],['Pro',23,25,28]]);break;
+case 266:showS([['Isa',41,17,,43,13],['Eph',2],['Psm',67],['Pro',23,29,35]]);break;
+case 267:showS([['Isa',43,14,,45,10],['Eph',3],['Psm',68,1,18],['Pro',24,1,2]]);break;
+case 268:showS([['Isa',45,11,,48,11],['Eph',4,1,16],['Psm',68,19,35],['Pro',24,3,4]]);break;
+case 269:showS([['Isa',48,12,,50,11],['Eph',4,17,32],['Psm',69,1,18],['Pro',24,5,6]]);break;
+case 270:showS([['Isa',51,,,53],['Eph',5],['Psm',69,19,36],['Pro',24,7]]);break;
+case 271:showS([['Isa',54,1,,57,14],['Eph',6],['Psm',70],['Pro',24,8]]);break;
+case 272:showS([['Isa',57,15,,59,21],['Phl',1,1,26],['Psm',71],['Pro',24,9,10]]);break;
+case 273:showS([['Isa',60,1,,62,5],['Phl',1,27,,2,18],['Psm',72],['Pro',24,11,12]]);break;
+case 274:showS([['Isa',62,6,,65,25],['Phl',2,19,,3,3],['Psm',73],['Pro',24,13,14]]);break;
+case 275:showS([['Isa',66],['Phl',3,4,21],['Psm',74],['Pro',24,15,16]]);break;
+case 276:showS([['Jer',1,1,,2,30],['Phl',4],['Psm',75],['Pro',24,17,20]]);break;
+case 277:showS([['Jer',2,31,,4,18],['Col',1,1,17],['Psm',76],['Pro',24,21,22]]);break;
+case 278:showS([['Jer',4,19,,6,15],['Col',1,18,,2,7],['Psm',77],['Pro',24,23,25]]);break;
+case 279:showS([['Jer',6,16,,8,7],['Col',2,8,23],['Psm',78,1,31],['Pro',24,26]]);break;
+case 280:showS([['Jer',8,8,,9,26],['Col',3,1,17],['Psm',78,32,55],['Pro',24,27]]);break;
+case 281:showS([['Jer',10,,,11],['Col',3,18,,4,18],['Psm',78,56,72],['Pro',24,28,29]]);break;
+case 282:showS([['Jer',12,1,,14,10],['1Ts',1,1,,2,8],['Psm',79],['Pro',24,30,34]]);break;
+case 283:showS([['Jer',14,11,,16,15],['1Ts',2,9,,3,13],['Psm',80],['Pro',25,1,5]]);break;
+case 284:showS([['Jer',16,16,,18,23],['1Ts',4,1,,5,3],['Psm',81],['Pro',25,6,8]]);break;
+case 285:showS([['Jer',19,,,21],['1Ts',5,4,28],['Psm',82],['Pro',25,9,10]]);break;
+case 286:showS([['Jer',22,1,,23,20],['2Ts',1],['Psm',83],['Pro',25,11,14]]);break;
+case 287:showS([['Jer',23,21,,25,38],['2Ts',2],['Psm',84],['Pro',25,15]]);break;
+case 288:showS([['Jer',26,,,27],['2Ts',3],['Psm',85],['Pro',25,16]]);break;
+case 289:showS([['Jer',28,,,29],['1Ti',1],['Psm',86],['Pro',25,17]]);break;
+case 290:showS([['Jer',30,1,,31,26],['1Ti',2],['Psm',87],['Pro',25,18,19]]);break;
+case 291:showS([['Jer',31,27,,32,44],['1Ti',3],['Psm',88],['Pro',25,20,22]]);break;
+case 292:showS([['Jer',33,,,34],['1Ti',4],['Psm',89,1,13],['Pro',25,23,24]]);break;
+case 293:showS([['Jer',35,,,36],['1Ti',5],['Psm',89,14,37],['Pro',25,25,27]]);break;
+case 294:showS([['Jer',37,,,38],['1Ti',6],['Psm',89,38,52],['Pro',25,28]]);break;
+case 295:showS([['Jer',39,,,41],['2Ti',1],['Psm',90,1,91,16],['Pro',26,1,2]]);break;
+case 296:showS([['Jer',42,1,,44,23],['2Ti',2,1,21],['Psm',92,,,93],['Pro',26,3,5]]);break;
+case 297:showS([['Jer',44,24,,47,7],['2Ti',2,22,,3,17],['Psm',94],['Pro',26,6,8]]);break;
+case 298:showS([['Jer',48,1,,49,22],['2Ti',4],['Psm',95,,,96],['Pro',26,9,12]]);break;
+case 299:showS([['Jer',49,23,,50,46],['Tit',1],['Psm',97,,,98],['Pro',26,13,16]]);break;
+case 300:showS([['Jer',51,1,53],['Tit',2],['Psm',99],['Pro',26,17]]);break;
+case 301:showS([['Jer',51,54,,52,34],['Tit',3],['Psm',100],['Pro',26,18,19]]);break;
+case 302:showS([['Lam',1,,,2],['Phm',1],['Psm',101],['Pro',26,20]]);break;
+case 303:showS([['Lam',3],['Heb',1],['Psm',102],['Pro',26,21,22]]);break;
+case 304:showS([['Lam',4,1,,5,22],['Heb',2],['Psm',103],['Pro',26,23]]);break;
+case 305:showS([['Eze',1,1,,3,15],['Heb',3],['Psm',104,1,23],['Pro',26,24,26]]);break;
+case 306:showS([['Eze',3,16,,6,14],['Heb',4],['Psm',104,24,35],['Pro',26,27]]);break;
+case 307:showS([['Eze',7,,,9],['Heb',5],['Psm',105,1,15],['Pro',26,28]]);break;
+case 308:showS([['Eze',10,,,11],['Heb',6],['Psm',105,16,36],['Pro',27,1,2]]);break;
+case 309:showS([['Eze',12,1,,14,11],['Heb',7,1,17],['Psm',105,37,45],['Pro',27,3]]);break;
+case 310:showS([['Eze',14,12,,16,41],['Heb',7,18,28],['Psm',106,1,12],['Pro',27,4,6]]);break;
+case 311:showS([['Eze',16,42,,17,24],['Heb',8],['Psm',106,13,31],['Pro',27,7,9]]);break;
+case 312:showS([['Eze',18,,,19],['Heb',9,1,10],['Psm',106,32,48],['Pro',27,10]]);break;
+case 313:showS([['Eze',20],['Heb',9,11,28],['Psm',107],['Pro',27,11]]);break;
+case 314:showS([['Eze',21,,,22],['Heb',10,1,17],['Psm',108],['Pro',27,12]]);break;
+case 315:showS([['Eze',23],['Heb',10,18,39],['Psm',109],['Pro',27,13]]);break;
+case 316:showS([['Eze',24,,,26],['Heb',11,1,16],['Psm',110],['Pro',27,14]]);break;
+case 317:showS([['Eze',27,,,28],['Heb',11,17,31],['Psm',111],['Pro',27,15,16]]);break;
+case 318:showS([['Eze',29,,,30],['Heb',11,32,,12,13],['Psm',112],['Pro',27,17]]);break;
+case 319:showS([['Eze',31,,,32],['Heb',12,14,29],['Psm',113,,,114],['Pro',27,18,20]]);break;
+case 320:showS([['Eze',33,,,34],['Heb',13],['Psm',115],['Pro',27,21,22]]);break;
+case 321:showS([['Eze',35,,,36],['Jas',1,1,18],['Psm',116],['Pro',27,23,27]]);break;
+case 322:showS([['Eze',37,,,38],['Jas',1,19,,2,17],['Psm',117],['Pro',28,1]]);break;
+case 323:showS([['Eze',39,1,,40,27],['Jas',2,18,,3,18],['Psm',118,1,18],['Pro',28,2]]);break;
+case 324:showS([['Eze',40,28,,41,26],['Jas',4],['Psm',118,19,29],['Pro',28,3,5]]);break;
+case 325:showS([['Eze',42,,,43],['Jas',5],['Psm',119,1,16],['Pro',28,6,7]]);break;
+case 326:showS([['Eze',44,1,,45,12],['1Pe',1,1,12],['Psm',119,17,32],['Pro',28,8,10]]);break;
+case 327:showS([['Eze',45,13,,46,24],['1Pe',1,13,,2,10],['Psm',119,33,48],['Pro',28,11]]);break;
+case 328:showS([['Eze',47,,,48],['1Pe',2,11,,3,7],['Psm',119,49,64],['Pro',28,12,13]]);break;
+case 329:showS([['Dan',1,1,,2,23],['1Pe',3,8,,4,6],['Psm',119,65,80],['Pro',28,14]]);break;
+case 330:showS([['Dan',2,24,,3,30],['1Pe',4,7,,5,14],['Psm',119,81,96],['Pro',28,15,16]]);break;
+case 331:showS([['Dan',4],['2Pe',1],['Psm',119,97,112],['Pro',28,17,18]]);break;
+case 332:showS([['Dan',5],['2Pe',2],['Psm',119,113,128],['Pro',28,19,20]]);break;
+case 333:showS([['Dan',6],['2Pe',3],['Psm',119,129,152],['Pro',28,21,22]]);break;
+case 334:showS([['Dan',7],['1Jn',1],['Psm',119,153,176],['Pro',28,23,24]]);break;
+case 335:showS([['Dan',8],['1Jn',2,1,17],['Psm',120],['Pro',28,25,26]]);break;
+case 336:showS([['Dan',9,,,10],['1Jn',2,18,,3,6],['Psm',121],['Pro',28,27,28]]);break;
+case 337:showS([['Dan',11,1,35],['1Jn',3,7,24],['Psm',122],['Pro',29,1]]);break;
+case 338:showS([['Dan',11,36,,12,13],['1Jn',4],['Psm',123],['Pro',29,2,4]]);break;
+case 339:showS([['Hos',1,,,3],['1Jn',5],['Psm',124],['Pro',29,5,8]]);break;
+case 340:showS([['Hos',4,,,5],['2Jn',1],['Psm',125],['Pro',29,9,11]]);break;
+case 341:showS([['Hos',6,,,9],['3Jn',1],['Psm',126],['Pro',29,12,14]]);break;
+case 342:showS([['Hos',10,,,14],['Jud',1],['Psm',127],['Pro',29,15,17]]);break;
+case 343:showS([['Joe',1,,,3],['Rev',1],['Psm',128],['Pro',29,18]]);break;
+case 344:showS([['Amo',1,,,3],['Rev',2,1,17],['Psm',129],['Pro',29,19,20]]);break;
+case 345:showS([['Amo',4,,,6],['Rev',2,18,,3,6],['Psm',130],['Pro',29,21,22]]);break;
+case 346:showS([['Amo',7,,,9],['Rev',3,7,22],['Psm',131],['Pro',29,23]]);break;
+case 347:showS([['Oba',1],['Rev',4],['Psm',132],['Pro',29,24,25]]);break;
+case 348:showS([['Jon',1,,,4],['Rev',5],['Psm',133],['Pro',29,26,27]]);break;
+case 349:showS([['Mic',1,,,4],['Rev',6],['Psm',134],['Pro',30,1,4]]);break;
+case 350:showS([['Mic',5,,,7],['Rev',7],['Psm',135],['Pro',30,5,6]]);break;
+case 351:showS([['Nah',1,,,3],['Rev',8],['Psm',136],['Pro',30,7,9]]);break;
+case 352:showS([['Hab',1,,,3],['Rev',9],['Psm',137],['Pro',30,10]]);break;
+case 353:showS([['Zep',1,,,3],['Rev',10],['Psm',138],['Pro',30,11,14]]);break;
+case 354:showS([['Hag',1,,,2],['Rev',11],['Psm',139],['Pro',30,15,16]]);break;
+case 355:showS([['Zec',1],['Rev',12],['Psm',140],['Pro',30,17]]);break;
+case 356:showS([['Zec',2,,,3],['Rev',13],['Psm',141],['Pro',30,18,20]]);break;
+case 357:showS([['Zec',4,,,5],['Rev',14],['Psm',142],['Pro',30,21,23]]);break;
+case 358:showS([['Zec',6,,,7],['Rev',15],['Psm',143],['Pro',30,24,28]]);break;
+case 359:showS([['Zec',8],['Rev',16],['Psm',144],['Pro',30,29,31]]);break;
+case 360:showS([['Zec',9],['Rev',17],['Psm',145],['Pro',30,32]]);break;
+case 361:showS([['Zec',10,,,11],['Rev',18],['Psm',146],['Pro',30,33]]);break;
+case 362:showS([['Zec',12,,,13],['Rev',19],['Psm',147],['Pro',31,1,7]]);break;
+case 363:showS([['Zec',14],['Rev',20],['Psm',148],['Pro',31,8,9]]);break;
+case 364:showS([['Mal',1,,,2],['Rev',21],['Psm',149],['Pro',31,10,24]]);break;
+case 365:showS([['Mal',3,,,4],['Rev',22],['Psm',150],['Pro',31,25,31]]);break;
+}//switch
+    }//scripture365
+    
+     function showS(ref)
+   {
+   
+   // here is for if there is more than one passage
+  out="<section id='section0'><h3 class='klee'>"+anyIndex+"  "
+     
+   for (i = ref.length-1; i >=0 ; i--)
+   {
+   var sectionx="section"+String(i+1)
+       out+=" | "
+       var bk_nm = ref[i][0];
+       out += "<a href='#"+sectionx+"'>" + CUV[bk_nm]['bk_c'] +""//book name
+       
+
+//// =================== 'Gen',1,1,,2,13  ===================
+       if (ref[i].length == 6) {  
+  out = out + ref[i][1] + ":" + ref[i][2] + "-" +  ref[i][4] + ":" + ref[i][5] ;
+         }      
+                
+//// =================== 'Gen',1,,,3  ===================
+       if (ref[i].length == 5) {  
+  out = out + "  " + ref[i][1] + "-" + ref[i][4] + "";
+       }
+       
+// =================== 'Gen',1,1,3  a range of verses in one chapter ===================
+       if (ref[i].length == 4) { 
+  out = out + " " + ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "";
+       } // 4 param
+
+// =================== 'Gen',1,1  Just one verse  ===================
+       if (ref[i].length == 3)
+       {
+  out = out + " " + ref[i][1] + ":" + ref[i][2] + "";
+       } //3 param
+// =================== 'Gen',1  One chapter  ===================
+
+       if (ref[i].length == 2)
+       {
+  out = out + " " + ref[i][1] + "";
+       } // len=2
+       out=out+"</a>"
+   } // for each ref
+
+out = out+ "</h3></section>"
+
+       
+   for (i = ref.length-1; i >=0 ; i--)
+   {
+
+var sectionx="section"+String(i+1)
+
+ bk_nm = ref[i][0];
+//// =================== 'Gen',A,x,,C,y  ===================
+  out=out+"<section id='"+sectionx+"'>"
+if (ref[i].length == 6) {  
+
+// Chap A, verse x-end
+out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1]+"</b><br/><br/>"
+for (j = ref[i][2]; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+{
+out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+}
+out += "<br/>"
+
+// any full chapter between A and C?
+if ((ref[i][4]-ref[i][1])>1)
+{
+  for (j = ref[i][1]+1; j <= ref[i][4]-1; j++)
+  {
+      //*each chapter J
+         out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+j+"</b><br/><br/>"
+      for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+      {
+ out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span><br/>";
+      } //
+      out += "<br/>"
+  }
+
+}
+// Chapter C , verse 1 - y
+out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][4]+"</b><br/><br/>"
+
+for (j = 1; j <= ref[i][5]; j++)
+{
+out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][4]][j] + "</span><br/>";
+}
+out += "<br/>"
+
+} //if 6 param   
+
+     
+//// =================== 'Gen',1,,,3  ===================
+  
+        if (ref[i].length == 5) {  
+
+  for (j = ref[i][1]; j <= ref[i][4]; j++)
+  {
+      //*each chapter J
+         out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+j+"</b><br/><br/>"
+      for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+      {
+ out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span><br/>";
+      } //
+      out += "<br/>"
+  }
+
+       } //if 5 param   
+// =================== 'Gen',1,1,3  a range of verses in one chapter ===================
+       if (ref[i].length == 4) { 
+  out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</b><br/><br/>";
+  for (j = ref[i][2]; j <= ref[i][3]; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+       } // 4 param
+
+// =================== 'Gen',1,1  Just one verse  ===================
+       if (ref[i].length == 3)
+       {
+  out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1] + ":" + ref[i][2] + "</b><br/><br/>";
+  out += "<span class='v_sup'>" + ref[i][2] + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
+
+       } //3 param
+// =================== 'Gen',1  One chapter  ===================
+
+       if (ref[i].length == 2)
+       {
+            out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1]+"</b><br/><br/>"
+
+  for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+       } //2 param
+       
+      out=out+"</section><br/><a href='#section0'>↩</a>" 
+   }
+out = out + "<br/><br/>"
+out=out+"<br/>Bible Plan 來自 <a href='https://bibleinayearonline.com/readingplan/bibleinayearreadingplan.pdf'>Bible In A Year Online</a>"
+$('#div_list').html(out);
+   } 
+    
+          
+        </script>
+        
+        
+        
+
+        
+    </body></html>
