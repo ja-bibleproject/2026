@@ -13,8 +13,12 @@ ol > li:before, ul > li:before {
 content: "－ ";
 width: 25px;
 }
-
-
+.inc{}
+.exp,.inc{font-family:"Klee One";font-size:clamp(20px, 2.1vw, 18px)}
+.fv{font-family:Lato;font-size: clamp(15px, 1.7vw, 12px);color:#000000;font-weight:100}
+.sml{font-family:Lato}
+body{line-height:auto}
+small{color:#333333}
 </style>
 </head>
 <body>
@@ -1553,7 +1557,7 @@ var liid = "li" + $(this).index('span.inc');
 var refLen = chp[1].length
 var ref = chp[1]
 var thisRef = ""
-var out = "<small>〖&nbsp;"
+var out = "<small>&nbsp;["
 while (ref.indexOf("['") > 0)
 {
    thisRef = ref.substring(ref.indexOf("['") + 2, ref.indexOf("]"))
@@ -1573,12 +1577,12 @@ out = out + " / "
    }
    else
    {
-out = out + "&nbsp;〗</small>"
+out = out + "]&nbsp;</small>"
    }
 }
 //$(this).append(out)
 
- var firstline=" "
+
  
 var obj = CUV[bk][vx][1];
  if (obj.indexOf('(細拉)')>0)
@@ -1603,7 +1607,7 @@ obj=obj.substr(0,obj.lastIndexOf('('))+obj.substr(obj.lastIndexOf(')')+1,objlen)
   
    }
 
- out=out+firstline+obj;
+ out=out+"<span class='fv'>"+obj+"</span>";
  $(this).append(out)
    
 // $(this).append(out)
@@ -1639,7 +1643,7 @@ out = "<span id='span_cuv'>"
 for (i = 0; i < ref.length; i++)
 {
    var bk_nm = ref[i][0];
-   out += "<div class='divider'></div> 〖&nbsp;" + CUV[bk_nm]['bk_c'] //book name
+   out += "<div class='divider'></div>〖&nbsp;" + CUV[bk_nm]['bk_c'] //book name
 
    if (ref[i].length == 5) { // more than one chapter
 out = out + " <span class='num'>" + ref[i][1] + "-" + ref[i][4] + "</span>&nbsp;〗<div class='divider'></div>";
