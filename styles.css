@@ -28,6 +28,7 @@ h1 { font-family: "LXGW WenKai Mono TC", monospace;
   font-family: 'Georgia';
   src: local('Courier New'), local('Consolas'); /* Choose your preferred number font */
   unicode-range: U+0030-0039; /* Targets Unicode characters 0 through 9 */
+  font-variant-numeric: oldstyle-nums;
 }
 
 
@@ -66,7 +67,7 @@ body {
   top: 0;
   left: 0;
   z-index: 90;
-  width: 100%;
+  width: 90%;
   color:#000000;
 }
 
