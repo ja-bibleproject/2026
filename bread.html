@@ -20,7 +20,9 @@ border:none;
 }
 span.v_sup{color:#AAAAAA}
 h1{  font-family: "Inria Sans", sans-serif;letter-spacing: -1px;
-
+ display: flex;         /* Enables flexbox layout */
+  align-items: center;   /* Vertically aligns image and text to the center */
+  gap: 12px;          
   font-weight: 600;margin:10px;font-size:1.8em;
   font-style: italic;text-align:center;align:Center;padding:0px}
 b,span.num{font-family:Lato;font-weight:400;margin-left:5px}
@@ -36,6 +38,7 @@ div.blck{border:#333333 solid 1px;border-top:none;padding:20 10 50 10 }
 .thisBox{border-bottom:2px solid #FFF}
 .section_off{display:none}
 .section_on{display:block}
+#icon{width:40px;height:40px}
 </style>
 
 </head>
@@ -44,7 +47,7 @@ div.blck{border:#333333 solid 1px;border-top:none;padding:20 10 50 10 }
 
    
 <div id="div_list">
-<h1>bread</h1>   <div id='links4'>
+<h1><img id='icon' src='image\bread_icon.png'/> bread</h1>   <div id='links4'>
 <div class='abox'  onclick="gotos('#section0')" id='abox0'>For you</div> 
 <div class='abox'  onclick="gotos('#section1')">OT</div>
 <div class='abox'  onclick="gotos('#section2')">NT</div>
