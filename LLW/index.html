@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
+
+    <title>Audio Player with Synced Lyrics</title>
+    <style>
+        body { font-family:Lato;font-weight:200;font-size:1.5rem;
+
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .player-container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1db954; /* Spotify green flavor */
+        }
+
+        audio {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        /* Jump-to-time buttons */
+        .jump-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .jump-btn {
+      	  font-size:1rem;
+      	  font-weight:200;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .jump-btn:hover {
+            background-color: #33AAAA;
+            border-color: #33AAAA;
+        }
+
+        /* Lyrics box layout */
+        .lyrics-box {text-align:left;
+            background-color: #181818;
+            border-radius: 8px;
+            padding: 15px;
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #282828;
+        }
+
+        .lyric-line {
+            padding: 6px;
+            margin: 4px 0;
+            color: #aaa;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        /* Highlight state for active lyric line */
+        .lyric-line.active {
+            color: #ffffff;
+            font-weight: 200;
+            background-color:#33AAAA;
+    
+        }
+    </style>
+</head>
+<body>
+
+<div class="player-container">
+   
+    <!-- IMPORTANT: Replace 'your-audio-file.mp3' with your actual MP3 filename -->
+    <audio id="audio-player" controls src="Love.mp3"></audio>
+
+    <!-- Navigation Shortcuts -->
+    <div class="jump-controls">
+    
+        <button class="jump-btn" onclick="jumpTo(0)">前奏 v.1 正歌</button>
+        <button class="jump-btn" onclick="jumpTo(29)">入 v.1 副歌</button><hr/>
+        <button class="jump-btn" onclick="jumpTo(57)">入 v.2 正歌</button>
+        <button class="jump-btn" onclick="jumpTo(90)">入 v.2 副歌</button><hr/>
+        <button class="jump-btn" onclick="jumpTo(117)">入 v.3 正歌</button>
+        <button class="jump-btn" onclick="jumpTo(150)">入 v.3 副歌</button>
+    </div>
+
+    <!-- Lyrics Display Panel -->
+    <div class="lyrics-box" id="lyrics-container"></div>
+</div>
+
+<script>
+    // 1. Define lyrics with their starting timestamps (in total seconds)
+    const lyricsData = [
+{ time: 0, text: "[前奏 ]" },
+{ time: 6, text: "v1 : 愛能超越理性的界限" },
+{ time: 13, text: "v1  :  愛是一切奧秘的鑰匙" },
+{ time: 20, text: "v1  :  愛使神差耶穌到人間" },
+{ time: 27, text: "v1  :  受死使世人從罪得釋放" },
+{ time:35,text:"v1 :  真神之愛 從亙古到永遠不變"},
+{ time:42,text:"v1  : 真神之愛 比死更為堅強"},
+{ time:49,text:"v1  : 真神之愛 藉加略山上字架"},
+{ time:55,text:"v1 :  賜人得勝 和永生"},
+{ time:67,text:"v2  : Love cannot be measured held or weighted "},
+{ time:73,text:"v2  : Love is something hard to understand "},
+{ time:80,text:"v2  : Love's the force that turns the world around "},
+{ time:87,text:"v2  : and redesigns the lives of sinful men "},
+{ time:96,text:"v2 :  The love of God can span eternities with song "},
+{ time:103,text:"v2  : The love of God no force has been as strong "},
+{ time:110,text:"v2 :  The love of God transforms the cross of Calvary "},
+{ time:117,text:"v2  : to endless life and victory"},
+{ time:128,text:"v3 :  天地廢去愛卻仍存留"},
+{ time:135,text:"v3  : 愛是喜歡聽從真理"},
+{ time:141,text:"v3  : 愛是凡事包容和盼望"},
+{ time:148,text:"v3  : 因神應許它永不止息"},
+{ time:157,text:"v3  : 真神之愛 從亙古到永遠不變"},
+{ time:164,text:"v3  : 真神之愛 比死更為堅強"},
+{ time:171,text:"v3 :  真神之愛 藉加略山上字架"},
+{ time:178,text:"v3  : 賜人得勝 和榮耀的生命"}
+    ];
+
+
+ 
+    const audio = document.getElementById('audio-player');
+    const lyricsContainer = document.getElementById('lyrics-container');
+
+    // 2. Generate lyric elements dynamically inside the container
+    lyricsData.forEach((item, index) => {
+        const lineElement = document.createElement('div');
+        lineElement.className = 'lyric-line';
+        lineElement.id = `line-${index}`;
+        lineElement.textContent = item.text;
+        lyricsContainer.appendChild(lineElement);
+    });
+
+    // 3. Jump to a specific timestamp and play
+    function jumpTo(seconds) {
+        audio.currentTime = seconds; // Set the audio playhead
+        audio.play().catch(error => {
+            console.log("Playback interaction error: " + error);
+        });
+    }
+
+    // 4. Actively track playback and update/highlight the correct lyric
+    audio.addEventListener('timeupdate', () => {
+        const currentTime = audio.currentTime; // Current position in seconds
+        let activeIndex = -1;
+
+        // Loop through the array to find which lyric block applies right now
+        for (let i = 0; i < lyricsData.length; i++) {
+            if (currentTime >= lyricsData[i].time) {
+                activeIndex = i; 
+            } else {
+                break; // Exit loop early once we pass the current playback time
+            }
+        }
+
+        // 5. Update DOM styles to highlight the active lyric row
+        document.querySelectorAll('.lyric-line').forEach((el) => el.classList.remove('active'));
+        
+        if (activeIndex !== -1) {
+            const activeLine = document.getElementById(`line-${activeIndex}`);
+            if (activeLine) {
+                activeLine.classList.add('active');
+                
+                // Optional auto-scrolling to keep the current lyric centered in view
+                activeLine.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
