@@ -9,7 +9,7 @@
 
     <title>Audio Player with Synced Lyrics</title>
     <style>
-        body { font-family:Lato;font-weight:200;font-size:1.5rem;
+        body { font-family:Lato;font-weight:300;font-size:1.5rem;
 
             background-color: #121212;
             color: #ffffff;
@@ -50,11 +50,11 @@
 
         .jump-btn {
       	  font-size:1rem;
-      	  font-weight:200;
-            background-color: #333;
+      	  font-weight:300;
+            background-color: #555555;
             color: #fff;
-            border: 1px solid #555;
-            padding: 8px 14px;
+            border: none;
+            padding: 10px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -87,7 +87,7 @@
         /* Highlight state for active lyric line */
         .lyric-line.active {
             color: #ffffff;
-            font-weight: 200;
+            font-weight: 300;
             background-color:#33AAAA;
     
         }
@@ -103,12 +103,12 @@
     <!-- Navigation Shortcuts -->
     <div class="jump-controls">
     
-        <button class="jump-btn" onclick="jumpTo(0)">前奏 v.1 正歌</button>
-        <button class="jump-btn" onclick="jumpTo(29)">入 v.1 副歌</button><hr/>
-        <button class="jump-btn" onclick="jumpTo(57)">入 v.2 正歌</button>
-        <button class="jump-btn" onclick="jumpTo(90)">入 v.2 副歌</button><hr/>
-        <button class="jump-btn" onclick="jumpTo(117)">入 v.3 正歌</button>
-        <button class="jump-btn" onclick="jumpTo(150)">入 v.3 副歌</button>
+        <button class="jump-btn" onclick="jumpTo(0)"> v.1 正</button>
+        <button class="jump-btn" onclick="jumpTo(29)"> v.1 副</button>
+        <button class="jump-btn" onclick="jumpTo(57)"> v.2 正</button>
+        <button class="jump-btn" onclick="jumpTo(90)"> v.2 副</button>
+        <button class="jump-btn" onclick="jumpTo(117)"> v.3 正</button>
+        <button class="jump-btn" onclick="jumpTo(150)"> v.3 副</button>
     </div>
 
     <!-- Lyrics Display Panel -->
