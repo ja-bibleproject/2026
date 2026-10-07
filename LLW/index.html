@@ -21,9 +21,9 @@
 
         .player-container {
             background-color: #1e1e1e;
-            padding: 30px;
+            padding:10px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 25px rgba(180,180,180,0.5);
             text-align: center;
             width: 100%;
             max-width: 500px;
@@ -45,24 +45,24 @@
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
         }
 
         .jump-btn {
-      	  font-size:1rem;
-      	  font-weight:300;
+      	  font-size:1.1rem;
+      	  font-weight:200;
             background-color: #555555;
             color: #fff;
             border: none;
             padding: 10px;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .jump-btn:hover {
-            background-color: #33AAAA;
-            border-color: #33AAAA;
+            background-color: #008899;
+            border-color: #008899;
         }
 
         /* Lyrics box layout */
@@ -88,7 +88,7 @@
         .lyric-line.active {
             color: #ffffff;
             font-weight: 300;
-            background-color:#33AAAA;
+            background-color:#008899;
     
         }
     </style>
@@ -102,13 +102,12 @@
 
     <!-- Navigation Shortcuts -->
     <div class="jump-controls">
-    
-        <button class="jump-btn" onclick="jumpTo(0)"> v.1 正</button>
-        <button class="jump-btn" onclick="jumpTo(29)"> v.1 副</button>
-        <button class="jump-btn" onclick="jumpTo(57)"> v.2 正</button>
-        <button class="jump-btn" onclick="jumpTo(90)"> v.2 副</button>
-        <button class="jump-btn" onclick="jumpTo(117)"> v.3 正</button>
-        <button class="jump-btn" onclick="jumpTo(150)"> v.3 副</button>
+        <button class="jump-btn" onclick="jumpTo(0)">1 正</button>
+        <button class="jump-btn" onclick="jumpTo(30)">1 副</button>|
+        <button class="jump-btn" onclick="jumpTo(61)">2 正</button>
+        <button class="jump-btn" onclick="jumpTo(91)">2 副</button>|
+        <button class="jump-btn" onclick="jumpTo(122)">3 正</button>
+        <button class="jump-btn" onclick="jumpTo(152)">3 副</button>
     </div>
 
     <!-- Lyrics Display Panel -->
@@ -123,22 +122,27 @@
 { time: 13, text: "v1  :  愛是一切奧秘的鑰匙" },
 { time: 20, text: "v1  :  愛使神差耶穌到人間" },
 { time: 27, text: "v1  :  受死使世人從罪得釋放" },
+{ time: 31, text:" [ Music before chorus ]"},
 { time:35,text:"v1 :  真神之愛 從亙古到永遠不變"},
 { time:42,text:"v1  : 真神之愛 比死更為堅強"},
 { time:49,text:"v1  : 真神之愛 藉加略山上字架"},
 { time:55,text:"v1 :  賜人得勝 和永生"},
+{ time: 61, text:" [ Music before v2 ]"},
 { time:67,text:"v2  : Love cannot be measured held or weighted "},
 { time:73,text:"v2  : Love is something hard to understand "},
 { time:80,text:"v2  : Love's the force that turns the world around "},
 { time:87,text:"v2  : and redesigns the lives of sinful men "},
+{ time: 92, text:" [ Music before chorus ]"},
 { time:96,text:"v2 :  The love of God can span eternities with song "},
 { time:103,text:"v2  : The love of God no force has been as strong "},
 { time:110,text:"v2 :  The love of God transforms the cross of Calvary "},
 { time:117,text:"v2  : to endless life and victory"},
+{ time: 123, text:" [ Music before v3 ]"},
 { time:128,text:"v3 :  天地廢去愛卻仍存留"},
 { time:135,text:"v3  : 愛是喜歡聽從真理"},
 { time:141,text:"v3  : 愛是凡事包容和盼望"},
 { time:148,text:"v3  : 因神應許它永不止息"},
+{ time: 153, text:" [ Music before chorus ]"},
 { time:157,text:"v3  : 真神之愛 從亙古到永遠不變"},
 { time:164,text:"v3  : 真神之愛 比死更為堅強"},
 { time:171,text:"v3 :  真神之愛 藉加略山上字架"},
