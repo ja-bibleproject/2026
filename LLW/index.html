@@ -11,7 +11,7 @@
     <style>
         body { font-family:Lato;font-weight:300;font-size:1.5rem;
 
-            background-color: #121212;
+            background-color: #000000;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -20,10 +20,10 @@
         }
 
         .player-container {
-            background-color: #1e1e1e;
+            background-color: #222222;
             padding:10px;
             border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(180,180,180,0.5);
+            box-shadow: 0 0px 45px rgba(220,220,220,0.5);
             text-align: center;
             width: 100%;
             max-width: 500px;
@@ -36,13 +36,13 @@
 
         audio {
             width: 100%;
-            margin: 20px 0;
+            margin: 10px 0;
         }
 
         /* Jump-to-time buttons */
         .jump-controls {
             display: flex;
-            gap: 10px;
+            gap: 7px;
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 10px;
@@ -63,11 +63,12 @@
         .jump-btn:hover {
             background-color: #008899;
             border-color: #008899;
+            box-shadow: 0 0px 8px rgba(0,120,120,0.5);
         }
 
         /* Lyrics box layout */
         .lyrics-box {text-align:left;
-            background-color: #181818;
+            background-color: #141414;
             border-radius: 8px;
             padding: 15px;
             height: 400px;
@@ -78,7 +79,7 @@
         .lyric-line {
             padding: 6px;
             margin: 4px 0;
-            color: #aaa;
+            color: #BBB;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             border-radius: 4px;
@@ -89,6 +90,7 @@
             color: #ffffff;
             font-weight: 300;
             background-color:#008899;
+            box-shadow: 0 0px 8px rgba(0,120,120,0.8);
     
         }
     </style>
@@ -127,7 +129,7 @@
 { time:42,text:"v1  : 真神之愛 比死更為堅強"},
 { time:49,text:"v1  : 真神之愛 藉加略山上字架"},
 { time:55,text:"v1 :  賜人得勝 和永生"},
-{ time: 61, text:" [ Music before v2 ]"},
+{ time: 63, text:" [ Music before v2 ]"},
 { time:67,text:"v2  : Love cannot be measured held or weighted "},
 { time:73,text:"v2  : Love is something hard to understand "},
 { time:80,text:"v2  : Love's the force that turns the world around "},
