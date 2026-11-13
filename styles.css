@@ -31,10 +31,11 @@ h1 { font-family: "LXGW WenKai Mono TC", monospace;
   font-variant-numeric: oldstyle-nums;
 }
 
+b{font-weight:400;font-family:"Klee One"}
 
 body {
   /* List the numbers-only font first, followed by your main alphabet font */
-  font-family: 'Georgia', 'Lato', sans-serif;
+  font-family: 'Courier New', 'Lato', sans-serif;
   font-size: clamp(18px, 2vw, 16px);
   margin: 0px;
   font-weight: 200;

@@ -1,0 +1,338 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>救恩</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Explora&family=Klee+One&family=LXGW+WenKai+Mono+TC&family=LXGW+WenKai+TC&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&family=Vampiro+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+ol > li:before, ul > li:before {
+content: "－ ";
+width: 25px;
+}
+small{color:#AAAAAA}
+
+</style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <div id='div1'></div>
+
+        <div id="div_list">
+       <h1>耶穌基督的救恩</h1>
+       <h3 class='klee'>
+      
+       </h3>
+<br>
+
+<p></p>
+<ol>
+<!--
+,
+['',]
+<li><span class='inc' onclick="showS([['',]])"></span></li>
+-->
+<li><span class='inc' onclick="showS([['Jhn',3,16,21],
+['Jhn',3,36],['Jhn',5,21,24],['Jhn',6,37,47],
+['Jhn',20,31],
+['Heb',10,19,22],
+['1Jn',5,13],
+['Act',13,38,39],
+['Rom',10,9,10]
+['2Co',5,1],
+['2Co',5,6,8],
+['2Ti',1,12]])">信耶穌乃神兒子，就得永生</span></li>
+
+
+<li><span class='inc' onclick="showS([['Mat',10,32,33],['Mak',8,38],
+['Jhn',1,11,13],
+['Jhn',5,21,23]])">接待主 / 認主 / 尊敬主</span></li>
+
+
+<li><span class='inc' onclick="showS([['Jhn',6,37,39]['Heb',5,7,8],
+['Heb',7,25]])">
+依靠 / 順從</span></li>
+
+<li><span class='inc' onclick="showS([['Jhn',1,9,13],
+['Hos',1,10],
+['Rom',8,14,23],
+['Gal',3,24,29],
+['Gal',4,4,7],
+['Eph',1,4,6],
+['1Jn',3,1,2],
+['1Jn',3,9],
+['Rev',21,7,8]])">得到神兒女的名份</span></li>
+
+<li>信徒的生命<ol>
+<li><span class='inc' onclick="showS([['Mat',7,21,27],
+['Mat',12,48,50],
+['Jhn',8,10,12],
+['Jhn',8,31,32],
+['Jhn',8,51],
+['Jhn',12,47,50],
+['Jhn',14,21],
+['Jhn',14,23,24],
+['Luk',11,27,28],['1Jn',1,6,9],
+['1Jn',2,3,6]
+])">遵行教導 / 行在光明中</span></li>
+
+<li><span class='inc' onclick="showS([
+['Mak',1,14,15],
+['Luk',13,1,5],
+['Luk',24,47],
+['Jhn',3,19,21],
+['Jhn',5,14],
+['Jhn',8,10,12],
+['Act',2,38,40]
+])">悔改  / 不再犯罪</span></li>
+
+
+<li><span class='inc' onclick="showS([['Mat',7,13,14],
+['Luk',13,22,30],
+['Mat',8,19,22],
+['Mat',10,34,39],
+['Mat',16,24,26],
+['Mat',23,11,12],
+['Jhn',12,25,26]])">十字架的道路 / 窄路 / 捨己</span></li>
+
+<li><span class='inc' onclick="showS([
+['Mat',9,35,38],
+['Mat',10,5,15],['Mat',28,18,20],
+['Luk',13,6,9],
+['Jhn',4,34,38],
+['Jhn',15,16],
+['Jhn',15,26,27]])">
+使命 / 作工 / 結果子</span></li>
+
+
+<li><span class='inc' onclick="showS([
+['Mat',24,45,51],['Mat',25,10,13],['Mat',25,26,30],
+['Luk',12,35,48],['Luk',17,7,10]
+])">忠心 / 警醒</span></li>
+
+
+
+<li><span class='inc' onclick="showS([['Mat',24,9,13],
+['Mat',10,21,22],
+['Luk',21,16,19],
+['Heb',10,32,39],
+['1Pe',2,19,21],
+['Jas',1,12],
+['Rev',3,10,11],
+['Rev',13,6,10]])">忍耐 / 持守</span></li>
+
+<li><span class='inc' onclick="showS([['2Ti',2,10,13],
+['Mat',19,27,28],
+['1Co',6,2,3],
+['Rev',3,21],
+['Rev',5,9,10],
+['Rev',20,4],
+['Rev',22,3,5]])">得勝的與基督一同作王</span></li>
+
+</ol></li>
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+,
+['Luk',]
+<li><span class='inc' onclick="showS([['',]])"></span></li>
+     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+</ol> <!-- Level 1 -->
+
+</div>
+<script src='json/cuv.js'></script>
+<script>
+    
+$('span.inc').each(function() {
+var regExp = /\(([^)]+)\)/;
+var chp = regExp.exec($(this).attr('onclick'))
+var liid = "li" + $(this).index('span.inc');
+var refLen = chp[1].length
+var ref = chp[1]
+var thisRef = ""
+var out = "<small>〖&nbsp;"
+while (ref.indexOf("['") > 0)
+{
+   thisRef = ref.substring(ref.indexOf("['") + 2, ref.indexOf("]"))
+   thisRef = thisRef.replace(",,,", "-")
+   if (ref.indexOf(",,")>0){
+   thisRef = thisRef.replace("',", " ")
+  	 thisRef = thisRef.replace(",,", "-")
+   	thisRef = thisRef.replace(",", ":")
+   	thisRef = thisRef.replace(",", ":")
+   }
+   thisRef = thisRef.replace("',", " ")
+   thisRef = thisRef.replace(",", ":")
+   thisRef = thisRef.replace(",", "-")
+   bk = thisRef.substring(0, 3)
+   out += CUV[bk]['bk_c_s']
+   vx = thisRef.substring(4, thisRef.length)
+   out = out + " "+vx
+   ref = ref.substring(ref.indexOf("]") + 1, refLen)
+   refLen = ref.length
+   if (ref.indexOf("['") > 0)
+   {
+out = out + " / "
+   }
+   else
+   {
+out = out + "&nbsp;〗</small>"
+   }
+}
+$(this).append(out)
+});
+
+
+// pre-close
+$('span.exp').toggleClass('coll');
+$('span.exp').next('ol').toggle();
+
+$('span.exp').click(function() {
+$(this).toggleClass('coll');
+$(this).next('ol').toggle();
+return false;
+});
+var out;
+
+
+function showS(ref)
+{
+
+var allLi = $('span.inc');
+
+//Get Index - April 12, 2020
+var thisIndex
+thisIndex = parseInt(event.target.id.substring(2, event.target.id.length))
+var liid = event.target.id
+
+out = "<span id='span_cuv'>"
+
+out = out+ ""
+
+       
+   for (i = 0; i < ref.length; i++)
+   {
+
+
+ bk_nm = ref[i][0];
+//// =================== 'Gen',A,x,,C,y  ===================
+  
+if (ref[i].length == 6) {  
+
+// Chap A, verse x-end
+
+out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "
+out = out + ref[i][1] + ":" + ref[i][2] + "-" +  ref[i][4] + ":" + ref[i][5] ;
+out+="</b><br/><br/>"
+
+for (j = ref[i][2]; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+{
+out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+}
+//out += "<br/>"
+
+// any full chapter between A and C?
+if ((ref[i][4]-ref[i][1])>1)
+{
+  for (j = ref[i][1]+1; j <= ref[i][4]-1; j++)
+  {
+      //*each chapter J
+    //     out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+j+"</b><br/><br/>"
+      for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+      {
+ out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span><br/>";
+      } //
+ //     out += "<br/>"
+  }
+
+}
+// Chapter C , verse 1 - y
+//out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][4]+"</b><br/><br/>"
+
+for (j = 1; j <= ref[i][5]; j++)
+{
+out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][4]][j] + "</span><br/>";
+}
+//out += "<br/>"
+
+} //if 6 param   
+
+     
+//// =================== 'Gen',1,,,3  ===================
+  
+        if (ref[i].length == 5) {  
+
+  for (j = ref[i][1]; j <= ref[i][4]; j++)
+  {
+      //*each chapter J
+         out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+j+"</b><br/><br/>"
+      for (k = 1; k <= Object.keys(CUV[ref[i][0]][j]).length; k++)
+      {
+ out += "<span class='v_sup'>" + k + "</span><span class='v_txt'>" + CUV[ref[i][0]][j][k] + "</span><br/>";
+      } //
+      out += "<br/>"
+  }
+
+       } //if 5 param   
+// =================== 'Gen',1,1,3  a range of verses in one chapter ===================
+       if (ref[i].length == 4) { 
+  out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ ref[i][1] + ":" + ref[i][2] + "-" + ref[i][3] + "</b><br/><br/>";
+  for (j = ref[i][2]; j <= ref[i][3]; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+       } // 4 param
+
+// =================== 'Gen',1,1  Just one verse  ===================
+       if (ref[i].length == 3)
+       {
+  out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1] + ":" + ref[i][2] + "</b><br/><br/>";
+  out += "<span class='v_sup'>" + ref[i][2] + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][ref[i][2]] + "</span><br/>";
+
+       } //3 param
+// =================== 'Gen',1  One chapter  ===================
+
+       if (ref[i].length == 2)
+       {
+            out += "<br/><b>" + CUV[bk_nm]['bk_c'] +" "+ref[i][1]+"</b><br/><br/>"
+
+  for (j = 1; j <= Object.keys(CUV[ref[i][0]][ref[i][1]]).length; j++)
+  {
+      out += "<span class='v_sup'>" + j + "</span><span class='v_txt'>" + CUV[ref[i][0]][ref[i][1]][j] + "</span><br/>";
+  }
+
+       } //2 param
+   }
+out = out + "</span>"
+
+}
+
+//2020 fix, track the current position
+$('span.inc').click(function()
+{
+$('span.inc').removeClass('active');
+if ($(this).next().attr("id") != "span_cuv" && $(this).next().next().attr("id") != "span_cuv")
+{
+   $(this).parent().append(out);
+   $(this).addClass('active');
+}
+else
+{
+   if ($(this).next().attr("id") == "span_cuv") {
+$(this).next().remove();
+   }
+   if ($(this).next().next().attr("id") == "span_cuv") {
+$(this).next().next().remove();
+   }
+}
+
+});
+
+
+</script>
+    
+    </body>
+    </html>
